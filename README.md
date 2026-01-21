@@ -1,22 +1,16 @@
-# ¿Qué es Comando 99?
-Es una comunidad milsim de arma 3, es decir, utilizamos el arma 3 para hacer una simulación realista de lo que seria ser parte de las fuerzas armadas. Simulación militar
+# React + Vite
 
-## ¿Cómo unirme?
-Únete a nuestro discord, ahí tendrás todas las indicaciones para iniciar tu ingreso
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## ¿Qué tipo de misiones realizan?
-Realizamos misiones tácticas y cooperativas en equipo. Normalmente en el siglo XXI aunque en ocasiones hecho misiones especiales en la segunda guerra mundial, vietnam etc.
+Currently, two official plugins are available:
 
-## ¿Hay requisitos para ingresar?
-Si
-• Tener Arma 3 original 
-• Contar con micrófono 
-• Espacio suficiente para instalar mods (No hace falta tener ningún DLC) 
-• No pertenecer a otro clan
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## ¿Tienen entrenamientos?
-Sí, ofrecemos entrenamientos de infantería regular, de caballería, aérea, cursos de paracaidismo e incluso fuerzas especiales.
-Tenemos actividades todos los dias
+## React Compiler
 
-## ¿Simulan algun pais en particular?
-No nos afiliamos a ningún pais en especial. Simulamos ser una unidad PMC (Contratistas privados). Esto nos ofrece mayor versatilidad en todo sentido.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
