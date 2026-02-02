@@ -6,6 +6,7 @@
 <main>
   <div class="scanline-overlay"></div>
   <section class="hero">
+    <img src="/images/logo.png" alt="comando 99 logo" />
     <h1>Excelencia <br /><span style="color: red;">Tactica</span></h1>
   </section>
 </main>
@@ -14,9 +15,23 @@
   body {
     padding: 2%;
   }
+  main {
+    position: relative;
+  }
   h1 {
     text-transform: uppercase;
     font-size: 5rem;
     line-height: 0.9;
+  }
+  .hero {
+    padding-top: 50vh;
+  }
+  img {
+    /* float: right; */
+    display: block;
+    height: 40vw;
+    position: absolute;
+    top: 10vh;
+    right: 0;
   }
 </style>
