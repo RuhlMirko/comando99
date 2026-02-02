@@ -6,14 +6,22 @@
 <main>
   <div class="scanline-overlay"></div>
   <section class="hero">
+    <span class="reclutamos">Fase de reclutamiento: Abierta</span>
     <img src="/images/logo.png" alt="comando 99 logo" />
-    <h1>Excelencia <br /><span style="color: red;">Tactica</span></h1>
+    <h1>
+      Excelencia <br /><span style="color: red;">Tactica</span>
+    </h1>
+    <p>
+      <span class="text-accent">Comando 99</span> es una comunidad milsim de Arma
+      3 dedicada a recrear operaciones militares con realismo, disciplina y trabajo
+      en equipo.
+    </p>
   </section>
 </main>
 
 <style>
   body {
-    padding: 2%;
+    padding: 4%;
   }
   main {
     position: relative;
@@ -22,16 +30,33 @@
     text-transform: uppercase;
     font-size: 5rem;
     line-height: 0.9;
+    margin-top: 0.2em;
   }
   .hero {
     padding-top: 50vh;
+    padding-inline: 2em;
+    & p {
+      max-width: 60ch;
+      font-size: 1.4em;
+    }
   }
   img {
-    /* float: right; */
     display: block;
     height: 40vw;
     position: absolute;
     top: 10vh;
-    right: 0;
+    right: 2vw;
+  }
+  .reclutamos {
+    background: rgba(255, 0, 0, 0.199);
+    border: 1px solid red;
+    padding: 6px 26px;
+    color: red;
+    font-weight: bold;
+  }
+  .text-accent {
+    color: rgba(235, 41, 41, 0.884);
+    font-weight: bold;
+    text-decoration: underline;
   }
 </style>
