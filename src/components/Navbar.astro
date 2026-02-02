@@ -1,7 +1,7 @@
 <header>
   <nav>
     <ul class="nav-links">
-      <li><a href="/">Home</a></li>
+      <li><a href="/">Inicio</a></li>
       <li><a href="/gallery">Galeria</a></li>
       <li><a href="/faq">Preguntas Frecuentes</a></li>
       <li><a href="/about">Sobre Nosotros</a></li>
@@ -10,20 +10,27 @@
 </header>
 <style>
   header {
+    padding-top: 1.4em;
     width: 100%;
+    background: rgba(44, 20, 16, 0.281);
   }
   .nav-links {
     display: flex;
     justify-content: center;
-    gap: 2vw;
+    gap: 4vw;
     list-style-type: none;
     padding-bottom: 1.2em;
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid rgba(255, 0, 0, 0.349);
   }
   .nav-links li a {
     color: inherit;
     text-decoration: none;
     font-weight: 600;
     letter-spacing: 1px;
+    padding: 1em;
+    transition: 0.2s;
+  }
+  .nav-links li a:hover {
+    background: rgba(255, 0, 0, 0.349);
   }
 </style>
