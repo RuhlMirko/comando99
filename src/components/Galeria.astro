@@ -1,10 +1,37 @@
-<section class="galeria">
+---
+const images = import.meta.glob("/public/images/galeria/*.*", { eager: true });
+const imagePaths = Object.keys(images).map((path) =>
+  path.replace("/public", ""),
+);
+console.log(imagePaths);
+---
+
+<section class="galeria" id="gallery">
   <h2>Galeria</h2>
+  <div class="gallery-list">
+    {imagePaths.map((item) => <img src={item} />)}
+  </div>
 </section>
 
 <style>
+  h2 {
+    font-size: 10vh;
+    border-bottom: 2px solid red;
+    margin-bottom: 0.2em;
+    padding-bottom: 0;
+    padding-left: 0.2em;
+  }
+
   .galeria {
     min-height: 200px;
     border-top: 2px solid red;
+    margin-inline: 5vw;
+  }
+  .gallery-list {
+    columns: 3;
+    gap: 16px;
+  }
+  .gallery-list img {
+    width: 100%;
   }
 </style>
