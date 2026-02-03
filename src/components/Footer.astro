@@ -1,0 +1,96 @@
+---
+const date = new Date();
+const currentYear = date.getFullYear();
+
+import { Image } from "astro:assets";
+import logo from "../../public/images/logo.png";
+---
+
+<footer>
+  <div class="footer-container">
+    <Image src={logo} alt="Clan Logo" height="120" />
+    <header>
+      <h2>Comando 99</h2>
+      <p>
+        Un servidor MILSIM de Arma3 que busca fomentar una cultura seria y
+        responsable para jugadores que quieren realismo, camaderia y
+        profesionalidad.
+      </p>
+    </header>
+    <main>
+      <div>
+        <h3>Recursos</h3>
+        <ul>
+          <li><a href="">Formulario de enlistamiento</a></li>
+          <li><a href="">Lista de Mods</a></li>
+          <li><a href="">Manual de Entrenamiento</a></li>
+          <li><a href="">Software externo a instalar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Interno</h3>
+        <ul>
+          <li><a href="">Log comando</a></li>
+          <li><a href="">Lista de miembros</a></li>
+          <li><a href="">Ascensos y Rangos</a></li>
+          <li><a href="">Reglas</a></li>
+        </ul>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <p style="color: #ffffff63;">
+      © {currentYear} Comando 99 grupo de simulacion militar. No afiliado con Bohemia
+      Interactive.
+    </p>
+  </footer>
+</footer>
+
+<style>
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    margin-bottom: 1em;
+  }
+  footer {
+    width: 100%;
+    background-color: #121212;
+    border-top: 2px solid rgba(126, 10, 10, 0.514);
+    margin-top: 1em;
+    padding: 2em 3rem 1em;
+  }
+  header p {
+    max-width: 50ch;
+  }
+  .footer-container {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+
+    & main {
+      display: flex;
+      justify-content: center;
+      gap: 3em;
+
+      & ul {
+        list-style-type: none;
+
+        & li a {
+          color: #ffffff63;
+          font-weight: 400;
+          text-decoration: none;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+        }
+        & li {
+          margin-bottom: 1em;
+        }
+      }
+    }
+  }
+  .footer-container main ul li {
+    text-decoration: none;
+  }
+</style>
