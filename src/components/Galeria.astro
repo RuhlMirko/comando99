@@ -3,7 +3,6 @@ const images = import.meta.glob("/public/images/galeria/*.*", { eager: true });
 const imagePaths = Object.keys(images).map((path) =>
   path.replace("/public", ""),
 );
-console.log(imagePaths);
 ---
 
 <section class="galeria" id="gallery">
@@ -11,6 +10,7 @@ console.log(imagePaths);
   <div class="gallery-list">
     {imagePaths.map((item) => <img src={item} />)}
   </div>
+  <a href="/galeria">Ver mas fotos</a>
 </section>
 
 <style>
@@ -29,9 +29,28 @@ console.log(imagePaths);
   }
   .gallery-list {
     columns: 3;
-    gap: 16px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    max-height: 720px;
+    margin-bottom: 0;
   }
   .gallery-list img {
     width: 100%;
+    margin: 5px;
+  }
+  .gallery-list img:hover {
+    cursor: pointer;
+  }
+  a {
+    color: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 2rem;
+    text-align: center;
+    width: 100%;
+    background-color: brown;
+    display: block;
+    padding: 0.2em 0 0.4em;
+    text-transform: uppercase;
   }
 </style>
