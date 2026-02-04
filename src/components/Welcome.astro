@@ -1,13 +1,13 @@
 ---
-// import astroLogo from "../assets/astro.svg";
-// import background from "../assets/background.svg";
+import { Image } from "astro:assets";
+import logo from "../../public/images/logo.png";
 ---
 
 <main>
   <div class="scanline-overlay"></div>
   <section class="hero">
     <span class="reclutamos">Fase de reclutamiento: Abierta</span>
-    <img src="/images/logo.png" alt="comando 99 logo" />
+    <Image src={logo} alt="comando 99 logo" />
     <h1>
       Excelencia <br /><span style="color: red;">Tactica</span>
     </h1>
@@ -48,17 +48,18 @@
   img {
     display: block;
     height: 40vw;
+    width: 40vw;
     position: absolute;
     top: 10vh;
     right: 2vw;
   }
   .reclutamos {
     background: rgba(255, 0, 0, 0.199);
-    border: 1px solid red;
+    border: 1px solid rgba(255, 0, 0, 0.411);
     padding: 6px 26px;
-    color: red;
-    font-weight: 600;
-    letter-spacing: 2px;
+    color: rgb(235, 86, 49);
+    font-weight: 700;
+    letter-spacing: 3px;
   }
   .text-accent {
     color: rgba(235, 41, 41, 0.884);
@@ -81,5 +82,6 @@
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 2px;
+    text-shadow: 0 0 5px rgb(0, 0, 0);
   }
 </style>

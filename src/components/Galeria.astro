@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 const images = import.meta.glob("/public/images/galeria/*.*", { eager: true });
 const imagePaths = Object.keys(images).map((path) =>
   path.replace("/public", ""),
@@ -8,7 +9,16 @@ const imagePaths = Object.keys(images).map((path) =>
 <section class="galeria" id="gallery">
   <h2>Galeria</h2>
   <div class="gallery-list">
-    {imagePaths.map((item) => <img src={item} />)}
+    {
+      imagePaths.map((item, id) => (
+        <Image
+          src={item}
+          alt={`Screenshot of date ${id}`}
+          width={800}
+          height={200}
+        />
+      ))
+    }
   </div>
   <button>Ver mas fotos</button>
 </section>
@@ -16,14 +26,13 @@ const imagePaths = Object.keys(images).map((path) =>
 <style>
   h2 {
     font-size: 10vh;
-    margin-bottom: 0.2em;
+    margin-block: 0.2em;
     padding-bottom: 0;
     padding-left: 0.2em;
   }
 
   .galeria {
     min-height: 200px;
-    border-top: 2px solid red;
     margin-inline: 5vw;
   }
   .gallery-list {
