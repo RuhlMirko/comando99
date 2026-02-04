@@ -3,6 +3,7 @@ import Welcome from "../components/Welcome.astro";
 import Navbar from "../components/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
 import Galeria from "../components/Galeria.astro";
+import Faq from "../components/Faq.astro";
 import Footer from "../components/Footer.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -13,6 +14,7 @@ import Footer from "../components/Footer.astro";
   <Navbar />
   <Welcome />
   <Galeria />
+  <Faq />
   <Footer />
 </Layout>
 
@@ -46,6 +48,18 @@ import Footer from "../components/Footer.astro";
       sans-serif;
   }
 
+  h2 {
+    font-size: 10vh;
+    margin-block: 0.2em;
+    padding-bottom: 0;
+    padding-left: 0.2em;
+  }
+
+  section {
+    margin-inline: 5vw;
+    margin-bottom: 3em;
+    border-bottom: 2px solid rgba(165, 42, 42, 0.445);
+  }
   .scanline-overlay {
     position: fixed;
     background:

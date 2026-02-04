@@ -1,0 +1,60 @@
+<section class="faq">
+  <h2>Preguntas Frecuentes</h2>
+
+  <main>
+    <div class="question">
+      <h3>Que es Comando 99?</h3>
+      <p>
+        roadmap.sh is a community effort to create learning paths and other
+        similar content to help developers grow in their careers.
+      </p>
+    </div>
+  </main>
+</section>
+
+<style>
+  .question {
+    cursor: pointer;
+  }
+
+  .question h3 {
+    background-color: black;
+    color: white;
+    padding: 0.5rem 2rem;
+    border-radius: 15px;
+    margin: 0.2rem 0;
+    transition: 0.2s;
+    font-size: 2rem;
+    font-family: "Stick No Bills";
+    letter-spacing: 2px;
+  }
+
+  .question h2:hover {
+    background-color: rgb(44, 44, 44);
+  }
+
+  .question p {
+    font-weight: 500;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition:
+      max-height 0.4s ease,
+      opacity 0.3s ease;
+    margin: 0;
+  }
+  .question.open p {
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 0.7rem 0.8rem;
+    margin: 1vh 0;
+    max-height: 500px;
+    opacity: 1;
+  }
+
+  a {
+    color: inherit;
+    font-weight: 800;
+  }
+</style>
+<script></script>
