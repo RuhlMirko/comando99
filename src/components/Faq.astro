@@ -5,56 +5,128 @@
     <div class="question">
       <h3>Que es Comando 99?</h3>
       <p>
-        roadmap.sh is a community effort to create learning paths and other
-        similar content to help developers grow in their careers.
+        Es una comunidad milsim de arma 3, es decir, utilizamos el arma 3 para
+        hacer una simulación realista de lo que seria ser parte de las fuerzas
+        armadas. Simulación militar
+      </p>
+    </div>
+
+    <div class="question">
+      <h3>¿Cómo unirme?</h3>
+      <p>
+        Únete a nuestro discord, ahí tendrás todas las indicaciones para iniciar
+        tu ingreso
+      </p>
+    </div>
+
+    <div class="question">
+      <h3>¿Qué tipo de misiones realizan?</h3>
+      <p>
+        Realizamos misiones tácticas y cooperativas en equipo. Normalmente en el
+        siglo XXI aunque en ocasiones hecho misiones especiales en la segunda
+        guerra mundial, vietnam etc.
+      </p>
+    </div>
+
+    <div class="question">
+      <h3>¿Hay requisitos para ingresar?</h3>
+      <ul>
+        <li>Tener Arma 3 original</li>
+        <li>Contar con microfono</li>
+        <li>Espacio suficiente para instalar mods</li>
+        <li>No pertenecer a otro clan</li>
+      </ul>
+    </div>
+
+    <div class="question">
+      <h3>¿Tienen entrenamientos?</h3>
+      <p>
+        Sí, ofrecemos entrenamientos de infantería regular, de caballería,
+        aérea, cursos de paracaidismo e incluso fuerzas especiales. Tenemos
+        actividades todos los dias
+      </p>
+    </div>
+
+    <div class="question">
+      <h3>¿Simulan algun pais en particular?</h3>
+      <p>
+        No nos afiliamos a ningún pais en especial. Simulamos ser una unidad PMC
+        (Contratistas privados). Esto nos ofrece mayor versatilidad en todo
+        sentido.
       </p>
     </div>
   </main>
 </section>
 
 <style>
-  .question {
-    cursor: pointer;
-  }
-
   .question h3 {
+    cursor: pointer;
     background-color: black;
     color: white;
     padding: 0.5rem 2rem;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     margin: 0.2rem 0;
     transition: 0.2s;
     font-size: 2rem;
     font-family: "Stick No Bills";
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    border: 2px solid rgba(255, 0, 0, 0.425);
+    border-left: 6px solid red;
   }
 
   .question h2:hover {
     background-color: rgb(44, 44, 44);
   }
 
-  .question p {
-    font-weight: 500;
+  .question {
+    background: #3b0f0f75;
+    padding-top: 0;
+  }
+
+  .question p,
+  .question ul {
+    font-size: 1.5rem;
+    max-width: 80ch;
     max-height: 0;
+    font-weight: 500;
     opacity: 0;
     overflow: hidden;
     transition:
-      max-height 0.4s ease,
-      opacity 0.3s ease;
+      max-height 0.4s ease-out,
+      opacity 0.2s ease-out;
     margin: 0;
   }
-  .question.open p {
-    border: 2px solid black;
+  .question.open p,
+  .question.open ul {
     border-radius: 15px;
-    padding: 0.7rem 0.8rem;
+    padding: 1.2rem 2.7rem 1.7rem 2rem;
     margin: 1vh 0;
     max-height: 500px;
     opacity: 1;
   }
-
-  a {
-    color: inherit;
-    font-weight: 800;
+  .question.open ul {
+    padding-left: 4vw;
+  }
+  .question.open h3 {
+    background-color: #6d0404;
+    border-right: none;
+  }
+  .question.open {
+    border: 2px solid rgba(255, 0, 0, 0.425);
+    border-top: none;
   }
 </style>
-<script></script>
+<script>
+  const questions = document.querySelectorAll(".question");
+
+  questions.forEach((question) => {
+    question.addEventListener("click", () => {
+      closeQuestions();
+      question.classList.add("open");
+    });
+  });
+
+  function closeQuestions() {
+    questions.forEach((q) => q.classList.remove("open"));
+  }
+</script>
