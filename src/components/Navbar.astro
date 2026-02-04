@@ -3,8 +3,8 @@
     <ul class="nav-links">
       <li><a href="/">Inicio</a></li>
       <li><a href="#gallery">Galeria</a></li>
-      <li><a href="/faq">Preguntas Frecuentes</a></li>
-      <li><a href="/about">Sobre Nosotros</a></li>
+      <li><a href="#faq">Preguntas Frecuentes</a></li>
+      <li><a href="#about">Sobre Nosotros</a></li>
     </ul>
   </nav>
 </header>
@@ -12,7 +12,11 @@
   header {
     padding-top: 1.4em;
     width: 100%;
-    background: rgba(44, 20, 16, 0.281);
+    background: rgba(44, 20, 16, 0.719);
+    position: fixed;
+    top: 0;
+    z-index: 40;
+    backdrop-filter: blur(25px);
   }
   .nav-links {
     display: flex;
@@ -29,6 +33,7 @@
     letter-spacing: 1px;
     padding: 1em;
     transition: 0.2s;
+    /* background-color: #12121291; */
   }
   .nav-links li a:hover {
     background: rgba(255, 0, 0, 0.349);
