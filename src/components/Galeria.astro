@@ -10,13 +10,12 @@ const imagePaths = Object.keys(images).map((path) =>
   <div class="gallery-list">
     {imagePaths.map((item) => <img src={item} />)}
   </div>
-  <a href="/galeria">Ver mas fotos</a>
+  <button>Ver mas fotos</button>
 </section>
 
 <style>
   h2 {
     font-size: 10vh;
-    border-bottom: 2px solid red;
     margin-bottom: 0.2em;
     padding-bottom: 0;
     padding-left: 0.2em;
@@ -33,6 +32,9 @@ const imagePaths = Object.keys(images).map((path) =>
     overflow-x: hidden;
     max-height: 720px;
     margin-bottom: 0;
+    border: 1px solid brown;
+    padding-inline: 1em;
+    padding-top: 1em;
   }
   .gallery-list img {
     width: 100%;
@@ -48,16 +50,32 @@ const imagePaths = Object.keys(images).map((path) =>
     filter: brightness(0.5);
   }
 
-  a {
+  button {
     color: inherit;
     font-weight: 600;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: center;
     width: 100%;
     background-color: brown;
     display: block;
-    padding: 0.2em 0 0.4em;
+    padding: 0.5em 0 1em;
     text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s;
+  }
+  button:hover {
+    background-color: rgb(87, 18, 18);
   }
 </style>
+<script>
+  const photoList = document.querySelector(".gallery-list") as HTMLElement;
+  const button = document.querySelector(".galeria button") as HTMLButtonElement;
+
+  button?.addEventListener("click", () => {
+    photoList.style.overflowY = "auto";
+    photoList.style.maxHeight = "none";
+    console.log("function ran");
+  });
+</script>
