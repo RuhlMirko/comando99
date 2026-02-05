@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+
 const images = import.meta.glob("/public/images/galeria/*.*", { eager: true });
 const imagePaths = Object.keys(images).map((path) =>
   path.replace("/public", ""),
@@ -8,19 +9,25 @@ const imagePaths = Object.keys(images).map((path) =>
 
 <section class="galeria" id="gallery">
   <h2>Galeria</h2>
-  <div class="gallery-list">
+  <div class="gallery-list collapsed">
     {
-      imagePaths.map((item, id) => (
-        <Image
-          src={item}
-          alt={`Screenshot of date ${id}`}
-          width={800}
-          height={200}
-        />
-      ))
+      imagePaths.map((item) => {
+        const filename = item.split("/").pop()?.split(".")[0] || "imagen";
+        return (
+          <Image
+            src={item}
+            alt={`Comando 99 - ${filename}`}
+            width={800}
+            height={200}
+          />
+        );
+      })
     }
   </div>
-  <button>Ver mas fotos</button>
+  <div class="gallery-options">
+    <button>Ver mas fotos</button>
+    <a href="/galeria">Ver Galeria completa</a>
+  </div>
 </section>
 
 <style>
@@ -28,18 +35,31 @@ const imagePaths = Object.keys(images).map((path) =>
     min-height: 200px;
   }
   .gallery-list {
-    columns: 3;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    max-height: 720px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
     margin-bottom: 0;
-    border: 1px solid brown;
     padding-inline: 1em;
     padding-top: 1em;
+    transition: 0.5s;
+  }
+
+  @media (min-width: 768px) {
+    .gallery-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .gallery-list.collapsed {
+    display: grid;
+  }
+
+  .gallery-list.collapsed img:nth-child(n + 10) {
+    display: none;
   }
   .gallery-list img {
     width: 100%;
-    height: 30vh;
+    height: auto;
     margin: 5px;
     transition: 0.2s;
     border: 1px solid black;
@@ -51,19 +71,33 @@ const imagePaths = Object.keys(images).map((path) =>
     filter: brightness(0.5) saturate(50%);
   }
 
-  button {
+  .gallery-options {
+    display: flex;
+    gap: 2px;
+    justify-content: center;
+  }
+
+  .gallery-options a {
+    border: 1px solid brown;
+    background-color: none;
+  }
+  .gallery-options button {
+    border: none;
+    background-color: brown;
+    font-family: inherit;
+  }
+
+  .gallery-options button,
+  .gallery-options a {
     color: inherit;
     font-weight: 600;
     text-decoration: none;
     font-size: 1.5rem;
     text-align: center;
     width: 100%;
-    background-color: brown;
-    display: block;
     padding: 0.5em 0 1em;
     text-transform: uppercase;
     cursor: pointer;
-    border: none;
     transition: 0.2s;
   }
   button:hover {
@@ -76,12 +110,18 @@ const imagePaths = Object.keys(images).map((path) =>
   }
 </style>
 <script>
-  const photoList = document.querySelector(".gallery-list") as HTMLElement;
-  const button = document.querySelector(".galeria button") as HTMLButtonElement;
+  const photoList = document.querySelector(".gallery-list");
+  const button = document.querySelector(".galeria button");
 
   button?.addEventListener("click", () => {
-    photoList.style.overflowY = "auto";
-    photoList.style.maxHeight = "none";
-    button.disabled = true;
+    const isCollapsed = photoList?.classList.contains("collapsed");
+
+    if (isCollapsed) {
+      photoList?.classList.remove("collapsed");
+      button.textContent = "Ver menos fotos";
+    } else {
+      photoList?.classList.add("collapsed");
+      button.textContent = "Ver mas fotos";
+    }
   });
 </script>
