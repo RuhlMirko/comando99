@@ -21,26 +21,26 @@ import logo from "../../public/images/logo.png";
       <div>
         <h3>Recursos</h3>
         <ul>
-          <li><a href="">Formulario de enlistamiento</a></li>
-          <li><a href="">Lista de Mods</a></li>
-          <li><a href="">Manual de Entrenamiento</a></li>
-          <li><a href="">Software externo a instalar</a></li>
+          <li><a href="/form">Formulario de enlistamiento</a></li>
+          <li><a href="/mods">Lista de Mods</a></li>
+          <li><a href="/entrenamiento">Manual de Entrenamiento</a></li>
+          <li><a href="/instalacion">Software externo a instalar</a></li>
         </ul>
       </div>
       <div>
         <h3>Interno</h3>
         <ul>
-          <li><a href="">Log comando</a></li>
-          <li><a href="">Lista de miembros</a></li>
-          <li><a href="">Ascensos y Rangos</a></li>
-          <li><a href="">Reglas</a></li>
+          <li><a href="/interno/logs">Log comando</a></li>
+          <li><a href="/interno/miembros">Lista de miembros</a></li>
+          <li><a href="/interno/rangos">Ascensos y Rangos</a></li>
+          <li><a href="/reglas">Reglas</a></li>
         </ul>
       </div>
     </main>
   </div>
 
   <footer>
-    <p style="color: #ffffff63;">
+    <p class="copyright">
       © {currentYear} Comando 99 grupo de simulacion militar. No afiliado con Bohemia
       Interactive.
     </p>
@@ -59,7 +59,12 @@ import logo from "../../public/images/logo.png";
     background-color: #121212;
     border-top: 2px solid rgba(126, 10, 10, 0.514);
     margin-top: 1em;
-    padding: 2em 3rem 1em;
+    margin-left: 0;
+    padding-top: 1.4em;
+  }
+  .copyright {
+    padding: 0.2vh 2vw 4vh;
+    color: #ffffff63;
   }
   header p {
     max-width: 50ch;
@@ -73,20 +78,26 @@ import logo from "../../public/images/logo.png";
     & main {
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: 3em;
 
       & ul {
         list-style-type: none;
+        padding: 0;
 
         & li a {
           color: #ffffff63;
           font-weight: 400;
           text-decoration: none;
           text-transform: uppercase;
-          letter-spacing: 2px;
+
+          &:visited {
+            color: #a1202063;
+          }
         }
+
         & li {
-          margin-bottom: 1em;
+          margin-bottom: 0.7em;
         }
       }
     }

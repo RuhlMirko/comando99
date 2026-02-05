@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <h1><span style="color: red;">404</span><br />Pagina no encontrada</h1>
+  <h2>Paginas disponibles:</h2>
+  <ul>
+    <li><a href="/">Inicio</a></li>
+    <li><a href="/galeria">Galeria</a></li>
+  </ul>
+</Layout>
+
+<style>
+  h1 {
+    font-size: 8vw;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 0.7em;
+    text-align: center;
+  }
+  h2 {
+    font-size: 2em;
+    width: fit-content;
+    margin: 0 auto;
+    color: rgb(204, 184, 184);
+    font-weight: 600;
+  }
+  ul {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    gap: 15px;
+    list-style-type: none;
+    justify-content: center;
+  }
+  a {
+    color: inherit;
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    font-style: italic;
+  }
+  a:hover {
+    color: rgba(240, 248, 255, 0.637);
+  }
+  a:visited {
+    color: rgb(223, 134, 134);
+  }
+
+  body {
+    overflow-x: hidden;
+    background: #121212;
+    color: white;
+    font-family: "Rajdhani", sans-serif;
+  }
+</style>
