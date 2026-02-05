@@ -5,7 +5,7 @@ import logo from "../../public/images/logo.png";
 
 <main>
   <div class="scanline-overlay"></div>
-  <section class="hero">
+  <section class="hero" id="hero">
     <span class="reclutamos">Fase de reclutamiento: Abierta</span>
     <Image src={logo} alt="comando 99 logo" loading="eager" />
     <h1>
@@ -78,10 +78,14 @@ import logo from "../../public/images/logo.png";
     font-size: 1.2em;
   }
   .cta-call {
-    background: red;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 2px;
+    border-color: transparent;
+    background: hsl(0, 75%, 50%);
+    /* text-transform: uppercase; */
+    font-weight: 600;
+    letter-spacing: 1px;
     text-shadow: 0 0 5px rgb(0, 0, 0);
+  }
+  .cta a:hover {
+    background: rgba(160, 1, 1, 0.747);
   }
 </style>
