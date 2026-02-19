@@ -14,18 +14,23 @@ const imagePaths = Object.keys(images).map((path) =>
       imagePaths.map((item) => {
         const filename = item.split("/").pop()?.split(".")[0] || "imagen";
         return (
-          <Image
-            src={item}
-            alt={`Comando 99 - ${filename}`}
-            width={800}
-            height={200}
-          />
+          <div class="gallery-item">
+            <Image
+              src={item}
+              alt={`Comando 99 - ${filename}`}
+              width={800}
+              height={200}
+            />
+          </div>
         );
       })
     }
   </div>
   <div class="gallery-options">
-    <button>Ver mas fotos</button>
+    <button
+      >Ver mas fotos <i class="fas fa-chevron-down navigation-chevron"
+      ></i></button
+    >
     <a href="/galeria">Ver Galeria completa</a>
   </div>
 </section>
@@ -61,16 +66,40 @@ const imagePaths = Object.keys(images).map((path) =>
   .gallery-list.collapsed img:nth-child(n + 10) {
     display: none;
   }
-  .gallery-list img {
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gallery-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(255, 0, 0, 0.281),
+      rgba(255, 0, 0, 0)
+    );
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+  }
+
+  .gallery-item:hover::after {
+    opacity: 1;
+  }
+
+  .gallery-item img {
     width: 100%;
     height: auto;
     object-fit: cover;
     aspect-ratio: 16/9;
-    margin: 5px;
+    /* margin: 5px; */
     transition: 0.2s;
     border: 1px solid black;
+    display: block;
   }
-  .gallery-list img:hover {
+  .gallery-item:hover img {
     cursor: pointer;
   }
   .gallery-list:hover img:not(:hover) {
@@ -82,6 +111,10 @@ const imagePaths = Object.keys(images).map((path) =>
     gap: 1vw;
     justify-content: space-around;
     margin-top: 0.5em;
+    width: 60%;
+    margin: 0 auto;
+    border-top: 2px solid #6808085e;
+    padding-top: 6px;
   }
 
   .gallery-options a {
@@ -102,8 +135,7 @@ const imagePaths = Object.keys(images).map((path) =>
     font-size: 1.5rem;
     text-align: center;
     width: 100%;
-    padding: 0.5em 0 1em;
-    text-transform: uppercase;
+    padding: 0.5em 0em 0.5em;
     cursor: pointer;
     transition: 0.2s;
   }
@@ -129,10 +161,12 @@ const imagePaths = Object.keys(images).map((path) =>
 
     if (isCollapsed) {
       photoList?.classList.remove("collapsed");
-      button.textContent = "Ver menos fotos";
+      button.innerHTML =
+        "Ver menos fotos <i class='fas fa-chevron-up navigation-chevron'></i>";
     } else {
       photoList?.classList.add("collapsed");
-      button.textContent = "Ver mas fotos";
+      button.innerHTML =
+        "Ver mas fotos <i class='fas fa-chevron-down navigation-chevron'></i>";
     }
   });
 </script>
