@@ -1,0 +1,78 @@
+---
+const slides = [
+  {
+    title: "Disciplina",
+    content: {
+      paragrapgh: "This is the first slide",
+      subtitle: "",
+      redirect: "Mas informacion",
+    },
+  },
+  {
+    title: "Disciplina",
+    content: {
+      paragrapgh: "This is the first slide",
+      subtitle: "",
+      redirect: "Mas informacion",
+      thumbnail: "./images/rangos/red_beret.webp",
+      altText: "Soldier with red beret looking proudly to the sky",
+    },
+  },
+  {
+    title: "Disciplina",
+    content: {
+      paragrapgh: "This is the first slide",
+      subtitle: "",
+      redirect: "Mas informacion",
+    },
+  },
+];
+---
+
+<section class="showcase">
+  <div class="carousel">
+    <div class="carousel-track">
+      {
+        slides.map((slide, index) => (
+          <div class="carousel-slide" data-slide={index}>
+            <div class="slide-content">
+              <div>
+                <h2>{slide.title}</h2>
+                <h3>{slide.content.subtitle}</h3>
+                <p>{slide.content.paragrapgh}</p>
+              </div>
+              <img src={slide.content.thumbnail} alt={slide.content.altText} />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .carousel-track {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .slide-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    background: #4608085d;
+    border: 1px solid brown;
+    margin: 1px;
+
+    p {
+      font-size: 1.7rem;
+      max-width: 70ch;
+      margin-left: 1em;
+    }
+
+    img {
+      object-fit: cover;
+      max-height: 50vh;
+    }
+  }
+</style>
