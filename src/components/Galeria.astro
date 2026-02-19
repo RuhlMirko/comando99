@@ -26,8 +26,12 @@ const imagePaths = Object.keys(images).map((path) =>
       })
     }
   </div>
+  <div class="gallery-modal" aria-hidden="true">
+    <button class="gallery-modal-close" aria-label="Cerrar">&times;</button>
+    <img class="gallery-modal-image" alt="" />
+  </div>
   <div class="gallery-options">
-    <button
+    <button class="galeria-btn"
       >Ver mas fotos <i class="fas fa-chevron-down navigation-chevron"
       ></i></button
     >
@@ -63,12 +67,20 @@ const imagePaths = Object.keys(images).map((path) =>
     display: grid;
   }
 
-  .gallery-list.collapsed img:nth-child(n + 10) {
-    display: none;
+  .gallery-list.collapsed .gallery-item:nth-child(n + 10) {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
   }
   .gallery-item {
     position: relative;
     overflow: hidden;
+    max-height: 1000px;
+    transition:
+      max-height 0.5s,
+      opacity 0.5s,
+      transform 0.5s;
   }
 
   .gallery-item::after {
@@ -94,7 +106,6 @@ const imagePaths = Object.keys(images).map((path) =>
     height: auto;
     object-fit: cover;
     aspect-ratio: 16/9;
-    /* margin: 5px; */
     transition: 0.2s;
     border: 1px solid black;
     display: block;
@@ -104,6 +115,49 @@ const imagePaths = Object.keys(images).map((path) =>
   }
   .gallery-list:hover img:not(:hover) {
     filter: brightness(0.5) saturate(50%);
+  }
+
+  .gallery-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.2s,
+      visibility 0.2s;
+    z-index: 1000;
+  }
+
+  .gallery-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .gallery-modal-image {
+    max-width: 92vw;
+    max-height: 92vh;
+    object-fit: contain;
+    border: 1px solid #3b0d0d;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  }
+
+  .gallery-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 36px;
+    line-height: 1;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 999px;
+    color: white;
+    background: rgba(75, 0, 0, 0.7);
+    cursor: pointer;
   }
 
   .gallery-options {
@@ -127,7 +181,7 @@ const imagePaths = Object.keys(images).map((path) =>
     font-family: inherit;
   }
 
-  .gallery-options button,
+  .galeria-btn,
   .gallery-options a {
     color: inherit;
     font-weight: 600;
@@ -154,7 +208,44 @@ const imagePaths = Object.keys(images).map((path) =>
 </style>
 <script>
   const photoList = document.querySelector(".gallery-list");
-  const button = document.querySelector(".galeria button");
+  const button = document.querySelector(".galeria-btn") as HTMLButtonElement;
+  const modal = document.querySelector(".gallery-modal");
+  const modalImage = document.querySelector(
+    ".gallery-modal-image",
+  ) as HTMLImageElement;
+  const modalClose = document.querySelector(
+    ".gallery-modal-close",
+  ) as HTMLButtonElement;
+
+  const openModal = (src: string, alt: string) => {
+    if (!modal || !modalImage) return;
+    modalImage.src = src;
+    modalImage.alt = alt || "";
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+  };
+
+  const closeModal = () => {
+    if (!modal || !modalImage) return;
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    modalImage.src = "";
+  };
+
+  photoList?.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLImageElement)) return;
+    openModal(target.currentSrc || target.src, target.alt);
+  });
+
+  modalClose?.addEventListener("click", closeModal);
+  modal?.addEventListener("click", (event) => {
+    if (event.target === modal) closeModal();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeModal();
+  });
 
   button?.addEventListener("click", () => {
     const isCollapsed = photoList?.classList.contains("collapsed");
