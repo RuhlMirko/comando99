@@ -6,15 +6,7 @@ const slides = [
       paragrapgh: "This is the first slide",
       subtitle: "",
       redirect: "Mas informacion",
-    },
-  },
-  {
-    title: "Disciplina",
-    content: {
-      paragrapgh: "This is the first slide",
-      subtitle: "",
-      redirect: "Mas informacion",
-      thumbnail: "./images/rangos/red_beret.webp",
+      thumbnail: "./images/rangos/red_beret_salute.webp",
       altText: "Soldier with red beret looking proudly to the sky",
     },
   },
@@ -24,22 +16,35 @@ const slides = [
       paragrapgh: "This is the first slide",
       subtitle: "",
       redirect: "Mas informacion",
+      thumbnail: "./images/rangos/simple_Hat.webp",
+      altText: "Soldier with army hat looking proudly to the sky",
+    },
+  },
+  {
+    title: "Disciplina",
+    content: {
+      paragrapgh: "This is the first slide",
+      subtitle: "",
+      redirect: "Mas informacion",
+      thumbnail: "./images/rangos/modular_helmet.webp",
+      altText: "Soldier with red beret looking proudly to the sky",
     },
   },
 ];
 ---
 
-<section class="showcase">
+<section class="showcase" id="showcase">
   <div class="carousel">
     <div class="carousel-track">
       {
         slides.map((slide, index) => (
           <div class="carousel-slide" data-slide={index}>
-            <div class="slide-content">
-              <div>
+            <div class="slide-content hud-border">
+              <div class="content-text">
                 <h2>{slide.title}</h2>
                 <h3>{slide.content.subtitle}</h3>
                 <p>{slide.content.paragrapgh}</p>
+                <button>{slide.content.redirect}</button>
               </div>
               <img src={slide.content.thumbnail} alt={slide.content.altText} />
             </div>
@@ -61,13 +66,37 @@ const slides = [
     justify-content: space-between;
     width: 100%;
     background: #4608085d;
-    border: 1px solid brown;
+    border: 1px solid rgba(129, 11, 11, 0.445);
     margin: 1px;
 
-    p {
-      font-size: 1.7rem;
-      max-width: 70ch;
-      margin-left: 1em;
+    .content-text {
+      margin-left: 1rem;
+      margin-top: 1em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      h2 {
+        text-transform: uppercase;
+      }
+
+      p {
+        font-size: 1.7rem;
+        max-width: 70ch;
+      }
+
+      button {
+        background: red;
+        color: white;
+        padding: 0.5em 2em;
+        font-size: 1em;
+        font-weight: 900;
+        text-transform: uppercase;
+        font-family: inherit;
+        letter-spacing: 1px;
+        border: none;
+        cursor: pointer;
+      }
     }
 
     img {
