@@ -34,7 +34,7 @@ const slides = [
 ];
 ---
 
-<section class="showcase" id="showcase">
+<section class="showcase carousel-container" id="showcase">
   <div class="carousel">
     <div class="carousel-track">
       {
@@ -54,20 +54,126 @@ const slides = [
       }
     </div>
   </div>
+  <button class="carousel-btn prev" aria-label="Previous slide">‹</button>
+  <button class="carousel-btn next" aria-label="Next slide">›</button>
+
+  <!-- Pagination Dots -->
+  <div class="carousel-pagination">
+    {
+      slides.map((_, index) => (
+        <button
+          class="pagination-dot"
+          data-slide={index}
+          aria-label={`Go to slide ${index + 1}`}
+        />
+      ))
+    }
+  </div>
 </section>
 
 <style>
-  .carousel-track {
-    width: 100%;
+  .carousel-container {
+    position: relative;
+    width: 95%;
     margin: 0 auto;
+    overflow: auto;
   }
+
+  .carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border: 2px solid rgba(77, 28, 28, 0.562);
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  .carousel-slide {
+    min-width: 100%;
+    height: 400px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+  }
+
+  .slide-content {
+    color: white;
+    padding: 3rem;
+  }
+
+  .slide-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .slide-content p {
+    font-size: 1.25rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.2s;
+  }
+
+  .carousel-btn:hover {
+    background: rgba(128, 7, 7, 0.8);
+  }
+
+  .carousel-btn.prev {
+    left: 10px;
+  }
+
+  .carousel-btn.next {
+    right: 10px;
+  }
+
+  .carousel-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .pagination-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .pagination-dot.active {
+    background: #333;
+  }
+
+  .pagination-dot:hover {
+    background: #666;
+  }
+
   .slide-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
-    background: #4608085d;
-    border: 1px solid rgba(129, 11, 11, 0.445);
+    background: black;
     margin: 1px;
 
     .content-text {
@@ -118,7 +224,87 @@ const slides = [
 
     img {
       object-fit: cover;
-      max-height: 50vh;
+      max-height: 55vh;
     }
   }
 </style>
+
+<script>
+  class Carousel {
+    container: Element;
+    track: Element | null;
+    slides: NodeListOf<Element>;
+    prevBtn: Element | null;
+    nextBtn: Element | null;
+    dots: NodeListOf<Element>;
+    currentIndex: number;
+    autoPlayId: number | null;
+
+    constructor(container: Element) {
+      this.container = container;
+      this.track = container.querySelector(".carousel-track");
+      this.slides = container.querySelectorAll(".carousel-slide");
+      this.prevBtn = container.querySelector(".prev");
+      this.nextBtn = container.querySelector(".next");
+      this.dots = container.querySelectorAll(".pagination-dot");
+      this.currentIndex = 0;
+      this.autoPlayId = null;
+      this.init();
+    }
+
+    init() {
+      // Set first dot as active
+      this.updatePagination();
+
+      if (this.prevBtn) {
+        this.prevBtn.addEventListener("click", () => this.goToPrevious());
+      }
+      if (this.nextBtn) {
+        this.nextBtn.addEventListener("click", () => this.goToNext());
+      }
+      this.dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => this.goToSlide(index));
+      });
+      this.startAutoPlay(6000);
+    }
+
+    goToSlide(index: number) {
+      this.currentIndex = index;
+      const offset = -100 * index;
+      if (this.track instanceof HTMLElement) {
+        this.track.style.transform = `translateX(${offset}%)`;
+      }
+      this.updatePagination();
+    }
+
+    goToNext() {
+      this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+      this.goToSlide(this.currentIndex);
+    }
+
+    goToPrevious() {
+      this.currentIndex =
+        (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+      this.goToSlide(this.currentIndex);
+    }
+
+    updatePagination() {
+      this.dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === this.currentIndex);
+      });
+    }
+
+    startAutoPlay(interval = 6000) {
+      if (this.autoPlayId) clearInterval(this.autoPlayId);
+      this.autoPlayId = window.setInterval(() => this.goToNext(), interval);
+    }
+  }
+
+  // Initialize carousel
+  document.addEventListener("DOMContentLoaded", () => {
+    const carouselContainer = document.querySelector(".carousel-container");
+    if (carouselContainer) {
+      new Carousel(carouselContainer);
+    }
+  });
+</script>
