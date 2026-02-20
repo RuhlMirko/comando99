@@ -12,10 +12,11 @@ const slides = [
     },
   },
   {
-    title: "Disciplina",
+    title: "Actividades",
     content: {
-      paragrapgh: "This is the first slide",
-      subtitle: "",
+      paragrapgh:
+        "Tenemos actividades todos los dias, desde entrenamientos y cursos hasta patrullas y misiones con experiencias reales.",
+      subtitle: "Entrenamientos - Cursos - Patrullas - Misiones",
       redirect: "Mas informacion",
       thumbnail: "./images/rangos/simple_Hat.webp",
       altText: "Soldier with army hat looking proudly to the sky",
@@ -72,9 +73,13 @@ const slides = [
 </section>
 
 <style>
+  .showcase {
+    padding-bottom: 2em;
+    background: black;
+  }
   .carousel-container {
     position: relative;
-    width: 95%;
+    width: 100%;
     margin: 0 auto;
     overflow: auto;
   }
@@ -83,7 +88,6 @@ const slides = [
     position: relative;
     width: 100%;
     overflow: hidden;
-    border: 2px solid rgba(77, 28, 28, 0.562);
   }
 
   .carousel-track {
@@ -92,7 +96,7 @@ const slides = [
   }
   .carousel-slide {
     min-width: 100%;
-    height: 400px;
+    height: 55vh;
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -102,18 +106,7 @@ const slides = [
 
   .slide-content {
     color: white;
-    padding: 3rem;
-  }
-
-  .slide-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  }
-
-  .slide-content p {
-    font-size: 1.25rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    padding: 8vw;
   }
 
   .carousel-btn {
@@ -123,7 +116,7 @@ const slides = [
     background: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
-    font-size: 2rem;
+    font-size: 4rem;
     padding: 1rem;
     cursor: pointer;
     z-index: 10;
@@ -131,7 +124,7 @@ const slides = [
   }
 
   .carousel-btn:hover {
-    background: rgba(128, 7, 7, 0.8);
+    background: rgba(128, 7, 7, 0.5);
   }
 
   .carousel-btn.prev {
@@ -150,17 +143,17 @@ const slides = [
   }
 
   .pagination-dot {
-    width: 12px;
+    width: 24px;
     height: 12px;
-    border-radius: 50%;
-    border: 2px solid #333;
+    border-radius: 25px;
+    border: 2px solid #5f0909;
     background: transparent;
     cursor: pointer;
     transition: background 0.3s;
   }
 
   .pagination-dot.active {
-    background: #333;
+    background: #5f0909;
   }
 
   .pagination-dot:hover {
@@ -265,7 +258,7 @@ const slides = [
       this.dots.forEach((dot, index) => {
         dot.addEventListener("click", () => this.goToSlide(index));
       });
-      this.startAutoPlay(6000);
+      this.startAutoPlay(12000);
     }
 
     goToSlide(index: number) {
