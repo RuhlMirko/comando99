@@ -23,13 +23,14 @@ const slides = [
     },
   },
   {
-    title: "Disciplina",
+    title: "Rangos",
     content: {
-      paragrapgh: "This is the first slide",
-      subtitle: "",
+      paragrapgh:
+        "Operamos en una herarquia de rangos y como tal se debe respetar la cadena de mando.",
+      subtitle: "Ascensos - Merito - Escalafon",
       redirect: "Mas informacion",
       thumbnail: "./images/rangos/modular_helmet.webp",
-      altText: "Soldier with red beret looking proudly to the sky",
+      altText: "Soldier with modular helmet looking proudly to the sky",
     },
   },
 ];
@@ -74,7 +75,8 @@ const slides = [
 
 <style>
   .showcase {
-    padding-bottom: 2em;
+    padding-bottom: 1em;
+    padding-top: 1em;
     background: black;
   }
   .carousel-container {
@@ -138,7 +140,7 @@ const slides = [
   .carousel-pagination {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 1vw;
     margin-top: 20px;
   }
 
@@ -157,7 +159,7 @@ const slides = [
   }
 
   .pagination-dot:hover {
-    background: #666;
+    background: #c90303;
   }
 
   .slide-content {
@@ -188,7 +190,7 @@ const slides = [
       }
 
       p {
-        font-size: 1.5rem;
+        font-size: 1.7vw;
         max-width: 40ch;
       }
 
@@ -205,8 +207,9 @@ const slides = [
         letter-spacing: 1px;
         cursor: pointer;
         margin-top: 1em;
-        max-width: 300px;
+        width: 80%;
         border-width: 1px;
+        transition: 0.2s;
 
         &:hover {
           background: rgba(160, 1, 1, 0.747);
@@ -246,19 +249,31 @@ const slides = [
     }
 
     init() {
-      // Set first dot as active
       this.updatePagination();
 
       if (this.prevBtn) {
-        this.prevBtn.addEventListener("click", () => this.goToPrevious());
+        this.prevBtn.addEventListener("click", () => {
+          this.stopAutoPlay();
+          this.goToPrevious();
+        });
       }
+
       if (this.nextBtn) {
-        this.nextBtn.addEventListener("click", () => this.goToNext());
+        this.nextBtn.addEventListener("click", () => {
+          this.stopAutoPlay();
+          this.goToNext();
+        });
       }
+
       this.dots.forEach((dot, index) => {
-        dot.addEventListener("click", () => this.goToSlide(index));
+        dot.addEventListener("click", () => {
+          this.stopAutoPlay();
+          this.goToSlide(index);
+        });
       });
-      this.startAutoPlay(12000);
+
+      const AUTO_PLAY_INTERVAL_MS = 12000;
+      this.startAutoPlay(AUTO_PLAY_INTERVAL_MS);
     }
 
     goToSlide(index: number) {
@@ -287,9 +302,16 @@ const slides = [
       });
     }
 
-    startAutoPlay(interval = 6000) {
+    startAutoPlay(interval: number) {
       if (this.autoPlayId) clearInterval(this.autoPlayId);
       this.autoPlayId = window.setInterval(() => this.goToNext(), interval);
+    }
+
+    stopAutoPlay() {
+      if (this.autoPlayId) {
+        clearInterval(this.autoPlayId);
+        this.autoPlayId = null;
+      }
     }
   }
 
