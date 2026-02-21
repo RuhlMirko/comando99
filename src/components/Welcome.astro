@@ -105,7 +105,7 @@ import logo from "../../public/images/logo.png";
   }
   @media (max-width: 1024px) {
     h1 {
-      font-size: 7rem;
+      font-size: 15vw;
     }
     #hero p {
       font-size: 2rem;
@@ -119,16 +119,33 @@ import logo from "../../public/images/logo.png";
     .cta a {
       font-size: 2rem;
       padding: 2vh 5vw;
-      width: 400px;
+      width: 90vw;
+      text-align: center;
+      background: #111111b9;
+    }
+    .cta .cta-call {
+      background: hsla(0, 99%, 49%, 0.753);
+    }
+    .reclutamos {
+      font-size: 3vw;
+    }
+
+    main {
+      background-color: rgba(0, 0, 0, 0.3);
+      background-image: url("../../public/images/logo.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
     }
     img {
-      height: 700px;
-      width: 700px;
-      opacity: 0.3;
-      z-index: -11;
+      display: none;
     }
+
     .hero {
-      background: #11111160;
+      background: #111111b9;
+      backdrop-filter: blur(5px);
+      margin: 0;
     }
   }
 </style>

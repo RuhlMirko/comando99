@@ -6,7 +6,7 @@ import { Image } from "astro:assets";
 import logo from "../../public/images/logo.png";
 ---
 
-<footer>
+<footer id="footer">
   <div class="footer-container">
     <Image src={logo} alt="Clan Logo" height="120" />
     <header>
@@ -104,5 +104,11 @@ import logo from "../../public/images/logo.png";
   }
   .footer-container main ul li {
     text-decoration: none;
+  }
+
+  @media (max-width: 543px) {
+    #footer {
+      display: none;
+    }
   }
 </style>
