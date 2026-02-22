@@ -97,7 +97,8 @@ const slides = [
     transition: transform 0.5s ease-in-out;
   }
   .carousel-slide {
-    min-width: 100%;
+    max-width: 100vw;
+    width: 100%;
     height: 55vh;
     flex-shrink: 0;
     display: flex;
@@ -220,7 +221,7 @@ const slides = [
 
     img {
       object-fit: cover;
-      max-height: 55vh;
+      height: 25vw;
     }
   }
 </style>
