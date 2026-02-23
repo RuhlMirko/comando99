@@ -11,7 +11,7 @@ const imagePaths = Object.keys(images).map((path) =>
   <h2>Galeria</h2>
   <div class="gallery-list collapsed">
     {
-      imagePaths.map((item) => {
+      imagePaths.slice(0, 18).map((item) => {
         const filename = item.split("/").pop()?.split(".")[0] || "imagen";
         return (
           <div class="gallery-item">

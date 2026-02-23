@@ -1,10 +1,39 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+
+const images = import.meta.glob("/public/images/galeria/*.*", { eager: true });
+const imagePaths = Object.keys(images).map((path) =>
+  path.replace("/public", ""),
+);
 ---
 
 <Layout>
   <main>
     <h1>Galeria de Comando 99</h1>
+    <div>
+      <div class="gallery-list">
+        {
+          imagePaths.map((item) => {
+            const filename = item.split("/").pop()?.split(".")[0] || "imagen";
+            return (
+              <div class="gallery-item">
+                <Image
+                  src={item}
+                  alt={`Comando 99 - ${filename}`}
+                  width={800}
+                  height={200}
+                />
+              </div>
+            );
+          })
+        }
+      </div>
+      <div class="gallery-modal" aria-hidden="true">
+        <button class="gallery-modal-close" aria-label="Cerrar">&times;</button>
+        <img class="gallery-modal-image" alt="" />
+      </div>
+    </div>
   </main>
 </Layout>
 
@@ -35,4 +64,144 @@ import Layout from "../layouts/Layout.astro";
   main {
     padding-inline: 2%;
   }
+  .gallery-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+    margin-bottom: 0;
+    padding-top: 1em;
+    transition: 0.5s;
+  }
+
+  @media (min-width: 768px) {
+    .gallery-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    max-height: 1000px;
+    transition:
+      max-height 0.5s,
+      opacity 0.5s,
+      transform 0.5s;
+  }
+
+  .gallery-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(255, 0, 0, 0.281),
+      rgba(255, 0, 0, 0)
+    );
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+  }
+
+  .gallery-item:hover::after {
+    opacity: 1;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+    transition: 0.2s;
+    border: 1px solid black;
+    display: block;
+  }
+  .gallery-item:hover img {
+    cursor: pointer;
+  }
+  .gallery-list:hover img:not(:hover) {
+    filter: saturate(70%);
+  }
+
+  .gallery-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.2s,
+      visibility 0.2s;
+    z-index: 1000;
+  }
+
+  .gallery-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .gallery-modal-image {
+    max-width: 92vw;
+    max-height: 92vh;
+    object-fit: contain;
+    border: 1px solid #3b0d0d;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  }
+
+  .gallery-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 36px;
+    line-height: 1;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 999px;
+    color: white;
+    background: rgba(75, 0, 0, 0.7);
+    cursor: pointer;
+  }
 </style>
+<script>
+  const photoList = document.querySelector(".gallery-list");
+  const modal = document.querySelector(".gallery-modal");
+  const modalImage = document.querySelector(
+    ".gallery-modal-image",
+  ) as HTMLImageElement;
+  const modalClose = document.querySelector(
+    ".gallery-modal-close",
+  ) as HTMLButtonElement;
+
+  const openModal = (src: string, alt: string) => {
+    if (!modal || !modalImage) return;
+    modalImage.src = src;
+    modalImage.alt = alt || "";
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+  };
+
+  const closeModal = () => {
+    if (!modal || !modalImage) return;
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    modalImage.src = "";
+  };
+
+  photoList?.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLImageElement)) return;
+    openModal(target.currentSrc || target.src, target.alt);
+  });
+
+  modalClose?.addEventListener("click", closeModal);
+  modal?.addEventListener("click", (event) => {
+    if (event.target === modal) closeModal();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeModal();
+  });
+</script>
