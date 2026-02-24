@@ -1,16 +1,37 @@
 ---
+import Navbar from "../components/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 
 const images = import.meta.glob("/public/images/galeria/*.*", { eager: true });
+const entrenamientos = import.meta.glob(
+  "/public/images/galeria/entrenamientos/*.*",
+  { eager: true },
+);
+const misiones = import.meta.glob("/public/images/galeria/misiones/*.*", {
+  eager: true,
+});
 const imagePaths = Object.keys(images).map((path) =>
   path.replace("/public", ""),
 );
 ---
 
 <Layout>
+  <Navbar
+    navLinks={{
+      misiones: "Misiones",
+      training: "Entrenamientos",
+      escenas: "Escenas",
+      patrullas: "Patrullas",
+    }}
+  />
   <main>
     <h1>Galeria de Comando 99</h1>
+    <p>
+      Esta es una recopilacion de fotos/capturas de pantallas de misiones,
+      entrenamientos, escenas recreadas y patrullas realizadas en nuestras
+      actividades.
+    </p>
     <div>
       <div class="gallery-list">
         {

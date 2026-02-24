@@ -8,7 +8,14 @@ import Showcase from "../components/Showcase.astro";
 ---
 
 <Layout>
-  <Navbar />
+  <Navbar
+    navLinks={{
+      hero: "Inicio",
+      showcase: "Sobre Nosotros",
+      gallery: "Galeria",
+      faq: "Preguntas frecuentes",
+    }}
+  />
   <Welcome />
   <Showcase />
   <Galeria />
