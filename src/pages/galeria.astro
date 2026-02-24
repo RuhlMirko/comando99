@@ -136,19 +136,41 @@ const patrullasImagePaths = Object.keys(patrullas).map((path) =>
   h1,
   h2,
   p {
-    margin-left: 2rem;
-    padding: 0;
+    display: block;
+    padding-left: 2rem;
   }
 
   h1 {
     font-size: 3rem;
     margin-top: 150px;
+    margin-bottom: 0;
   }
   h2 {
     font-size: 3em;
     margin-bottom: 0;
+    border-block: 2px solid rgb(145, 4, 4);
+    background: #1f0202c9;
+    padding: 1rem 2rem 1rem;
+    text-transform: uppercase;
+    text-align: center;
   }
-
+  h1,
+  h2 {
+    font-family: "Stick No Bills";
+    letter-spacing: 1px;
+  }
+  p {
+    font-size: 2rem;
+    max-width: 70ch;
+    margin-top: 1rem;
+    line-height: 1.1;
+    text-align: center;
+  }
+  h1,
+  p {
+    width: fit-content;
+    margin-inline: auto;
+  }
   .gallery-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -159,6 +181,7 @@ const patrullasImagePaths = Object.keys(patrullas).map((path) =>
     transition: 0.5s;
     background: black;
     padding-bottom: 1em;
+    border-bottom: 1px solid brown;
   }
 
   @media (min-width: 768px) {
