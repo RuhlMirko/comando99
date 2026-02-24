@@ -3,7 +3,6 @@ import Navbar from "../components/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 
-const images = import.meta.glob("/public/images/galeria/*.*", { eager: true });
 const entrenamientos = import.meta.glob(
   "/public/images/galeria/entrenamientos/*.*",
   { eager: true },
@@ -11,7 +10,16 @@ const entrenamientos = import.meta.glob(
 const misiones = import.meta.glob("/public/images/galeria/misiones/*.*", {
   eager: true,
 });
-const imagePaths = Object.keys(images).map((path) =>
+const patrullas = import.meta.glob("/public/images/galeria/patrullas/*.*", {
+  eager: true,
+});
+const misionesImagePaths = Object.keys(misiones).map((path) =>
+  path.replace("/public", ""),
+);
+const entrenamientosImagePaths = Object.keys(entrenamientos).map((path) =>
+  path.replace("/public", ""),
+);
+const patrullasImagePaths = Object.keys(patrullas).map((path) =>
   path.replace("/public", ""),
 );
 ---
@@ -33,9 +41,52 @@ const imagePaths = Object.keys(images).map((path) =>
       actividades.
     </p>
     <div>
+      <h2>Misiones</h2>
       <div class="gallery-list">
         {
-          imagePaths.map((item) => {
+          misionesImagePaths.map((item) => {
+            const filename =
+              item.split("/").pop()?.split(".")[0].split("-").join(" ") ||
+              "imagen";
+            return (
+              <div class="gallery-item">
+                <Image
+                  src={item}
+                  alt={`Comando 99 - ${filename}`}
+                  width={800}
+                  height={200}
+                />
+                <p>{filename}</p>
+              </div>
+            );
+          })
+        }
+      </div>
+      <h2>Entrenamientos</h2>
+      <div class="gallery-list">
+        {
+          entrenamientosImagePaths.map((item) => {
+            const filename =
+              item.split("/").pop()?.split(".")[0].split("-").join(" ") ||
+              "imagen";
+            return (
+              <div class="gallery-item">
+                <Image
+                  src={item}
+                  alt={`Comando 99 - ${filename}`}
+                  width={800}
+                  height={200}
+                />
+                <p>{filename}</p>
+              </div>
+            );
+          })
+        }
+      </div>
+      <h2>Patrullas</h2>
+      <div class="gallery-list">
+        {
+          patrullasImagePaths.map((item) => {
             const filename =
               item.split("/").pop()?.split(".")[0].split("-").join(" ") ||
               "imagen";
@@ -82,19 +133,32 @@ const imagePaths = Object.keys(images).map((path) =>
       sans-serif;
   }
 
+  h1,
+  h2,
+  p {
+    margin-left: 2rem;
+    padding: 0;
+  }
+
   h1 {
     font-size: 3rem;
+    margin-top: 150px;
   }
-  main {
-    padding-inline: 2%;
+  h2 {
+    font-size: 3em;
+    margin-bottom: 0;
   }
+
   .gallery-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 10px;
     margin-bottom: 0;
     padding-top: 1em;
+    padding-inline: 1em;
     transition: 0.5s;
+    background: black;
+    padding-bottom: 1em;
   }
 
   @media (min-width: 768px) {
