@@ -48,7 +48,7 @@ const images = Object.fromEntries(
         {
           images.misiones.map((item, index) => {
             const filename =
-              item.split("/").pop()?.split(".")[0].split("-").join(" ") ||
+              item.split("/").pop()?.split(".")[0].replaceAll("-", "/") ||
               "imagen";
             return (
               <div class="gallery-item">
@@ -71,7 +71,7 @@ const images = Object.fromEntries(
         {
           images.entrenamientos.map((item) => {
             const filename =
-              item.split("/").pop()?.split(".")[0].split("-").join(" ") ||
+              item.split("/").pop()?.split(".")[0].replaceAll("-", "/") ||
               "imagen";
             return (
               <div class="gallery-item">
@@ -92,7 +92,7 @@ const images = Object.fromEntries(
         {
           images.patrullas.map((item) => {
             const filename =
-              item.split("/").pop()?.split(".")[0].split("-").join(" ") ||
+              item.split("/").pop()?.split(".")[0].replaceAll("-", "/") ||
               "imagen";
             return (
               <div class="gallery-item">
