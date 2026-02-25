@@ -3,25 +3,27 @@ import Navbar from "../components/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 
-const entrenamientos = import.meta.glob(
-  "/public/images/galeria/entrenamientos/*.*",
-  { eager: true },
-);
-const misiones = import.meta.glob("/public/images/galeria/misiones/*.*", {
+const galleryFiles = import.meta.glob("/public/images/galeria/*/*.*", {
   eager: true,
 });
-const patrullas = import.meta.glob("/public/images/galeria/patrullas/*.*", {
-  eager: true,
-});
-const misionesImagePaths = Object.keys(misiones).map((path) =>
-  path.replace("/public", ""),
-);
-const entrenamientosImagePaths = Object.keys(entrenamientos).map((path) =>
-  path.replace("/public", ""),
-);
-const patrullasImagePaths = Object.keys(patrullas).map((path) =>
-  path.replace("/public", ""),
-);
+
+const getPublicImagePaths = (dir: string) => {
+  return Object.keys(galleryFiles)
+    .filter((path) => path.includes(`/public/images/galeria/${dir}/`))
+    .sort((a, b) => a.localeCompare(b))
+    .map((path) => path.replace("/public", ""));
+};
+
+const categories = {
+  misiones: "Misiones",
+  entrenamientos: "Entrenamientos",
+  patrullas: "Patrullas",
+  // escenas: "Escenas",
+} as const;
+
+const images = Object.fromEntries(
+  Object.keys(categories).map((key) => [key, getPublicImagePaths(key)]),
+) as Record<keyof typeof categories, string[]>;
 ---
 
 <Layout>
@@ -44,7 +46,7 @@ const patrullasImagePaths = Object.keys(patrullas).map((path) =>
       <h2>Misiones</h2>
       <div class="gallery-list">
         {
-          misionesImagePaths.map((item) => {
+          images.misiones.map((item, index) => {
             const filename =
               item.split("/").pop()?.split(".")[0].split("-").join(" ") ||
               "imagen";
@@ -55,6 +57,8 @@ const patrullasImagePaths = Object.keys(patrullas).map((path) =>
                   alt={`Comando 99 - ${filename}`}
                   width={800}
                   height={200}
+                  loading={index < 6 ? "eager" : "lazy"}
+                  fetchpriority={index === 0 ? "high" : "auto"}
                 />
                 <p>{filename}</p>
               </div>
@@ -65,7 +69,7 @@ const patrullasImagePaths = Object.keys(patrullas).map((path) =>
       <h2>Entrenamientos</h2>
       <div class="gallery-list">
         {
-          entrenamientosImagePaths.map((item) => {
+          images.entrenamientos.map((item) => {
             const filename =
               item.split("/").pop()?.split(".")[0].split("-").join(" ") ||
               "imagen";
@@ -86,7 +90,7 @@ const patrullasImagePaths = Object.keys(patrullas).map((path) =>
       <h2>Patrullas</h2>
       <div class="gallery-list">
         {
-          patrullasImagePaths.map((item) => {
+          images.patrullas.map((item) => {
             const filename =
               item.split("/").pop()?.split(".")[0].split("-").join(" ") ||
               "imagen";
