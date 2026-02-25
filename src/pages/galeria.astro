@@ -18,7 +18,7 @@ const categories = {
   misiones: "Misiones",
   entrenamientos: "Entrenamientos",
   patrullas: "Patrullas",
-  // escenas: "Escenas",
+  escenas: "Escenas",
 } as const;
 
 const images = Object.fromEntries(
@@ -43,7 +43,7 @@ const images = Object.fromEntries(
       actividades.
     </p>
     <div>
-      <h2>Misiones</h2>
+      <h2 id="misiones">Misiones</h2>
       <div class="gallery-list">
         {
           images.misiones.map((item, index) => {
@@ -66,7 +66,7 @@ const images = Object.fromEntries(
           })
         }
       </div>
-      <h2>Entrenamientos</h2>
+      <h2 id="training">Entrenamientos</h2>
       <div class="gallery-list">
         {
           images.entrenamientos.map((item) => {
@@ -87,10 +87,31 @@ const images = Object.fromEntries(
           })
         }
       </div>
-      <h2>Patrullas</h2>
+      <h2 id="patrullas">Patrullas</h2>
       <div class="gallery-list">
         {
           images.patrullas.map((item) => {
+            const filename =
+              item.split("/").pop()?.split(".")[0].split("-").join(" ") ||
+              "imagen";
+            return (
+              <div class="gallery-item">
+                <Image
+                  src={item}
+                  alt={`Comando 99 - ${filename}`}
+                  width={800}
+                  height={200}
+                />
+                <p>{filename}</p>
+              </div>
+            );
+          })
+        }
+      </div>
+      <h2 id="escenas">Escenas</h2>
+      <div class="gallery-list">
+        {
+          images.escenas.map((item) => {
             const filename =
               item.split("/").pop()?.split(".")[0].split("-").join(" ") ||
               "imagen";
@@ -117,6 +138,9 @@ const images = Object.fromEntries(
 </Layout>
 
 <style>
+  html {
+    scroll-padding-top: 60px;
+  }
   body {
     max-width: 100vw;
     overflow-x: hidden;
@@ -141,7 +165,6 @@ const images = Object.fromEntries(
   h2,
   p {
     display: block;
-    padding-left: 2rem;
   }
 
   h1 {
