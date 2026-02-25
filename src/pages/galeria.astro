@@ -298,7 +298,7 @@ const images = Object.fromEntries(
   }
 </style>
 <script>
-  const photoList = document.querySelector(".gallery-list");
+  const photoLists = document.querySelectorAll(".gallery-list");
   const modal = document.querySelector(".gallery-modal");
   const modalImage = document.querySelector(
     ".gallery-modal-image",
@@ -322,10 +322,12 @@ const images = Object.fromEntries(
     modalImage.src = "";
   };
 
-  photoList?.addEventListener("click", (event) => {
-    const target = event.target;
-    if (!(target instanceof HTMLImageElement)) return;
-    openModal(target.currentSrc || target.src, target.alt);
+  photoLists.forEach((photoList) => {
+    photoList.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLImageElement)) return;
+      openModal(target.currentSrc || target.src, target.alt);
+    });
   });
 
   modalClose?.addEventListener("click", closeModal);
