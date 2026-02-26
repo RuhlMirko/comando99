@@ -224,6 +224,32 @@ const slides = [
       height: 25vw;
     }
   }
+  @media (max-width: 1100px) {
+    .carousel-track {
+      height: 450px;
+    }
+    .carousel-slide {
+      display: block;
+      width: 100%;
+    }
+    .slide-content p,
+    .slide-content h3 {
+      font-size: 2rem;
+      max-width: none;
+    }
+    .slide-content img {
+      display: none;
+      position: absolute;
+    }
+    .slide-content button {
+      font-size: 2rem;
+      width: 100%;
+    }
+    .carousel-btn:hover {
+      background: none;
+      color: #c90303;
+    }
+  }
 </style>
 
 <script>
