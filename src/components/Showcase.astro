@@ -234,7 +234,7 @@ const slides = [
     }
     .slide-content p,
     .slide-content h3 {
-      font-size: 2rem;
+      font-size: 1.5rem;
       max-width: none;
     }
     .slide-content img {
@@ -244,10 +244,16 @@ const slides = [
     .slide-content button {
       font-size: 2rem;
       width: 100%;
+      text-transform: capitalize;
+      font-weight: 500;
     }
-    .carousel-btn:hover {
+    .carousel-btn {
       background: none;
-      color: #c90303;
+      color: rgba(255, 255, 255, 0.548);
+    }
+    .carousel-btn:focus {
+      background: none;
+      color: white;
     }
   }
 </style>
