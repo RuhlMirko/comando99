@@ -3,16 +3,12 @@ interface Props {
   navLinks: Record<string, string>;
 }
 const { navLinks } = Astro.props;
-const entries = Object.entries(navLinks); // [key, value][]
+const entries = Object.entries(navLinks);
 ---
 
 <header>
   <nav>
     <ul class="nav-links">
-      <!-- <li><a href="#hero">Inicio</a></li>
-      <li><a href="#showcase">Sobre Nosotros</a></li>
-      <li><a href="#gallery">Galeria</a></li>
-      <li><a href="#faq">Preguntas Frecuentes</a></li> -->
       {
         entries.map((item) => (
           <li>
