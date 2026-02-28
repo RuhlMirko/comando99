@@ -6,8 +6,8 @@ import logo from "../../public/images/logo.png";
 <main>
   <div class="scanline-overlay"></div>
   <section class="hero" id="hero">
-    <span class="reclutamos">Fase de reclutamiento: Abierta</span>
     <Image src={logo} alt="comando 99 logo" loading="eager" />
+    <span class="reclutamos">Fase de reclutamiento: Abierta</span>
     <h1>
       Excelencia <br /><span style="color: red;">Tactica</span>
     </h1>
@@ -129,6 +129,8 @@ import logo from "../../public/images/logo.png";
     }
     .reclutamos {
       font-size: 3vw;
+      display: block;
+      text-align: center;
     }
 
     img {
@@ -136,12 +138,17 @@ import logo from "../../public/images/logo.png";
       width: 90vw;
       height: 90vw;
     }
+    img,
+    .reclutamos {
+      margin-inline: auto;
+    }
 
     .hero {
       background: #111111b9;
       backdrop-filter: blur(5px);
       margin: 0;
       padding-top: 10vh;
+      padding-bottom: 3rem;
     }
   }
 </style>
