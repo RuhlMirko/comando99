@@ -33,7 +33,17 @@ const entries = Object.entries(navLinks);
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
       </button>
-      <div></div>
+      <div class="nav-menu-modal">
+        <ul>
+          {
+            entries.map((item) => (
+              <li>
+                <a href={`#${item[0]}`}>{item[1]}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </div>
   </nav>
 </header>
@@ -78,6 +88,7 @@ const entries = Object.entries(navLinks);
   .nav-menu {
     display: none;
   }
+
   @media (max-width: 590px) {
     .nav-links {
       display: none;
@@ -100,5 +111,41 @@ const entries = Object.entries(navLinks);
         color: black;
       }
     }
+    .nav-menu-modal {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      display: none;
+      background: #270606d2;
+      z-index: -1;
+      backdrop-filter: blur(25px);
+
+      ul {
+        margin-top: 120px;
+        display: flex;
+        gap: 8vw;
+        flex-direction: column;
+        justify-content: center;
+        align-items: end;
+        list-style-type: none;
+        padding-inline: 14px;
+
+        li a {
+          color: white;
+          font-size: 2.3rem;
+        }
+      }
+    }
+    .active-modal {
+      display: block;
+    }
   }
 </style>
+<script>
+  const navMenuBtn = document.querySelector(".nav-menu button");
+  const navModal = document.querySelector(".nav-menu-modal");
+  navMenuBtn?.addEventListener("click", function () {
+    navModal?.classList.toggle("active-modal");
+  });
+</script>
