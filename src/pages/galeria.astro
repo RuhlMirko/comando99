@@ -308,16 +308,21 @@ const images = Object.fromEntries(
   .gallery-modal-close {
     position: absolute;
     top: 6vh;
-    right: 3vw;
-    font-size: 3vw;
+    right: 30px;
+    font-size: 50px;
     line-height: 1;
-    width: 4vw;
+    width: 70px;
     aspect-ratio: 1;
     border: none;
     border-radius: 999px;
     color: white;
     background: rgba(129, 1, 1, 0.7);
     cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: rgb(175, 4, 4);
+    }
   }
 </style>
 <script>
