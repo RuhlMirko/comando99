@@ -78,12 +78,14 @@ const slides = [
     padding-bottom: 1em;
     padding-top: 1em;
     background: black;
+    margin-bottom: 3rem;
   }
   .carousel-container {
     position: relative;
     width: 100%;
     margin: 0 auto;
     overflow: auto;
+    border-block: 3px solid #4b0303;
   }
 
   .carousel {
@@ -149,18 +151,19 @@ const slides = [
     width: 24px;
     height: 12px;
     border-radius: 25px;
-    border: 2px solid #5f0909;
+    border: 2px solid #470404;
     background: transparent;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: box-shadow 0.3s;
   }
 
   .pagination-dot.active {
-    background: #5f0909;
+    background: #aa0505;
   }
 
   .pagination-dot:hover {
-    background: #c90303;
+    background: red;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.589);
   }
 
   .slide-content {

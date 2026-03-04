@@ -17,13 +17,13 @@ import Showcase from "../components/Showcase.astro";
     }}
   />
   <Welcome />
-  <div class="reveal-up reveal-delay-1">
+  <div class="reveal-up">
     <Showcase />
   </div>
-  <div class="reveal-up reveal-delay-2">
+  <div class="reveal-up">
     <Galeria />
   </div>
-  <div class="reveal-up reveal-delay-3">
+  <div class="reveal-up">
     <Faq />
   </div>
 </Layout>
@@ -66,8 +66,7 @@ import Showcase from "../components/Showcase.astro";
   section {
     margin-inline: 5vw;
     padding-bottom: 1em;
-    margin-bottom: 2em;
-    /* border-bottom: 2px solid rgba(165, 42, 42, 0.445); */
+    margin-bottom: 4em;
   }
 
   .navigation-chevron {
@@ -84,26 +83,14 @@ import Showcase from "../components/Showcase.astro";
     animation: reveal-from-bottom 650ms ease-out both;
   }
 
-  .reveal-delay-1 {
-    animation-delay: 80ms;
-  }
-
-  .reveal-delay-2 {
-    animation-delay: 180ms;
-  }
-
-  .reveal-delay-3 {
-    animation-delay: 280ms;
-  }
-
   @keyframes reveal-from-bottom {
     from {
       opacity: 0;
-      transform: translateY(36px);
+      transform: translateX(36px);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateX(0);
     }
   }
 
@@ -136,7 +123,7 @@ import Showcase from "../components/Showcase.astro";
       },
       {
         threshold: 0.15,
-        rootMargin: "0px 0px -8% 0px",
+        rootMargin: "0px 0px -4% 0px",
       },
     );
 
