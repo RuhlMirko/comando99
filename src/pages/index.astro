@@ -17,9 +17,15 @@ import Showcase from "../components/Showcase.astro";
     }}
   />
   <Welcome />
-  <Showcase />
-  <Galeria />
-  <Faq />
+  <div class="reveal-up reveal-delay-1">
+    <Showcase />
+  </div>
+  <div class="reveal-up reveal-delay-2">
+    <Galeria />
+  </div>
+  <div class="reveal-up reveal-delay-3">
+    <Faq />
+  </div>
 </Layout>
 
 <style is:global>
@@ -68,4 +74,74 @@ import Showcase from "../components/Showcase.astro";
     margin-left: 4px;
     font-size: 0.8em;
   }
+
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(36px);
+  }
+
+  .reveal-up.is-revealed {
+    animation: reveal-from-bottom 650ms ease-out both;
+  }
+
+  .reveal-delay-1 {
+    animation-delay: 80ms;
+  }
+
+  .reveal-delay-2 {
+    animation-delay: 180ms;
+  }
+
+  .reveal-delay-3 {
+    animation-delay: 280ms;
+  }
+
+  @keyframes reveal-from-bottom {
+    from {
+      opacity: 0;
+      transform: translateY(36px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-up {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
 </style>
+
+<script>
+  const revealItems = document.querySelectorAll(".reveal-up");
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  if (prefersReducedMotion) {
+    revealItems.forEach((item) => item.classList.add("is-revealed"));
+  } else if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries, currentObserver) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add("is-revealed");
+          currentObserver.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: "0px 0px -8% 0px",
+      },
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+  } else {
+    revealItems.forEach((item) => item.classList.add("is-revealed"));
+  }
+</script>
