@@ -72,6 +72,8 @@ const entries = Object.entries(navLinks);
     list-style-type: none;
     padding-bottom: 1.2em;
     border-bottom: 1px solid rgba(255, 0, 0, 0.349);
+    transform-origin: top;
+    animation: reveal-nav-links 0.5s ease-in both;
   }
   .nav-links li a {
     color: inherit;
@@ -87,6 +89,25 @@ const entries = Object.entries(navLinks);
   }
   .nav-menu {
     display: none;
+  }
+
+  @keyframes reveal-nav-links {
+    from {
+      clip-path: inset(0 0 100% 0);
+      opacity: 0.5;
+      transform: translateY(-14px);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav-links {
+      animation: none;
+    }
   }
 
   @media (max-width: 590px) {

@@ -36,12 +36,17 @@ const images = Object.fromEntries(
     }}
   />
   <main>
-    <h1>Galeria de Comando 99</h1>
-    <p>
-      Esta es una recopilacion de fotos/capturas de pantallas de misiones,
-      entrenamientos, escenas recreadas y patrullas realizadas en nuestras
-      actividades.
-    </p>
+    <header>
+      <a href="/"><span>←</span>Volver al Inicio</a>
+
+      <h1>Galeria de Comando 99</h1>
+      <p>
+        Esta es una recopilacion de fotos/capturas de pantallas de misiones,
+        entrenamientos, escenas recreadas y patrullas realizadas en nuestras
+        actividades.
+      </p>
+    </header>
+
     <div>
       <h2 id="misiones">Misiones</h2>
       <div class="gallery-list">
@@ -167,9 +172,39 @@ const images = Object.fromEntries(
     display: block;
   }
 
+  main header {
+    margin-top: 150px;
+    margin-bottom: 70px;
+  }
+  a {
+    position: fixed;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.404);
+    background: #121212;
+    text-decoration: none;
+    padding: 6px 1em;
+    display: block;
+    width: fit-content;
+    top: 1rem;
+    left: 2rem;
+    z-index: 40;
+    transition: 0.2s;
+
+    span {
+      font-size: 1.2rem;
+      line-height: 1;
+      padding-right: 0.5rem;
+    }
+
+    &:hover {
+      background: #3b0d0d;
+      border-color: rgba(255, 255, 255, 0.466);
+    }
+  }
+
   h1 {
     font-size: 3rem;
-    margin-top: 150px;
+    margin-top: 0;
     margin-bottom: 0;
   }
   h2 {
