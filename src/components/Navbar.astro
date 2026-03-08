@@ -53,10 +53,6 @@ const entries = Object.entries(navLinks);
     padding: 0;
     margin: 0;
   }
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 15vh;
-  }
   header {
     width: 100%;
     position: fixed;
@@ -93,12 +89,10 @@ const entries = Object.entries(navLinks);
 
   @keyframes reveal-nav-links {
     from {
-      clip-path: inset(0 0 100% 0);
       opacity: 0.5;
-      transform: translateY(-14px);
+      transform: translateY(-100%);
     }
     to {
-      clip-path: inset(0 0 0 0);
       opacity: 1;
       transform: translateY(0);
     }
@@ -169,6 +163,26 @@ const entries = Object.entries(navLinks);
 <script>
   const navMenuBtn = document.querySelector(".nav-menu button");
   const navModal = document.querySelector(".nav-menu-modal");
+
+  const navAnchors = document.querySelectorAll(
+    '.nav-links a[href^="#"], .nav-menu-modal a[href^="#"]',
+  );
+
+  navAnchors.forEach((anchor) => {
+    anchor.addEventListener("click", (event) => {
+      const href = anchor.getAttribute("href");
+      if (!href || href.length < 2) return;
+
+      const target = document.querySelector(href) as HTMLElement | null;
+      if (!target) return;
+
+      event.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      history.replaceState(null, "", href);
+      navModal?.classList.remove("active-modal");
+    });
+  });
+
   navMenuBtn?.addEventListener("click", function () {
     navModal?.classList.toggle("active-modal");
   });
