@@ -6,7 +6,7 @@ const slides = [
       paragrapgh:
         "En Comando 99 esperamos que cada miembro sea responsable en sus roles de manera ordenada.",
       subtitle: "Respeto - Trabajo en equipo - Eficacia operativa",
-      redirect: "Mas informacion",
+      redirect: { text: "Ver mas informacion", page: "/roles" },
       thumbnail: "./images/rangos/red_beret_salute.webp",
       altText: "Soldier with red beret looking proudly to the sky",
     },
@@ -17,7 +17,7 @@ const slides = [
       paragrapgh:
         "Tenemos actividades todos los dias, desde entrenamientos y cursos hasta patrullas y misiones con experiencias reales.",
       subtitle: "Entrenamientos - Cursos - Patrullas - Misiones",
-      redirect: "Mas informacion",
+      redirect: { text: "Ver roles", page: "/roles" },
       thumbnail: "./images/rangos/simple_Hat.webp",
       altText: "Soldier with army hat looking proudly to the sky",
     },
@@ -28,7 +28,7 @@ const slides = [
       paragrapgh:
         "Operamos en una herarquia de rangos y como tal se debe respetar la cadena de mando.",
       subtitle: "Ascensos - Merito - Escalafon",
-      redirect: "Mas informacion",
+      redirect: { text: "Ver escalafon", page: "/roles" },
       thumbnail: "./images/rangos/modular_helmet.webp",
       altText: "Soldier with modular helmet looking proudly to the sky",
     },
@@ -47,7 +47,9 @@ const slides = [
                 <h2>{slide.title}</h2>
                 <h3>{slide.content.subtitle}</h3>
                 <p>{slide.content.paragrapgh}</p>
-                <button>{slide.content.redirect}</button>
+                <a href={slide.content.redirect.page}>
+                  {slide.content.redirect.text}
+                </a>
               </div>
               <img src={slide.content.thumbnail} alt={slide.content.altText} />
             </div>
@@ -198,14 +200,16 @@ const slides = [
         max-width: 40ch;
       }
 
-      button {
-        border-color: transparent;
+      a {
+        display: block;
+        text-align: center;
+        border: 1px solid transparent;
         background: hsla(0, 99%, 49%, 0.63);
         text-shadow: 0 0 5px rgb(0, 0, 0);
         color: white;
         padding: 0.5em 2em;
         font-size: 1em;
-        font-weight: 900;
+        font-weight: 600;
         text-transform: uppercase;
         font-family: inherit;
         letter-spacing: 1px;
