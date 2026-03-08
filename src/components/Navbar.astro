@@ -168,21 +168,6 @@ const entries = Object.entries(navLinks);
     '.nav-links a[href^="#"], .nav-menu-modal a[href^="#"]',
   );
 
-  navAnchors.forEach((anchor) => {
-    anchor.addEventListener("click", (event) => {
-      const href = anchor.getAttribute("href");
-      if (!href || href.length < 2) return;
-
-      const target = document.querySelector(href) as HTMLElement | null;
-      if (!target) return;
-
-      event.preventDefault();
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-      history.replaceState(null, "", href);
-      navModal?.classList.remove("active-modal");
-    });
-  });
-
   navMenuBtn?.addEventListener("click", function () {
     navModal?.classList.toggle("active-modal");
   });
