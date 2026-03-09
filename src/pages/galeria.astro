@@ -48,8 +48,8 @@ const images = Object.fromEntries(
     </header>
 
     <div>
-      <h2 id="misiones">Misiones</h2>
-      <div class="gallery-list">
+      <h2>Misiones</h2>
+      <div class="gallery-list" id="misiones">
         {
           images.misiones.map((item, index) => {
             const filename =
@@ -71,8 +71,8 @@ const images = Object.fromEntries(
           })
         }
       </div>
-      <h2 id="training">Entrenamientos</h2>
-      <div class="gallery-list">
+      <h2>Entrenamientos</h2>
+      <div class="gallery-list" id="training">
         {
           images.entrenamientos.map((item) => {
             const filename =
@@ -92,8 +92,8 @@ const images = Object.fromEntries(
           })
         }
       </div>
-      <h2 id="patrullas">Patrullas</h2>
-      <div class="gallery-list">
+      <h2>Patrullas</h2>
+      <div class="gallery-list" id="patrullas">
         {
           images.patrullas.map((item) => {
             const filename =
@@ -113,8 +113,8 @@ const images = Object.fromEntries(
           })
         }
       </div>
-      <h2 id="escenas">Escenas</h2>
-      <div class="gallery-list">
+      <h2>Escenas</h2>
+      <div class="gallery-list" id="escenas">
         {
           images.escenas.map((item) => {
             const filename =
@@ -187,15 +187,15 @@ const images = Object.fromEntries(
   h2 {
     font-size: 3em;
     margin-bottom: 0;
-    border-block: 2px solid rgb(145, 4, 4);
+    border-top: 2px solid rgb(51, 1, 1);
     background: #1d0101c0;
     padding: 0.5rem 0;
     text-transform: uppercase;
     text-align: center;
-    /* position: sticky;
+    position: sticky;
     top: 68px;
-    z-index: 50;
-    backdrop-filter: blur(25px); */
+    z-index: 20;
+    backdrop-filter: blur(25px);
   }
   h1,
   h2 {
