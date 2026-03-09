@@ -1,13 +1,21 @@
 ---
 interface Props {
   navLinks: Record<string, string>;
+  isNotFrontPage?: boolean;
 }
-const { navLinks } = Astro.props;
+const { navLinks, isNotFrontPage = false } = Astro.props;
 const entries = Object.entries(navLinks);
 ---
 
 <header>
   <nav>
+    {
+      isNotFrontPage && (
+        <a href="/" class="go-home">
+          <span>←</span>Volver al Inicio
+        </a>
+      )
+    }
     <ul class="nav-links">
       {
         entries.map((item) => (
@@ -69,6 +77,8 @@ const entries = Object.entries(navLinks);
     padding-bottom: 1.2em;
     border-bottom: 1px solid rgba(255, 0, 0, 0.349);
     transform-origin: top;
+  }
+  nav {
     animation: reveal-nav-links 0.5s ease-in both;
   }
   .nav-links li a {
@@ -85,6 +95,32 @@ const entries = Object.entries(navLinks);
   }
   .nav-menu {
     display: none;
+  }
+
+  .go-home {
+    position: fixed;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.404);
+    background: #121212;
+    text-decoration: none;
+    padding: 6px 1em;
+    display: block;
+    width: fit-content;
+    top: 1rem;
+    left: 2rem;
+    z-index: 40;
+    transition: 0.2s;
+
+    span {
+      font-size: 1.2rem;
+      line-height: 1;
+      padding-right: 0.5rem;
+    }
+
+    &:hover {
+      background: #3b0d0d;
+      border-color: rgba(255, 255, 255, 0.466);
+    }
   }
 
   @keyframes reveal-nav-links {
