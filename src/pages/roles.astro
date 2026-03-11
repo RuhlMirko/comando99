@@ -33,7 +33,118 @@ import Navbar from "../components/Navbar.astro";
     </div>
     <h2>Roles</h2>
     <p>Cada miembro podra capacitarse en el rol que desee.</p>
-    <div class="roles" id="roles"></div>
+    <div class="roles" id="roles">
+      <div class="role-cell role-header">Inicial</div>
+      <div class="role-cell role-header">Capacitacion Rol Basico</div>
+      <div class="role-cell role-header">Capacitacion Rol Experimentado</div>
+      <div class="role-cell role-header">Capacitacion Rol Avanzado</div>
+      <div class="role-cell role-header">Capacitacion Maestria</div>
+
+      <div class="role-cell role-name fusilero">Fusilero</div>
+      <div class="role-cell role-section infanteria">Arma de infanteria</div>
+
+      <div class="role-cell infanteria">Explorador</div>
+      <div class="role-cell infanteria">Tirador selecto</div>
+      <div class="role-cell infanteria">Francotirador</div>
+      <div class="role-cell infanteria">Observador</div>
+
+      <div class="role-cell infanteria">Granadero</div>
+      <div class="role-cell infanteria">
+        <span>Soldado AT Ligero</span>
+        <br />
+        <span>Soldado AA Ligero</span>
+      </div>
+      <div class="role-cell infanteria">Soldado AT Pesado</div>
+      <div class="role-cell infanteria">Operador de Armas Pesadas</div>
+
+      <div class="role-cell infanteria">Enfermero</div>
+      <div class="role-cell infanteria">Enfermero de Combate</div>
+      <div class="role-cell infanteria">Medico de combate</div>
+      <div class="role-cell infanteria">Medico Cirujano</div>
+
+      <div class="role-cell infanteria">
+        <span>Portamuniciones</span>
+        <br />
+        <span>Fusilero Automatico</span>
+      </div>
+      <div class="role-cell infanteria">Ametrallador ligero</div>
+      <div class="role-cell infanteria">Ametrallador mediano</div>
+      <div class="role-cell role-empty"></div>
+
+      <div class="role-cell infanteria">Ingeniero EOD</div>
+      <div class="role-cell infanteria">Ingeniero Zapador</div>
+      <div class="role-cell infanteria">Especialista en demoliciones</div>
+      <div class="role-cell role-empty"></div>
+
+      <div class="role-cell role-section">Arma de caballeria</div>
+
+      <div class="role-cell">Conductor de Mecanizada</div>
+      <div class="role-cell">Artillero de Mecanizada</div>
+      <div class="role-cell">Comandante de Mecanizada</div>
+      <div class="role-cell role-empty"></div>
+
+      <div class="role-cell">Conductor de tanque</div>
+      <div class="role-cell">Mecanico tanquista</div>
+      <div class="role-cell">Artillero de tanque</div>
+      <div class="role-cell">Comandante de Tanque</div>
+
+      <div class="role-cell">Artillero de Movilidad Ligera</div>
+      <div class="role-cell">Conductor de Movilidad Ligera</div>
+      <div class="role-cell">Cabeza de Convoy</div>
+      <div class="role-cell">Experto en Planeamiento y Maniobra</div>
+
+      <div class="role-cell">Ingeniero Mecanico</div>
+      <div class="role-cell">Especialista en recuperacion y remolque</div>
+      <div class="role-cell">Especialista en rescate blindado</div>
+      <div class="role-cell role-empty"></div>
+
+      <div class="role-cell">Paramedico</div>
+      <div class="role-cell">Conductor de ambulancia</div>
+      <div class="role-cell">Especialista en exploracion motorizada</div>
+      <div class="role-cell role-empty"></div>
+
+      <div class="role-cell role-section">Arma de servicios</div>
+
+      <div class="role-cell">Radio Operador de escuadra</div>
+      <div class="role-cell">Encargado de control aereo (J.T.A.C.)</div>
+      <div class="role-cell">Observador de Artilleria</div>
+      <div class="role-cell">Especialista en comunicaciones</div>
+
+      <div class="role-cell">Operador de mortero</div>
+      <div class="role-cell">Operador de Artilleria</div>
+      <div class="role-cell">Operador de Artilleria Autopropulsada</div>
+      <div class="role-cell">Coordinador de fuego de artilleria</div>
+
+      <div class="role-cell">Operador de dron explorador</div>
+      <div class="role-cell">Operador de dron de combate</div>
+      <div class="role-cell">Operador de Dron UAV de exploracion</div>
+      <div class="role-cell">Operador de Dron UAV de Ataque</div>
+
+      <div class="role-cell">Paramedico</div>
+      <div class="role-cell">Especialista en rescate aereo</div>
+      <div class="role-cell">Cirujano de emergencias</div>
+      <div class="role-cell role-empty"></div>
+
+      <div class="role-cell">Conductor de logistica pesado</div>
+      <div class="role-cell">Conductor de logistica liviano</div>
+      <div class="role-cell">Especialista de logistica de ala rotativa</div>
+      <div class="role-cell">Especialista de logistica de ala fija</div>
+
+      <div class="role-cell role-level">Nivel Basico (0-50 pts)</div>
+      <div class="role-cell role-level">Nivel Intermedio (51-100 pts)</div>
+      <div class="role-cell role-level">Nivel Avanzado (101-150 pts)</div>
+      <div class="role-cell role-level">Nivel Maestro (151+ pts)</div>
+
+      <div class="role-cell">Aviones de entrenamiento y reconocimiento</div>
+      <div class="role-cell">Su-25/A-29</div>
+      <div class="role-cell">A-10C/F-16</div>
+      <div class="role-cell">F-22/Mig-29</div>
+
+      <div class="role-cell">Helicopteros de transporte</div>
+      <div class="role-cell">AH-6 (Little bird) / UH-1Y</div>
+      <div class="role-cell">AH-64D/AH-1Z</div>
+      <div class="role-cell">UH-60 DAP / RAH-66</div>
+    </div>
     <p>
       Los roles tienen su propio sistema de ascenso, despues de completar sus
       correspondientes cantidad de actividades en su rol podra rendir su
@@ -105,7 +216,9 @@ import Navbar from "../components/Navbar.astro";
   }
 
   .actividades-container h3:nth-child(-n + 7) {
-    background-color: #bd1c26;
+    /* background-color: #bd1c26; */
+    background: #69090fc4;
+    background: linear-gradient(to bottom, #69090fc4, #bd1c26);
     border: none;
     border: 1px solid rgb(153, 6, 6);
     border-bottom: none;
@@ -114,6 +227,7 @@ import Navbar from "../components/Navbar.astro";
   .rol-ascenso {
     border: 1px solid rgb(189, 8, 8);
     width: fit-content;
+    background: #69090fc4;
     background: linear-gradient(to bottom, #69090fc4, #9c040e);
 
     h3 {
@@ -122,5 +236,63 @@ import Navbar from "../components/Navbar.astro";
       margin-bottom: 0;
       padding-bottom: 1em;
     }
+  }
+
+  .roles {
+    display: grid;
+    grid-template-columns: 1.1fr repeat(4, 1fr);
+    margin: 1.5rem 0 2rem;
+  }
+
+  .role-cell {
+    border: 1px solid #2f2f2f;
+    padding: 0.45rem 0.55rem;
+    font-size: 0.95rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 42px;
+  }
+
+  .role-header {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: 0.4px;
+    min-height: 52px;
+    background: #69090fc4;
+    background: linear-gradient(to bottom, #69090fc4, #9c040e);
+  }
+
+  .fusilero {
+    background: #2f2f2f;
+  }
+
+  .infanteria {
+    background: #3a4e31;
+    background: linear-gradient(to bottom, #436d30, #3a4e31);
+  }
+
+  .role-name {
+    grid-column: 1;
+    grid-row: 2 / span 21;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .role-section {
+    grid-column: 2 / span 4;
+    font-weight: 600;
+    min-height: 34px;
+  }
+
+  .role-empty {
+    background-color: #111;
+  }
+
+  .role-level {
+    font-weight: 600;
   }
 </style>
