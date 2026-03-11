@@ -32,7 +32,10 @@ import Navbar from "../components/Navbar.astro";
       <h3>Misiones</h3>
     </div>
     <h2>Roles</h2>
-    <p>Cada miembro podra capacitarse en el rol que desee.</p>
+    <p>
+      Cada miembro podra pertenecer a un arma que desee, solo podra capacitarse
+      y ejercer los roles de su arma correspondiente.
+    </p>
     <div class="roles" id="roles">
       <div class="role-cell role-header">Inicial</div>
       <div class="role-cell role-header">Capacitacion Rol Basico</div>
@@ -112,47 +115,57 @@ import Navbar from "../components/Navbar.astro";
       </div>
       <div class="role-cell role-empty"></div>
 
-      <div class="role-cell role-section">Arma de servicios</div>
+      <div class="role-cell role-section servicios">Arma de servicios</div>
 
-      <div class="role-cell">Radio Operador de escuadra</div>
-      <div class="role-cell">Encargado de control aereo (J.T.A.C.)</div>
-      <div class="role-cell">Observador de Artilleria</div>
-      <div class="role-cell">Especialista en comunicaciones</div>
+      <div class="role-cell servicios">Radio Operador de escuadra</div>
+      <div class="role-cell servicios">
+        Encargado de control aereo (J.T.A.C.)
+      </div>
+      <div class="role-cell servicios">Observador de Artilleria</div>
+      <div class="role-cell servicios">Especialista en comunicaciones</div>
 
-      <div class="role-cell">Operador de mortero</div>
-      <div class="role-cell">Operador de Artilleria</div>
-      <div class="role-cell">Operador de Artilleria Autopropulsada</div>
-      <div class="role-cell">Coordinador de fuego de artilleria</div>
+      <div class="role-cell servicios">Operador de mortero</div>
+      <div class="role-cell servicios">Operador de Artilleria</div>
+      <div class="role-cell servicios">
+        Operador de Artilleria Autopropulsada
+      </div>
+      <div class="role-cell servicios">Coordinador de fuego de artilleria</div>
 
-      <div class="role-cell">Operador de dron explorador</div>
-      <div class="role-cell">Operador de dron de combate</div>
-      <div class="role-cell">Operador de Dron UAV de exploracion</div>
-      <div class="role-cell">Operador de Dron UAV de Ataque</div>
+      <div class="role-cell servicios">Operador de dron explorador</div>
+      <div class="role-cell servicios">Operador de dron de combate</div>
+      <div class="role-cell servicios">Operador de Dron UAV de exploracion</div>
+      <div class="role-cell servicios">Operador de Dron UAV de Ataque</div>
 
-      <div class="role-cell">Paramedico</div>
-      <div class="role-cell">Especialista en rescate aereo</div>
-      <div class="role-cell">Cirujano de emergencias</div>
+      <div class="role-cell servicios">Paramedico</div>
+      <div class="role-cell servicios">Especialista en rescate aereo</div>
+      <div class="role-cell servicios">Cirujano de emergencias</div>
       <div class="role-cell role-empty"></div>
 
-      <div class="role-cell">Conductor de logistica pesado</div>
-      <div class="role-cell">Conductor de logistica liviano</div>
-      <div class="role-cell">Especialista de logistica de ala rotativa</div>
-      <div class="role-cell">Especialista de logistica de ala fija</div>
+      <div class="role-cell servicios">Conductor de logistica pesado</div>
+      <div class="role-cell servicios">Conductor de logistica liviano</div>
+      <div class="role-cell servicios">
+        Especialista de logistica de ala rotativa
+      </div>
+      <div class="role-cell servicios">
+        Especialista de logistica de ala fija
+      </div>
 
       <div class="role-cell role-level">Nivel Basico (0-50 pts)</div>
       <div class="role-cell role-level">Nivel Intermedio (51-100 pts)</div>
       <div class="role-cell role-level">Nivel Avanzado (101-150 pts)</div>
       <div class="role-cell role-level">Nivel Maestro (151+ pts)</div>
 
-      <div class="role-cell">Aviones de entrenamiento y reconocimiento</div>
-      <div class="role-cell">Su-25/A-29</div>
-      <div class="role-cell">A-10C/F-16</div>
-      <div class="role-cell">F-22/Mig-29</div>
+      <div class="role-cell servicios">
+        Aviones de entrenamiento y reconocimiento
+      </div>
+      <div class="role-cell servicios">Su-25/A-29</div>
+      <div class="role-cell servicios">A-10C/F-16</div>
+      <div class="role-cell servicios">F-22/Mig-29</div>
 
-      <div class="role-cell">Helicopteros de transporte</div>
-      <div class="role-cell">AH-6 (Little bird) / UH-1Y</div>
-      <div class="role-cell">AH-64D/AH-1Z</div>
-      <div class="role-cell">UH-60 DAP / RAH-66</div>
+      <div class="role-cell servicios">Helicopteros de transporte</div>
+      <div class="role-cell servicios">AH-6 (Little bird) / UH-1Y</div>
+      <div class="role-cell servicios">AH-64D/AH-1Z</div>
+      <div class="role-cell servicios">UH-60 DAP / RAH-66</div>
     </div>
     <p>
       Los roles tienen su propio sistema de ascenso, despues de completar sus
@@ -285,8 +298,13 @@ import Navbar from "../components/Navbar.astro";
   }
 
   .caballeria {
-    background: #3a4e31;
-    background: linear-gradient(to bottom, #6d5430, #4e3e31);
+    background: #6d5430;
+    background: linear-gradient(to bottom, #6d3c30, #4b2d21);
+  }
+
+  .servicios {
+    background: #237a73;
+    background: linear-gradient(to bottom, #237a73, #184e50);
   }
 
   .role-name {
@@ -308,5 +326,7 @@ import Navbar from "../components/Navbar.astro";
 
   .role-level {
     font-weight: 600;
+    background: #233133;
+    border-inline: 1px solid rgb(59, 59, 59);
   }
 </style>
