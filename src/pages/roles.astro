@@ -6,16 +6,15 @@ import Navbar from "../components/Navbar.astro";
 <Layout>
   <Navbar
     navLinks={{
-      actividades: "Actividades",
-      horarios: "Horarios",
+      actividades: "Horario",
       escalafon: "Escalafon",
-      training: "Roles",
+      roles: "Roles",
     }}
     isNotFrontPage
   />
 
   <main>
-    <h2>Actividades</h2>
+    <h2>Actividades durante la semana</h2>
     <div class="actividades-container" id="actividades">
       <h3>Lunes</h3>
       <h3>Martes</h3>
@@ -24,7 +23,6 @@ import Navbar from "../components/Navbar.astro";
       <h3>Viernes</h3>
       <h3>Sabado</h3>
       <h3>Domingo</h3>
-
       <h3>Entrenamientos de Armas Separadas</h3>
       <h3>Entrenamiento general + Patrulla</h3>
       <h3>Entrenamiento de Armas Conjunta</h3>
@@ -33,6 +31,27 @@ import Navbar from "../components/Navbar.astro";
       <h3>Entrenamiento de Armas Separadas</h3>
       <h3>Misiones</h3>
     </div>
+    <h2>Roles</h2>
+    <p>Cada miembro podra capacitarse en el rol que desee.</p>
+    <div class="roles" id="roles"></div>
+    <p>
+      Los roles tienen su propio sistema de ascenso, despues de completar sus
+      correspondientes cantidad de actividades en su rol podra rendir su
+      siguiente nivel.
+    </p>
+    <div class="rol-ascenso">
+      <h3>Nivel Basico</h3>
+      <h3>Nivel Experimentado ⇒ 10 actividades</h3>
+      <h3>Nivel Avanzado ⇒ 25 actividades</h3>
+      <h3>Maestria ⇒ 35 actividades</h3>
+    </div>
+
+    <h2>Escalafon</h2>
+    <p>
+      Todos los nuevos miembros entraran como rango de recluta, los cuales
+      tendran 4 clases de capacitacion para ascender como Aspirante
+    </p>
+    <div id="escalafon"></div>
   </main>
 </Layout>
 
@@ -51,10 +70,15 @@ import Navbar from "../components/Navbar.astro";
 
   h2 {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     font-family: "Stick No Bills", sans-serif;
     font-weight: 500;
     letter-spacing: 2px;
+  }
+  p {
+    font-size: 1.5rem;
+    max-width: 70ch;
+    margin-top: 0;
   }
 
   .actividades-container {
@@ -62,7 +86,7 @@ import Navbar from "../components/Navbar.astro";
     grid-template-columns: repeat(7, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    margin-bottom: 4rem;
+    margin-top: 2rem;
   }
 
   .actividades-container h3 {
@@ -85,5 +109,18 @@ import Navbar from "../components/Navbar.astro";
     border: none;
     border: 1px solid rgb(153, 6, 6);
     border-bottom: none;
+  }
+
+  .rol-ascenso {
+    border: 1px solid rgb(189, 8, 8);
+    width: fit-content;
+    background: linear-gradient(to bottom, #69090fc4, #9c040e);
+
+    h3 {
+      border-bottom: 1px solid brown;
+      padding: 0 4rem 0 2rem;
+      margin-bottom: 0;
+      padding-bottom: 1em;
+    }
   }
 </style>
