@@ -76,31 +76,40 @@ import Navbar from "../components/Navbar.astro";
       <div class="role-cell infanteria">Especialista en demoliciones</div>
       <div class="role-cell role-empty"></div>
 
-      <div class="role-cell role-section">Arma de caballeria</div>
+      <div class="role-cell role-section caballeria">Arma de caballeria</div>
 
-      <div class="role-cell">Conductor de Mecanizada</div>
-      <div class="role-cell">Artillero de Mecanizada</div>
-      <div class="role-cell">Comandante de Mecanizada</div>
+      <div class="role-cell caballeria">Conductor de Mecanizada</div>
+      <div class="role-cell caballeria">Artillero de Mecanizada</div>
+      <div class="role-cell caballeria">Comandante de Mecanizada</div>
       <div class="role-cell role-empty"></div>
 
-      <div class="role-cell">Conductor de tanque</div>
-      <div class="role-cell">Mecanico tanquista</div>
-      <div class="role-cell">Artillero de tanque</div>
-      <div class="role-cell">Comandante de Tanque</div>
+      <div class="role-cell caballeria">Conductor de tanque</div>
+      <div class="role-cell caballeria">Mecanico tanquista</div>
+      <div class="role-cell caballeria">Artillero de tanque</div>
+      <div class="role-cell caballeria">Comandante de Tanque</div>
 
-      <div class="role-cell">Artillero de Movilidad Ligera</div>
-      <div class="role-cell">Conductor de Movilidad Ligera</div>
-      <div class="role-cell">Cabeza de Convoy</div>
-      <div class="role-cell">Experto en Planeamiento y Maniobra</div>
+      <div class="role-cell caballeria">Artillero de Movilidad Ligera</div>
+      <div class="role-cell caballeria">Conductor de Movilidad Ligera</div>
+      <div class="role-cell caballeria">Cabeza de Convoy</div>
+      <div class="role-cell caballeria">Experto en Planeamiento y Maniobra</div>
 
-      <div class="role-cell">Ingeniero Mecanico</div>
-      <div class="role-cell">Especialista en recuperacion y remolque</div>
-      <div class="role-cell">Especialista en rescate blindado</div>
+      <div class="role-cell caballeria">Ingeniero Mecanico</div>
+      <div class="role-cell caballeria">
+        Especialista en recuperacion y remolque
+      </div>
+      <div class="role-cell role-empty"></div>
       <div class="role-cell role-empty"></div>
 
-      <div class="role-cell">Paramedico</div>
-      <div class="role-cell">Conductor de ambulancia</div>
-      <div class="role-cell">Especialista en exploracion motorizada</div>
+      <div class="role-cell caballeria">Paramedico</div>
+      <div class="role-cell caballeria">Conductor de ambulancia</div>
+      <div class="role-cell caballeria">Especialista en rescate blindado</div>
+      <div class="role-cell role-empty"></div>
+
+      <div class="role-cell caballeria">Exploracion motorizada</div>
+      <div class="role-cell caballeria">Exploracion ligera</div>
+      <div class="role-cell caballeria">
+        Especialista en exploracion motorizada
+      </div>
       <div class="role-cell role-empty"></div>
 
       <div class="role-cell role-section">Arma de servicios</div>
@@ -275,9 +284,14 @@ import Navbar from "../components/Navbar.astro";
     background: linear-gradient(to bottom, #436d30, #3a4e31);
   }
 
+  .caballeria {
+    background: #3a4e31;
+    background: linear-gradient(to bottom, #6d5430, #4e3e31);
+  }
+
   .role-name {
     grid-column: 1;
-    grid-row: 2 / span 21;
+    grid-row: 2 / span 22;
     font-size: 2rem;
     font-weight: 700;
   }
