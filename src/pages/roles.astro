@@ -7,8 +7,8 @@ import Navbar from "../components/Navbar.astro";
   <Navbar
     navLinks={{
       actividades: "Horario",
-      escalafon: "Escalafon",
       roles: "Roles",
+      escalafon: "Escalafon",
     }}
     isNotFrontPage
   />
@@ -37,13 +37,13 @@ import Navbar from "../components/Navbar.astro";
       y ejercer los roles de su arma correspondiente.
     </p>
     <div class="roles" id="roles">
-      <div class="role-cell role-header">Inicial</div>
+      <div class="role-cell role-header desktop-only">Inicial</div>
       <div class="role-cell role-header">Capacitacion Rol Basico</div>
       <div class="role-cell role-header">Capacitacion Rol Experimentado</div>
       <div class="role-cell role-header">Capacitacion Rol Avanzado</div>
       <div class="role-cell role-header">Capacitacion Maestria</div>
 
-      <div class="role-cell role-name fusilero">Fusilero</div>
+      <div class="role-cell role-name fusilero desktop-only">Fusilero</div>
       <div class="role-cell role-section infanteria">Arma de infanteria</div>
 
       <div class="role-cell infanteria">Explorador</div>
@@ -167,17 +167,21 @@ import Navbar from "../components/Navbar.astro";
       <div class="role-cell servicios">AH-64D/AH-1Z</div>
       <div class="role-cell servicios">UH-60 DAP / RAH-66</div>
     </div>
-    <p>
-      Los roles tienen su propio sistema de ascenso, despues de completar sus
-      correspondientes cantidad de actividades en su rol podra rendir su
-      siguiente nivel.
-    </p>
-    <div class="rol-ascenso">
-      <h3>Nivel Basico</h3>
-      <h3>Nivel Experimentado ⇒ 10 actividades</h3>
-      <h3>Nivel Avanzado ⇒ 25 actividades</h3>
-      <h3>Maestria ⇒ 35 actividades</h3>
-    </div>
+
+    <section class="rol-info-container">
+      <h2>Ascenso de Roles</h2>
+      <p>
+        Los roles tienen su propio sistema de ascenso, despues de completar sus
+        correspondientes cantidad de actividades en su rol podra rendir su
+        siguiente nivel.
+      </p>
+      <div class="rol-ascenso">
+        <h3>Nivel Basico</h3>
+        <h3>Nivel Experimentado ⇒ 10 actividades</h3>
+        <h3>Nivel Avanzado ⇒ 25 actividades</h3>
+        <h3>Maestria ⇒ 35 actividades</h3>
+      </div>
+    </section>
 
     <h2>Escalafon</h2>
     <p>
@@ -219,7 +223,8 @@ import Navbar from "../components/Navbar.astro";
     grid-template-columns: repeat(7, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
   }
 
   .actividades-container h3 {
@@ -244,6 +249,7 @@ import Navbar from "../components/Navbar.astro";
     border: none;
     border: 1px solid rgb(153, 6, 6);
     border-bottom: none;
+    font-size: 2rem;
   }
 
   .rol-ascenso {
@@ -265,6 +271,33 @@ import Navbar from "../components/Navbar.astro";
     grid-template-columns: 1.1fr repeat(4, 1fr);
     margin: 1.5rem 0 2rem;
   }
+  @media (max-width: 760px) {
+    #roles .desktop-only {
+      display: none;
+    }
+    .roles {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      margin: 0 auto;
+      width: 95%;
+    }
+
+    .actividades-container h3:nth-child(-n + 7),
+    .actividades-container h3 {
+      font-size: 1em;
+    }
+    .role-section {
+      grid-column: span 4;
+    }
+    .role-cell {
+      width: 100%;
+    }
+    .roles .role-header {
+      font-size: 0.7rem;
+    }
+    main {
+      width: 97%;
+    }
+  }
 
   .role-cell {
     border: 1px solid #2f2f2f;
@@ -276,6 +309,8 @@ import Navbar from "../components/Navbar.astro";
     justify-content: center;
     flex-direction: column;
     min-height: 42px;
+    min-width: 0;
+    box-sizing: border-box;
   }
 
   .role-header {
@@ -284,6 +319,7 @@ import Navbar from "../components/Navbar.astro";
     font-size: 1.2rem;
     letter-spacing: 0.4px;
     min-height: 52px;
+    overflow-wrap: anywhere;
     background: #69090fc4;
     background: linear-gradient(to bottom, #69090fc4, #9c040e);
   }
@@ -307,15 +343,18 @@ import Navbar from "../components/Navbar.astro";
     background: linear-gradient(to bottom, #237a73, #184e50);
   }
 
+  @media (min-width: 780px) {
+    .role-section {
+      grid-column: 2 / span 4;
+    }
+  }
   .role-name {
     grid-column: 1;
     grid-row: 2 / span 22;
     font-size: 2rem;
     font-weight: 700;
   }
-
   .role-section {
-    grid-column: 2 / span 4;
     font-weight: 600;
     min-height: 34px;
   }
