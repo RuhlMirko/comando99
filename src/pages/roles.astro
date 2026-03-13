@@ -14,159 +14,170 @@ import Navbar from "../components/Navbar.astro";
   />
 
   <main>
-    <h2>Actividades durante la semana</h2>
-    <div class="actividades-container" id="actividades">
-      <h3>Lunes</h3>
-      <h3>Martes</h3>
-      <h3>Miercoles</h3>
-      <h3>Jueves</h3>
-      <h3>Viernes</h3>
-      <h3>Sabado</h3>
-      <h3>Domingo</h3>
-      <h3>Entrenamientos de Armas Separadas</h3>
-      <h3>Entrenamiento general + Patrulla</h3>
-      <h3>Entrenamiento de Armas Conjunta</h3>
-      <h3>Entrenamiento general + Patrulla</h3>
-      <h3>Cursos</h3>
-      <h3>Entrenamiento de Armas Separadas</h3>
-      <h3>Misiones</h3>
-    </div>
-    <h2>Roles</h2>
-    <p>
-      Cada miembro podra pertenecer a un arma que desee, solo podra capacitarse
-      y ejercer los roles de su arma correspondiente.
-    </p>
-    <div class="roles" id="roles">
-      <div class="role-cell role-header desktop-only">Inicial</div>
-      <div class="role-cell role-header">Capacitacion Rol Basico</div>
-      <div class="role-cell role-header">Capacitacion Rol Experimentado</div>
-      <div class="role-cell role-header">Capacitacion Rol Avanzado</div>
-      <div class="role-cell role-header">Capacitacion Maestria</div>
-
-      <div class="role-cell role-name fusilero desktop-only">Fusilero</div>
-      <div class="role-cell role-section infanteria">Arma de infanteria</div>
-
-      <div class="role-cell infanteria">Explorador</div>
-      <div class="role-cell infanteria">Tirador selecto</div>
-      <div class="role-cell infanteria">Francotirador</div>
-      <div class="role-cell infanteria">Observador</div>
-
-      <div class="role-cell infanteria">Granadero</div>
-      <div class="role-cell infanteria">
-        <span>Soldado AT Ligero</span>
-        <br />
-        <span>Soldado AA Ligero</span>
+    <section>
+      <h2>Actividades durante la semana</h2>
+      <div class="actividades-container" id="actividades">
+        <h3>Lunes</h3>
+        <h3>Martes</h3>
+        <h3>Miercoles</h3>
+        <h3>Jueves</h3>
+        <h3>Viernes</h3>
+        <h3>Sabado</h3>
+        <h3>Domingo</h3>
+        <h3>Entrenamientos de Armas Separadas</h3>
+        <h3>Entrenamiento general + Patrulla</h3>
+        <h3>Entrenamiento de Armas Conjunta</h3>
+        <h3>Entrenamiento general + Patrulla</h3>
+        <h3>Cursos</h3>
+        <h3>Entrenamiento de Armas Separadas</h3>
+        <h3>Misiones</h3>
       </div>
-      <div class="role-cell infanteria">Soldado AT Pesado</div>
-      <div class="role-cell infanteria">Operador de Armas Pesadas</div>
+    </section>
 
-      <div class="role-cell infanteria">Enfermero</div>
-      <div class="role-cell infanteria">Enfermero de Combate</div>
-      <div class="role-cell infanteria">Medico de combate</div>
-      <div class="role-cell infanteria">Medico Cirujano</div>
+    <section>
+      <h2>Roles</h2>
+      <p>
+        Cada miembro podra pertenecer a un arma que desee, solo podra
+        capacitarse y ejercer los roles de su arma correspondiente.
+      </p>
+      <div class="roles" id="roles">
+        <div class="role-cell role-header desktop-only">Inicial</div>
+        <div class="role-cell role-header">Capacitacion Rol Basico</div>
+        <div class="role-cell role-header">Capacitacion Rol Experimentado</div>
+        <div class="role-cell role-header">Capacitacion Rol Avanzado</div>
+        <div class="role-cell role-header">Capacitacion Maestria</div>
 
-      <div class="role-cell infanteria">
-        <span>Portamuniciones</span>
-        <br />
-        <span>Fusilero Automatico</span>
+        <div class="role-cell role-name fusilero desktop-only">Fusilero</div>
+        <div class="role-cell role-section infanteria">Arma de infanteria</div>
+
+        <div class="role-cell infanteria">Explorador</div>
+        <div class="role-cell infanteria">Tirador selecto</div>
+        <div class="role-cell infanteria">Francotirador</div>
+        <div class="role-cell infanteria">Observador</div>
+
+        <div class="role-cell infanteria">Granadero</div>
+        <div class="role-cell infanteria">
+          <span>Soldado AT Ligero</span>
+          <br />
+          <span>Soldado AA Ligero</span>
+        </div>
+        <div class="role-cell infanteria">Soldado AT Pesado</div>
+        <div class="role-cell infanteria">Operador de Armas Pesadas</div>
+
+        <div class="role-cell infanteria">Enfermero</div>
+        <div class="role-cell infanteria">Enfermero de Combate</div>
+        <div class="role-cell infanteria">Medico de combate</div>
+        <div class="role-cell infanteria">Medico Cirujano</div>
+
+        <div class="role-cell infanteria">
+          <span>Portamuniciones</span>
+          <br />
+          <span>Fusilero Automatico</span>
+        </div>
+        <div class="role-cell infanteria">Ametrallador ligero</div>
+        <div class="role-cell infanteria">Ametrallador mediano</div>
+        <div class="role-cell role-empty"></div>
+
+        <div class="role-cell infanteria">Ingeniero EOD</div>
+        <div class="role-cell infanteria">Ingeniero Zapador</div>
+        <div class="role-cell infanteria">Especialista en demoliciones</div>
+        <div class="role-cell role-empty"></div>
+
+        <div class="role-cell role-section caballeria">Arma de caballeria</div>
+
+        <div class="role-cell caballeria">Conductor de Mecanizada</div>
+        <div class="role-cell caballeria">Artillero de Mecanizada</div>
+        <div class="role-cell caballeria">Comandante de Mecanizada</div>
+        <div class="role-cell role-empty"></div>
+
+        <div class="role-cell caballeria">Conductor de tanque</div>
+        <div class="role-cell caballeria">Mecanico tanquista</div>
+        <div class="role-cell caballeria">Artillero de tanque</div>
+        <div class="role-cell caballeria">Comandante de Tanque</div>
+
+        <div class="role-cell caballeria">Artillero de Movilidad Ligera</div>
+        <div class="role-cell caballeria">Conductor de Movilidad Ligera</div>
+        <div class="role-cell caballeria">Cabeza de Convoy</div>
+        <div class="role-cell caballeria">
+          Experto en Planeamiento y Maniobra
+        </div>
+
+        <div class="role-cell caballeria">Ingeniero Mecanico</div>
+        <div class="role-cell caballeria">
+          Especialista en recuperacion y remolque
+        </div>
+        <div class="role-cell role-empty"></div>
+        <div class="role-cell role-empty"></div>
+
+        <div class="role-cell caballeria">Paramedico</div>
+        <div class="role-cell caballeria">Conductor de ambulancia</div>
+        <div class="role-cell caballeria">Especialista en rescate blindado</div>
+        <div class="role-cell role-empty"></div>
+
+        <div class="role-cell caballeria">Exploracion motorizada</div>
+        <div class="role-cell caballeria">Exploracion ligera</div>
+        <div class="role-cell caballeria">
+          Especialista en exploracion motorizada
+        </div>
+        <div class="role-cell role-empty"></div>
+
+        <div class="role-cell role-section servicios">Arma de servicios</div>
+
+        <div class="role-cell servicios">Radio Operador de escuadra</div>
+        <div class="role-cell servicios">
+          Encargado de control aereo (J.T.A.C.)
+        </div>
+        <div class="role-cell servicios">Observador de Artilleria</div>
+        <div class="role-cell servicios">Especialista en comunicaciones</div>
+
+        <div class="role-cell servicios">Operador de mortero</div>
+        <div class="role-cell servicios">Operador de Artilleria</div>
+        <div class="role-cell servicios">
+          Operador de Artilleria Autopropulsada
+        </div>
+        <div class="role-cell servicios">
+          Coordinador de fuego de artilleria
+        </div>
+
+        <div class="role-cell servicios">Operador de dron explorador</div>
+        <div class="role-cell servicios">Operador de dron de combate</div>
+        <div class="role-cell servicios">
+          Operador de Dron UAV de exploracion
+        </div>
+        <div class="role-cell servicios">Operador de Dron UAV de Ataque</div>
+
+        <div class="role-cell servicios">Paramedico</div>
+        <div class="role-cell servicios">Especialista en rescate aereo</div>
+        <div class="role-cell servicios">Cirujano de emergencias</div>
+        <div class="role-cell role-empty"></div>
+
+        <div class="role-cell servicios">Conductor de logistica pesado</div>
+        <div class="role-cell servicios">Conductor de logistica liviano</div>
+        <div class="role-cell servicios">
+          Especialista de logistica de ala rotativa
+        </div>
+        <div class="role-cell servicios">
+          Especialista de logistica de ala fija
+        </div>
+
+        <div class="role-cell role-level">Nivel Basico (0-50 pts)</div>
+        <div class="role-cell role-level">Nivel Intermedio (51-100 pts)</div>
+        <div class="role-cell role-level">Nivel Avanzado (101-150 pts)</div>
+        <div class="role-cell role-level">Nivel Maestro (151+ pts)</div>
+
+        <div class="role-cell servicios">
+          Aviones de entrenamiento y reconocimiento
+        </div>
+        <div class="role-cell servicios">Su-25/A-29</div>
+        <div class="role-cell servicios">A-10C/F-16</div>
+        <div class="role-cell servicios">F-22/Mig-29</div>
+
+        <div class="role-cell servicios">Helicopteros de transporte</div>
+        <div class="role-cell servicios">AH-6 (Little bird) / UH-1Y</div>
+        <div class="role-cell servicios">AH-64D/AH-1Z</div>
+        <div class="role-cell servicios">UH-60 DAP / RAH-66</div>
       </div>
-      <div class="role-cell infanteria">Ametrallador ligero</div>
-      <div class="role-cell infanteria">Ametrallador mediano</div>
-      <div class="role-cell role-empty"></div>
-
-      <div class="role-cell infanteria">Ingeniero EOD</div>
-      <div class="role-cell infanteria">Ingeniero Zapador</div>
-      <div class="role-cell infanteria">Especialista en demoliciones</div>
-      <div class="role-cell role-empty"></div>
-
-      <div class="role-cell role-section caballeria">Arma de caballeria</div>
-
-      <div class="role-cell caballeria">Conductor de Mecanizada</div>
-      <div class="role-cell caballeria">Artillero de Mecanizada</div>
-      <div class="role-cell caballeria">Comandante de Mecanizada</div>
-      <div class="role-cell role-empty"></div>
-
-      <div class="role-cell caballeria">Conductor de tanque</div>
-      <div class="role-cell caballeria">Mecanico tanquista</div>
-      <div class="role-cell caballeria">Artillero de tanque</div>
-      <div class="role-cell caballeria">Comandante de Tanque</div>
-
-      <div class="role-cell caballeria">Artillero de Movilidad Ligera</div>
-      <div class="role-cell caballeria">Conductor de Movilidad Ligera</div>
-      <div class="role-cell caballeria">Cabeza de Convoy</div>
-      <div class="role-cell caballeria">Experto en Planeamiento y Maniobra</div>
-
-      <div class="role-cell caballeria">Ingeniero Mecanico</div>
-      <div class="role-cell caballeria">
-        Especialista en recuperacion y remolque
-      </div>
-      <div class="role-cell role-empty"></div>
-      <div class="role-cell role-empty"></div>
-
-      <div class="role-cell caballeria">Paramedico</div>
-      <div class="role-cell caballeria">Conductor de ambulancia</div>
-      <div class="role-cell caballeria">Especialista en rescate blindado</div>
-      <div class="role-cell role-empty"></div>
-
-      <div class="role-cell caballeria">Exploracion motorizada</div>
-      <div class="role-cell caballeria">Exploracion ligera</div>
-      <div class="role-cell caballeria">
-        Especialista en exploracion motorizada
-      </div>
-      <div class="role-cell role-empty"></div>
-
-      <div class="role-cell role-section servicios">Arma de servicios</div>
-
-      <div class="role-cell servicios">Radio Operador de escuadra</div>
-      <div class="role-cell servicios">
-        Encargado de control aereo (J.T.A.C.)
-      </div>
-      <div class="role-cell servicios">Observador de Artilleria</div>
-      <div class="role-cell servicios">Especialista en comunicaciones</div>
-
-      <div class="role-cell servicios">Operador de mortero</div>
-      <div class="role-cell servicios">Operador de Artilleria</div>
-      <div class="role-cell servicios">
-        Operador de Artilleria Autopropulsada
-      </div>
-      <div class="role-cell servicios">Coordinador de fuego de artilleria</div>
-
-      <div class="role-cell servicios">Operador de dron explorador</div>
-      <div class="role-cell servicios">Operador de dron de combate</div>
-      <div class="role-cell servicios">Operador de Dron UAV de exploracion</div>
-      <div class="role-cell servicios">Operador de Dron UAV de Ataque</div>
-
-      <div class="role-cell servicios">Paramedico</div>
-      <div class="role-cell servicios">Especialista en rescate aereo</div>
-      <div class="role-cell servicios">Cirujano de emergencias</div>
-      <div class="role-cell role-empty"></div>
-
-      <div class="role-cell servicios">Conductor de logistica pesado</div>
-      <div class="role-cell servicios">Conductor de logistica liviano</div>
-      <div class="role-cell servicios">
-        Especialista de logistica de ala rotativa
-      </div>
-      <div class="role-cell servicios">
-        Especialista de logistica de ala fija
-      </div>
-
-      <div class="role-cell role-level">Nivel Basico (0-50 pts)</div>
-      <div class="role-cell role-level">Nivel Intermedio (51-100 pts)</div>
-      <div class="role-cell role-level">Nivel Avanzado (101-150 pts)</div>
-      <div class="role-cell role-level">Nivel Maestro (151+ pts)</div>
-
-      <div class="role-cell servicios">
-        Aviones de entrenamiento y reconocimiento
-      </div>
-      <div class="role-cell servicios">Su-25/A-29</div>
-      <div class="role-cell servicios">A-10C/F-16</div>
-      <div class="role-cell servicios">F-22/Mig-29</div>
-
-      <div class="role-cell servicios">Helicopteros de transporte</div>
-      <div class="role-cell servicios">AH-6 (Little bird) / UH-1Y</div>
-      <div class="role-cell servicios">AH-64D/AH-1Z</div>
-      <div class="role-cell servicios">UH-60 DAP / RAH-66</div>
-    </div>
+    </section>
 
     <section class="rol-info-container">
       <h2>Ascenso de Roles</h2>
@@ -183,12 +194,17 @@ import Navbar from "../components/Navbar.astro";
       </div>
     </section>
 
-    <h2>Escalafon</h2>
-    <p>
-      Todos los nuevos miembros entraran como rango de recluta, los cuales
-      tendran 4 clases de capacitacion para ascender como Aspirante
-    </p>
-    <div id="escalafon"></div>
+    <section>
+      <h2>Escalafon</h2>
+      <p>
+        Todos los nuevos miembros entraran como rango de recluta, los cuales
+        tendran 4 clases de capacitacion para ascender como Aspirante
+      </p>
+    </section>
+
+    <section id="escalafon">
+      <h2>Escalafon</h2>
+    </section>
   </main>
 </Layout>
 
@@ -206,16 +222,22 @@ import Navbar from "../components/Navbar.astro";
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 3rem;
     margin-bottom: 0.5rem;
     font-family: "Stick No Bills", sans-serif;
     font-weight: 500;
     letter-spacing: 2px;
+    border-bottom: 3px solid rgba(172, 69, 69, 0.459);
+    padding-left: 1.5rem;
   }
   p {
     font-size: 1.5rem;
     max-width: 70ch;
     margin-top: 0;
+  }
+
+  main section {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.459);
   }
 
   .actividades-container {
