@@ -1,46 +1,76 @@
-# Astro Starter Kit: Basics
+# COMANDO 99
+
+Sitio web de COMANDO 99 desarrollado con Astro.
+
+## Demo en vivo
+
+- https://comando99.netlify.app/
+
+## Tecnologías
+
+- [Astro](https://astro.build/)
+- HTML, CSS y TypeScript
+
+## Requisitos
+
+- [Node.js](https://nodejs.org/) 18 o superior
+- npm
+
+## Instalación
+
+1. Clona este repositorio.
+2. Instala las dependencias:
 
 ```sh
-npm create astro@latest -- --template basics
+npm install
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Scripts disponibles
 
-## 🚀 Project Structure
+Ejecuta los comandos desde la raíz del proyecto.
 
-Inside of your Astro project, you'll see the following folders and files:
+| Comando                   | Descripción                                                 |
+| :------------------------ | :---------------------------------------------------------- |
+| `npm run dev`             | Inicia el servidor de desarrollo en `http://localhost:4321` |
+| `npm run build`           | Genera la versión de producción en `dist/`                  |
+| `npm run preview`         | Previsualiza la build de producción localmente              |
+| `npm run astro -- --help` | Muestra ayuda del CLI de Astro                              |
+
+## Estructura principal
 
 ```text
-/
+.
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+│   ├── images/
+│   │   └── galeria/
+│   └── rangos/
+└── src/
+	├── components/
+	├── layouts/
+	└── pages/
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Desarrollo
 
-## 🧞 Commands
+Para iniciar en modo desarrollo:
 
-All commands are run from the root of the project, from a terminal:
+```sh
+npm run dev
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Abre `http://localhost:4321` en tu navegador.
 
-## 👀 Want to learn more?
+## Build de producción
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```sh
+npm run build
+npm run preview
+```
+
+## Despliegue
+
+Este proyecto se despliega en Netlify.
+
+Demo pública:
+
+- https://comando99.netlify.app/
