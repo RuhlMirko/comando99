@@ -41,20 +41,61 @@ const imagePaths = Object.keys(images).map((path) =>
 
 <style>
   .galeria {
-    margin-top: 4.5em;
+    position: relative;
+    margin-inline: 0;
+    margin-top: 0;
+    padding: clamp(2rem, 4vw, 3rem) clamp(1rem, 4vw, 3rem);
     min-height: 200px;
-    h2 {
-      text-align: center;
-      border-bottom: 2px solid rgba(255, 0, 0, 0.178);
-      margin-bottom: 0.5rem;
-    }
+    background:
+      radial-gradient(
+        circle at 50% 0%,
+        rgba(201, 24, 16, 0.12),
+        transparent 34%
+      ),
+      linear-gradient(180deg, #080808 0%, #050505 100%);
+    border-block: 1px solid rgba(201, 24, 16, 0.28);
+    overflow: hidden;
+  }
+
+  .galeria::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.08) 50%),
+      linear-gradient(
+        90deg,
+        rgba(255, 0, 0, 0.014),
+        rgba(0, 255, 0, 0.008),
+        rgba(0, 0, 255, 0.014)
+      );
+    background-size:
+      100% 2px,
+      3px 100%;
+    opacity: 0.55;
+  }
+
+  .galeria h2 {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid rgba(201, 24, 16, 0.34);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-shadow: 0 0 1rem rgba(201, 24, 16, 0.18);
   }
   .gallery-list {
+    position: relative;
+    z-index: 1;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 10px;
+    gap: 1rem;
     margin-bottom: 0;
-    padding-top: 1em;
+    padding-top: 1rem;
     transition: 0.5s;
   }
 
@@ -78,6 +119,11 @@ const imagePaths = Object.keys(images).map((path) =>
     position: relative;
     overflow: hidden;
     max-height: 1000px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+    box-shadow:
+      0 1rem 1.8rem rgba(0, 0, 0, 0.34),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.02);
     transition:
       max-height 0.5s,
       opacity 0.5s,
@@ -90,11 +136,11 @@ const imagePaths = Object.keys(images).map((path) =>
     inset: 0;
     background: linear-gradient(
       to top,
-      rgba(255, 0, 0, 0.281),
+      rgba(201, 24, 16, 0.22),
       rgba(255, 0, 0, 0)
     );
     opacity: 0;
-    transition: opacity 0.2s;
+    transition: opacity 0.2s ease;
     pointer-events: none;
   }
 
@@ -107,30 +153,35 @@ const imagePaths = Object.keys(images).map((path) =>
     height: auto;
     object-fit: cover;
     aspect-ratio: 16/9;
-    transition: 0.2s;
-    border: 1px solid black;
+    transition:
+      transform 0.25s ease,
+      filter 0.25s ease;
     display: block;
   }
   .gallery-item:hover img {
     cursor: pointer;
+    transform: scale(1.02);
   }
   .gallery-list:hover img:not(:hover) {
-    filter: brightness(0.5) saturate(50%);
+    filter: brightness(0.7) saturate(70%);
   }
 
   .gallery-modal {
     position: fixed;
     inset: 0;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.85);
+    padding: 0;
+    background: rgba(0, 0, 0, 0.88);
     opacity: 0;
     visibility: hidden;
     transition:
       opacity 0.2s,
       visibility 0.2s;
-    z-index: 1000;
+    z-index: 9999;
   }
 
   .gallery-modal.is-open {
@@ -142,68 +193,112 @@ const imagePaths = Object.keys(images).map((path) =>
     max-width: 92vw;
     max-height: 92vh;
     object-fit: contain;
-    border: 1px solid #3b0d0d;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(201, 24, 16, 0.35);
+    box-shadow:
+      0 10px 40px rgba(0, 0, 0, 0.6),
+      0 0 0 1px rgba(255, 255, 255, 0.02);
   }
 
   .gallery-modal-close {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 1.25rem;
+    right: 1.25rem;
     font-size: 36px;
     line-height: 1;
     width: 44px;
     height: 44px;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.16);
     border-radius: 999px;
     color: white;
-    background: rgba(75, 0, 0, 0.7);
+    background: rgba(75, 0, 0, 0.8);
     cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  .gallery-modal-close:hover {
+    transform: translateY(-1px);
+    background: rgba(125, 7, 7, 0.95);
   }
 
   .gallery-options {
     display: flex;
     flex-direction: column;
-    gap: 1vh;
+    gap: 0.8rem;
     justify-content: space-around;
-    margin-top: 0.5em;
+    margin-top: 1rem;
     width: 100%;
     margin: 0 auto;
-    border-top: 2px solid #6808085e;
-    padding-top: 6px;
+    border-top: 1px solid rgba(201, 24, 16, 0.28);
+    padding-top: 1rem;
+    position: relative;
+    z-index: 1;
   }
 
   .gallery-options a {
-    border: 1px solid rgba(255, 255, 255, 0.452);
-    background-color: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.03);
   }
   .gallery-options button {
-    border: 2px solid transparent;
-    background-color: brown;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, #b90f08, #dd2216);
     font-family: inherit;
-    padding: 0.5em 3em;
+    padding: 0.85rem 1.25rem;
+    box-shadow: 0 0.85rem 1.5rem rgba(180, 16, 8, 0.22);
   }
 
   .galeria-btn,
   .gallery-options a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     color: inherit;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     text-align: center;
     width: 100%;
-    padding: 0.5em 0em 0.5em;
+    min-height: 3.15rem;
+    padding: 0.85rem 1rem;
     cursor: pointer;
-    transition: 0.2s;
+    transition:
+      transform 0.2s ease,
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      color 0.2s ease;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
 
     &:hover {
       border-color: rgb(197, 7, 7);
     }
   }
+
+  .galeria-btn {
+    gap: 0.5rem;
+    color: white;
+  }
+
   .gallery-options button:hover {
-    background-color: rgb(87, 18, 18);
+    background: linear-gradient(135deg, #d31911, #f43627);
+    box-shadow: 0 1rem 1.75rem rgba(180, 16, 8, 0.32);
+    transform: translateY(-1px);
   }
   .gallery-options a:hover {
-    background-color: rgb(87, 18, 18);
+    background-color: rgba(87, 18, 18, 0.96);
+    transform: translateY(-1px);
+    box-shadow: 0 0.85rem 1.5rem rgba(0, 0, 0, 0.2);
+  }
+
+  .gallery-options button:focus-visible,
+  .gallery-options a:focus-visible {
+    outline: 2px solid rgba(255, 90, 70, 0.95);
+    outline-offset: 2px;
   }
 
   button:disabled {
