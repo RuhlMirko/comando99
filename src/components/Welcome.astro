@@ -4,44 +4,103 @@ import logo from "../../public/images/logo.png";
 ---
 
 <main>
-  <div class="scanline-overlay"></div>
   <section class="hero" id="hero">
-    <Image src={logo} alt="comando 99 logo" loading="eager" />
-    <span class="reclutamos">Fase de reclutamiento: Abierta</span>
-    <h1>
-      Excelencia <br /><span style="color: red;">Tactica</span>
-    </h1>
-    <p>
-      <span class="text-accent">Comando 99</span> es una comunidad milsim de Arma
-      3 dedicada a recrear operaciones militares con realismo, disciplina y trabajo
-      en equipo.
-    </p>
-    <div class="cta">
-      <a href="https://discord.com/invite/UJUp2cWtwp" class="cta-call">
-        Nuestro Discord
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-discord"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"
-          ></path>
-        </svg>
-      </a>
-      <a href="#showcase">Mas Informacion</a>
+    <div class="hero__shade"></div>
+    <div class="hero__content">
+      <span class="hero__eyebrow">Fase de reclutamiento: Abierta</span>
+      <h1>
+        Excelencia<br />
+        <span>Tactica.</span>
+      </h1>
+      <p>
+        Comando 99 es una comunidad milsim de Arma 3 dedicada a recrear
+        operaciones militares con realismo, disciplina y trabajo en equipo.
+      </p>
+      <div class="cta">
+        <a href="https://discord.com/invite/UJUp2cWtwp" class="cta-call">
+          Nuestro Discord
+        </a>
+        <a href="#showcase" class="cta-secondary">Mas Informacion</a>
+      </div>
     </div>
+    <Image
+      src={logo}
+      alt="Comando 99 insignia"
+      class="hero__badge"
+      loading="eager"
+    />
   </section>
 </main>
 
 <style>
   main {
     position: relative;
-    max-height: 1920px;
+    background: #050505;
   }
+
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    /* padding: clamp(5rem, 10vh, 8rem) clamp(1.5rem, 4vw, 4rem); */
+    padding: 4rem 2rem;
+    overflow: hidden;
+    isolation: isolate;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.92) 0%,
+        rgba(0, 0, 0, 0.75) 34%,
+        rgba(0, 0, 0, 0.32) 58%,
+        rgba(0, 0, 0, 0.18) 100%
+      ),
+      radial-gradient(
+        circle at center,
+        rgba(255, 61, 36, 0.1),
+        transparent 30%
+      ),
+      url("/images/hero-bg.png");
+    background-position:
+      center,
+      center,
+      right center;
+    background-repeat: no-repeat;
+    background-size: cover, cover, cover;
+  }
+
+  .hero__shade {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.4),
+        transparent 25%,
+        transparent 75%,
+        rgba(0, 0, 0, 0.7)
+      ),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.4), transparent 35%);
+    z-index: -1;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: min(38rem, 92vw);
+  }
+
+  .hero__eyebrow {
+    display: inline-block;
+    margin-bottom: 1.25rem;
+    color: #ff4b36;
+    font-family: "Rajdhani", sans-serif;
+    font-size: clamp(0.8rem, 1.2vw, 1rem);
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+  }
+
   h1 {
     font-family:
       "Stick No Bills",
@@ -57,129 +116,163 @@ import logo from "../../public/images/logo.png";
       "Helvetica Neue",
       sans-serif;
     text-transform: uppercase;
-    font-size: 5rem;
-    line-height: 0.9;
-    margin-top: 0.3em;
+    font-size: clamp(3.8rem, 7vw, 8rem);
+    line-height: 0.88;
+    letter-spacing: 0.04em;
+    margin: 0;
+    text-wrap: balance;
   }
-  .hero {
-    padding-top: 40vh;
-    padding-inline: 3vw;
-    padding-bottom: 15vh;
-    & p {
-      max-width: 60ch;
-      font-size: 1.6vw;
-    }
+
+  h1 span {
+    color: #c91810;
   }
-  img {
-    display: block;
-    height: 40vw;
-    width: 40vw;
+
+  .hero p {
+    max-width: 30rem;
+    margin: 1.5rem 0 0;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: clamp(1rem, 1.7vw, 1.45rem);
+    line-height: 1.5;
+  }
+
+  .hero__badge {
     position: absolute;
-    top: 12vh;
-    right: 2vw;
-    filter: drop-shadow(8px 16px 3px rgba(0, 0, 0, 0.678));
+    top: 60%;
+    left: 60%;
+    width: clamp(14rem, 23vw, 24rem);
+    height: auto;
+    transform: translate(-50%, -48%);
+    opacity: 0.92;
+    filter: drop-shadow(0 1.5rem 3rem rgba(0, 0, 0, 0.65));
+    pointer-events: none;
   }
-  .reclutamos {
-    background: rgba(255, 0, 0, 0.199);
-    border: 1px solid rgba(255, 0, 0, 0.411);
-    padding: 6px 26px;
-    color: rgb(248, 50, 15);
-    font-weight: 700;
-    letter-spacing: 3px;
-    font-family:
-      "Stick No Bills",
-      sans-serif,
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      Roboto,
-      Oxygen,
-      Ubuntu,
-      Cantarell,
-      "Open Sans",
-      "Helvetica Neue";
-  }
-  .text-accent {
-    font-weight: 600;
-    font-family: "Stick No Bills";
-    letter-spacing: 1.3px;
-  }
+
   a {
-    border: 1px solid rgba(255, 255, 255, 0.452);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 11rem;
+    border: 1px solid rgba(255, 255, 255, 0.28);
     color: inherit;
     text-decoration: none;
-    padding: 12px 20px;
-    margin-right: 1em;
-    transition: 0.2s;
+    padding: 0.95rem 1.6rem;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.2s ease,
+      color 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    font-size: 0.95rem;
   }
+
   .cta {
-    margin-top: 1.5em;
-    font-size: 1.2em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
   }
+
   .cta-call {
     border-color: transparent;
-    background: hsla(0, 99%, 49%, 0.753);
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-shadow: 0 0 5px rgb(0, 0, 0);
-
-    svg {
-      transform: scale(1.5);
-      margin-left: 0.5rem;
-      filter: drop-shadow(0 0 2px black);
-    }
+    background: linear-gradient(135deg, #b90f08, #dd2216);
+    box-shadow: 0 0 1.4rem rgba(180, 16, 8, 0.35);
   }
+
+  .cta-secondary {
+    background: rgba(10, 10, 10, 0.38);
+    backdrop-filter: blur(2px);
+  }
+
   .cta a:hover {
-    background: rgba(160, 1, 1, 0.747);
-    border-color: red;
+    transform: translateY(-2px);
+    border-color: rgba(255, 73, 47, 0.8);
   }
+
+  .cta-call:hover {
+    background: linear-gradient(135deg, #d31911, #f43627);
+  }
+
+  .cta-secondary:hover {
+    background: rgba(130, 12, 6, 0.25);
+  }
+
   @media (max-width: 1024px) {
-    h1 {
-      font-size: 15vw;
-    }
-    #hero p {
-      font-size: 2rem;
-    }
-    .cta {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 10px;
-    }
-    .cta a {
-      font-size: 2rem;
-      padding: 2vh 5vw;
-      width: 100%;
-      margin-inline: auto;
-      text-align: center;
-      background: #111111b9;
-    }
-    .cta .cta-call {
-      background: hsla(0, 99%, 49%, 0.753);
-    }
-    .reclutamos {
-      font-size: 3vw;
-      display: block;
-      text-align: center;
-    }
-
-    img {
-      position: static;
-      width: 90vw;
-      height: 90vw;
-    }
-    img,
-    .reclutamos {
-      margin-inline: auto;
-    }
-
     .hero {
-      background: #111111b9;
-      backdrop-filter: blur(5px);
-      margin: 0;
-      padding-top: 10vh;
-      padding-bottom: 3rem;
+      align-items: flex-end;
+      min-height: auto;
+      padding-top: 7rem;
+      padding-bottom: 4rem;
+      background-position: 72% center;
+    }
+
+    h1 {
+      font-size: clamp(3.8rem, 14vw, 6rem);
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 4vw, 1.35rem);
+    }
+
+    .cta {
+      flex-direction: column;
+    }
+
+    .cta a {
+      width: 100%;
+      font-size: 1rem;
+      padding: 1rem 1.25rem;
+    }
+
+    .hero__badge {
+      top: auto;
+      bottom: 3rem;
+      left: auto;
+      right: 1.5rem;
+      width: min(32vw, 11rem);
+      transform: none;
+      opacity: 0.82;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .hero {
+      min-height: 100svh;
+      align-items: flex-start;
+      padding-top: 5.5rem;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.5) 0%,
+          rgba(0, 0, 0, 0.74) 52%,
+          rgba(0, 0, 0, 0.94) 100%
+        ),
+        linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.88) 0%,
+          rgba(0, 0, 0, 0.5) 50%,
+          rgba(0, 0, 0, 0.2) 100%
+        ),
+        url("/images/hero-bg.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 68% center;
+    }
+
+    .hero__eyebrow {
+      letter-spacing: 0.24em;
+    }
+
+    .hero__content {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .hero__badge {
+      right: 1rem;
+      bottom: 1.5rem;
+      width: 5.5rem;
     }
   }
 </style>
