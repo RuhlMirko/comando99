@@ -77,17 +77,48 @@ const slides = [
 
 <style>
   .showcase {
-    padding-bottom: 1em;
-    padding-top: 1em;
-    background: black;
+    position: relative;
+    margin-inline: 0;
     margin-bottom: 3rem;
+    padding: clamp(1.2rem, 2vw, 2rem) 0 clamp(1.5rem, 2.5vw, 2.5rem);
+    background:
+      radial-gradient(
+        circle at 75% 15%,
+        rgba(201, 24, 16, 0.14),
+        transparent 42%
+      ),
+      linear-gradient(180deg, #0c0c0c 0%, #070707 100%);
   }
+
+  .showcase::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.08) 50%),
+      linear-gradient(
+        90deg,
+        rgba(255, 0, 0, 0.014),
+        rgba(0, 255, 0, 0.008),
+        rgba(0, 0, 255, 0.014)
+      );
+    background-size:
+      100% 2px,
+      3px 100%;
+    z-index: 0;
+  }
+
   .carousel-container {
     position: relative;
+    z-index: 1;
     width: 100%;
-    margin: 0 auto;
-    overflow: auto;
-    border-block: 3px solid #4b0303;
+    margin: 0;
+    overflow: hidden;
+    border-block: 1px solid rgba(201, 24, 16, 0.45);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.05);
   }
 
   .carousel {
@@ -101,9 +132,9 @@ const slides = [
     transition: transform 0.5s ease-in-out;
   }
   .carousel-slide {
-    max-width: 100vw;
+    max-width: 100%;
     width: 100%;
-    height: 55vh;
+    min-height: clamp(26rem, 62vh, 40rem);
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -112,155 +143,291 @@ const slides = [
   }
 
   .slide-content {
+    position: relative;
+    overflow: hidden;
     color: white;
-    padding: 8vw;
+    width: min(1220px, 85%);
+    margin-inline: auto;
+    /* padding: clamp(2rem, 5vw, 4.8rem) clamp(1.2rem, 3vw, 3.5rem); */
+    padding: 4rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: clamp(1.5rem, 3vw, 3.5rem);
+    background: linear-gradient(
+      135deg,
+      rgba(12, 12, 12, 0.94),
+      rgba(17, 17, 17, 0.74)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 1.2rem 2.3rem rgba(0, 0, 0, 0.42),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  }
+
+  .slide-content::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: linear-gradient(
+      90deg,
+      rgba(12, 12, 12, 0.9) 0%,
+      rgba(12, 12, 12, 0.72) 34%,
+      rgba(12, 12, 12, 0.4) 57%,
+      rgba(12, 12, 12, 0.06) 74%,
+      rgba(12, 12, 12, 0) 100%
+    );
   }
 
   .carousel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(12, 12, 12, 0.72);
+    backdrop-filter: blur(3px);
     color: white;
-    border: none;
-    font-size: 4rem;
-    padding: 1rem;
+    font-size: 2.1rem;
+    line-height: 1;
+    padding: 0;
     cursor: pointer;
     z-index: 10;
-    transition: background 0.2s;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.2s ease;
   }
 
   .carousel-btn:hover {
-    background: rgba(128, 7, 7, 0.5);
+    background: rgba(173, 23, 14, 0.8);
+    border-color: rgba(255, 85, 62, 0.9);
   }
 
   .carousel-btn.prev {
-    left: 10px;
+    left: clamp(0.5rem, 1vw, 1rem);
   }
 
   .carousel-btn.next {
-    right: 10px;
+    right: clamp(0.5rem, 1vw, 1rem);
   }
 
   .carousel-pagination {
     display: flex;
     justify-content: center;
-    gap: 1vw;
-    margin-top: 20px;
+    gap: 0.65rem;
+    margin-top: 1rem;
+    position: relative;
+    z-index: 1;
   }
 
   .pagination-dot {
-    width: 24px;
-    height: 12px;
-    border-radius: 25px;
-    border: 2px solid #470404;
+    width: 2.1rem;
+    height: 0.65rem;
+    border-radius: 999px;
+    border: 1px solid rgba(201, 24, 16, 0.6);
     background: transparent;
     cursor: pointer;
-    transition: box-shadow 0.3s;
+    transition:
+      background-color 0.25s ease,
+      box-shadow 0.25s ease,
+      border-color 0.25s ease;
   }
 
   .pagination-dot.active {
-    background: #aa0505;
+    background: #c91810;
+    box-shadow: 0 0 0.75rem rgba(201, 24, 16, 0.55);
   }
 
   .pagination-dot:hover {
-    background: red;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.589);
+    background: rgba(201, 24, 16, 0.92);
+    border-color: #ff6252;
+    box-shadow: 0 0 1rem rgba(255, 64, 46, 0.45);
   }
 
-  .slide-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  .content-text {
+    position: relative;
+    z-index: 2;
+    max-width: min(44rem, 67%);
+    margin-top: 0.25rem;
+  }
+
+  .content-text h2 {
+    text-transform: uppercase;
+    font-size: clamp(3rem, 7vw, 5.8rem);
+    line-height: 0.84;
+    letter-spacing: 0.04em;
+    font-family: "Stick No Bills", sans-serif;
+    margin-bottom: 0.6rem;
+  }
+
+  .content-text h3 {
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.72);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-size: clamp(0.95rem, 1.4vw, 1.25rem);
+  }
+
+  .content-text p {
+    font-size: clamp(1rem, 1.5vw, 1.3rem);
+    color: rgba(255, 255, 255, 0.86);
+    max-width: 42ch;
+    line-height: 1.5;
+  }
+
+  .content-text a {
+    display: inline-flex;
+    justify-content: center;
     align-items: center;
-    width: 100%;
-    background: black;
-    margin: 1px;
+    text-align: center;
+    border: 1px solid transparent;
+    background: linear-gradient(135deg, #b90f08, #dd2216);
+    color: white;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.65);
+    padding: 0.8rem 1.8rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: inherit;
+    letter-spacing: 0.14em;
+    cursor: pointer;
+    margin-top: 1.2rem;
+    min-width: 16rem;
+    text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  .content-text a:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 88, 70, 0.85);
+    background: linear-gradient(135deg, #ce1911, #f13727);
+  }
+
+  .slide-content img {
+    position: absolute;
+    z-index: 0;
+    inset: -8% -5% -8% auto;
+    height: 116%;
+    object-fit: cover;
+    object-position: top center;
+    filter: saturate(1.25) contrast(1.03) brightness(1.08);
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+
+  @media (max-width: 1100px) {
+    .showcase {
+      padding-top: 1rem;
+    }
+
+    .carousel-slide {
+      min-height: auto;
+    }
+
+    .slide-content {
+      gap: 1.4rem;
+      padding: 2rem 1.2rem 2.2rem;
+    }
 
     .content-text {
-      margin-left: 1rem;
-      margin-top: 1em;
-
-      h2 {
-        text-transform: uppercase;
-        font-size: 4.5em;
-        line-height: 1;
-        font-family: "Stick No Bills";
-      }
-
-      h3 {
-        font-weight: 300;
-        color: #cececec4;
-        letter-spacing: 0.5px;
-        margin-bottom: 1em;
-      }
-
-      p {
-        font-size: 1.7vw;
-        max-width: 40ch;
-      }
-
-      a {
-        display: block;
-        text-align: center;
-        border: 1px solid transparent;
-        background: hsla(0, 99%, 49%, 0.63);
-        text-shadow: 0 0 5px rgb(0, 0, 0);
-        color: white;
-        padding: 0.5em 2em;
-        font-size: 1em;
-        font-weight: 600;
-        text-transform: uppercase;
-        font-family: inherit;
-        letter-spacing: 1px;
-        cursor: pointer;
-        margin-top: 1em;
-        width: 80%;
-        border-width: 1px;
-        transition: 0.2s;
-
-        &:hover {
-          background: rgba(160, 1, 1, 0.747);
-          border: 1px solid red;
-        }
-      }
+      max-width: min(42rem, 100%);
     }
 
-    img {
-      object-fit: cover;
-      height: 25vw;
-    }
-  }
-  @media (max-width: 1100px) {
-    .carousel-track {
-      height: 500px;
-    }
-    .carousel-slide {
-      display: block;
-      width: 100%;
-    }
     .slide-content p,
     .slide-content h3 {
-      font-size: 1.5rem;
+      font-size: 1.05rem;
       max-width: none;
     }
+
     .slide-content img {
-      display: none;
-      position: absolute;
+      inset: auto -10% -6% auto;
+      width: min(70vw, 350px);
+      height: auto;
+      max-height: 88%;
+      opacity: 0.66;
     }
+
     .slide-content button {
       font-size: 2rem;
       width: 100%;
       text-transform: capitalize;
       font-weight: 500;
     }
+
     .carousel-btn {
-      background: none;
-      color: rgba(255, 255, 255, 0.548);
+      width: 2.7rem;
+      height: 2.7rem;
+      font-size: 1.8rem;
+      background: rgba(9, 9, 9, 0.58);
+      color: rgba(255, 255, 255, 0.8);
     }
+
     .carousel-btn:focus {
-      background: none;
+      background: rgba(173, 23, 14, 0.85);
       color: white;
+    }
+
+    .content-text a {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .content-text {
+      max-width: 100%;
+    }
+
+    .content-text h2 {
+      font-size: clamp(2.5rem, 16vw, 3.7rem);
+    }
+
+    .slide-content::after {
+      background:
+        linear-gradient(
+          180deg,
+          rgba(12, 12, 12, 0.68) 0%,
+          rgba(12, 12, 12, 0.82) 45%,
+          rgba(12, 12, 12, 0.9) 100%
+        ),
+        radial-gradient(
+          circle at 78% 32%,
+          rgba(201, 24, 16, 0.16),
+          transparent 40%
+        );
+    }
+
+    .slide-content img {
+      inset: auto -20% -3% auto;
+      width: min(95vw, 370px);
+      opacity: 0.54;
+    }
+
+    .carousel-btn {
+      top: auto;
+      bottom: 0.5rem;
+      transform: none;
+    }
+
+    .carousel-btn.prev {
+      left: 0.75rem;
+    }
+
+    .carousel-btn.next {
+      right: 0.75rem;
+    }
+
+    .carousel-pagination {
+      margin-top: 0.75rem;
     }
   }
 </style>

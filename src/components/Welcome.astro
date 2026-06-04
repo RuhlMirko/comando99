@@ -41,23 +41,25 @@ import logo from "../../public/images/logo.png";
   .hero {
     position: relative;
     min-height: 100vh;
+    width: 100%;
+    margin-inline: 0;
+    margin-bottom: 0;
     display: flex;
     align-items: center;
-    /* padding: clamp(5rem, 10vh, 8rem) clamp(1.5rem, 4vw, 4rem); */
-    padding: 4rem 2rem;
+    padding: 2rem 7rem 0;
     overflow: hidden;
     isolation: isolate;
     background:
       linear-gradient(
         90deg,
-        rgba(0, 0, 0, 0.92) 0%,
-        rgba(0, 0, 0, 0.75) 34%,
-        rgba(0, 0, 0, 0.32) 58%,
-        rgba(0, 0, 0, 0.18) 100%
+        rgba(0, 0, 0, 0.801) 0%,
+        rgba(0, 0, 0, 0.397) 34%,
+        rgba(0, 0, 0, 0) 45%,
+        rgba(0, 0, 0, 0) 100%
       ),
       radial-gradient(
         circle at center,
-        rgba(255, 61, 36, 0.1),
+        rgba(255, 62, 36, 0.151),
         transparent 30%
       ),
       url("/images/hero-bg.png");
@@ -82,12 +84,6 @@ import logo from "../../public/images/logo.png";
       ),
       linear-gradient(90deg, rgba(0, 0, 0, 0.4), transparent 35%);
     z-index: -1;
-  }
-
-  .hero__content {
-    position: relative;
-    z-index: 2;
-    max-width: min(38rem, 92vw);
   }
 
   .hero__eyebrow {
@@ -137,8 +133,8 @@ import logo from "../../public/images/logo.png";
 
   .hero__badge {
     position: absolute;
-    top: 60%;
-    left: 60%;
+    top: 50%;
+    left: 50%;
     width: clamp(14rem, 23vw, 24rem);
     height: auto;
     transform: translate(-50%, -48%);
@@ -270,9 +266,9 @@ import logo from "../../public/images/logo.png";
     }
 
     .hero__badge {
-      right: 1rem;
-      bottom: 1.5rem;
-      width: 5.5rem;
+      right: 25%;
+      bottom: 3%;
+      width: 50vw;
     }
   }
 </style>
