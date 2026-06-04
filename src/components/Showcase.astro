@@ -148,7 +148,6 @@ const slides = [
     color: white;
     width: min(1220px, 85%);
     margin-inline: auto;
-    /* padding: clamp(2rem, 5vw, 4.8rem) clamp(1.2rem, 3vw, 3.5rem); */
     padding: 4rem 3rem;
     display: grid;
     grid-template-columns: 1fr;
@@ -185,14 +184,13 @@ const slides = [
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 3rem;
-    height: 3rem;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    background: rgba(12, 12, 12, 0.72);
+    width: 2rem;
+    height: 7rem;
+    border: 1px solid transparent;
+    background: transparent;
     backdrop-filter: blur(3px);
     color: white;
-    font-size: 2.1rem;
+    font-size: 3rem;
     line-height: 1;
     padding: 0;
     cursor: pointer;
@@ -204,16 +202,16 @@ const slides = [
   }
 
   .carousel-btn:hover {
-    background: rgba(173, 23, 14, 0.8);
-    border-color: rgba(255, 85, 62, 0.9);
+    border: 1px solid rgb(134, 134, 134);
+    background: rgba(31, 31, 31, 0.72);
   }
 
   .carousel-btn.prev {
-    left: clamp(0.5rem, 1vw, 1rem);
+    left: 3vw;
   }
 
   .carousel-btn.next {
-    right: clamp(0.5rem, 1vw, 1rem);
+    right: 3vw;
   }
 
   .carousel-pagination {
@@ -287,7 +285,7 @@ const slides = [
     align-items: center;
     text-align: center;
     border: 1px solid transparent;
-    background: linear-gradient(135deg, #b90f08, #dd2216);
+    background: #cf1b0f;
     color: white;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.65);
     padding: 0.8rem 1.8rem;
@@ -309,7 +307,7 @@ const slides = [
   .content-text a:hover {
     transform: translateY(-2px);
     border-color: rgba(255, 88, 70, 0.85);
-    background: linear-gradient(135deg, #ce1911, #f13727);
+    background: #6e0703;
   }
 
   .slide-content img {

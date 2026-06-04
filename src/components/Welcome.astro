@@ -58,7 +58,7 @@ import logo from "../../public/images/logo.png";
         rgba(0, 0, 0, 0) 100%
       ),
       radial-gradient(
-        circle at center,
+        circle at 58% 50%,
         rgba(255, 62, 36, 0.151),
         transparent 30%
       ),
@@ -131,11 +131,17 @@ import logo from "../../public/images/logo.png";
     line-height: 1.5;
   }
 
+  .hero__content {
+    position: relative;
+    z-index: 2;
+  }
+
   .hero__badge {
     position: absolute;
+    z-index: 1;
     top: 50%;
-    left: 50%;
-    width: clamp(14rem, 23vw, 24rem);
+    left: 58%;
+    width: clamp(14rem, 33vw, 34rem);
     height: auto;
     transform: translate(-50%, -48%);
     opacity: 0.92;
