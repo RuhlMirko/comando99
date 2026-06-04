@@ -5,6 +5,7 @@ import Galeria from "../components/Galeria.astro";
 import Faq from "../components/Faq.astro";
 import Navbar from "../components/Navbar.astro";
 import Showcase from "../components/Showcase.astro";
+import Summary from "../components/Summary.astro";
 ---
 
 <Layout>
@@ -17,6 +18,9 @@ import Showcase from "../components/Showcase.astro";
     }}
   />
   <Welcome />
+  <div class="reveal-up">
+    <Summary />
+  </div>
   <div class="reveal-up">
     <Showcase />
   </div>
@@ -41,7 +45,7 @@ import Showcase from "../components/Showcase.astro";
   body {
     max-width: 100vw;
     overflow-x: hidden;
-    background: #121212;
+    background: black;
     color: white;
     font-family:
       "Rajdhani",
