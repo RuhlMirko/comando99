@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import logo from "../../public/images/logo.png";
+import Summary from "./Summary.astro";
 ---
 
 <main>
@@ -29,6 +30,7 @@ import logo from "../../public/images/logo.png";
       class="hero__badge"
       loading="eager"
     />
+    <Summary />
   </section>
 </main>
 
@@ -44,9 +46,7 @@ import logo from "../../public/images/logo.png";
     width: 100%;
     margin-inline: 0;
     margin-bottom: 0;
-    display: flex;
-    align-items: center;
-    padding: 2rem 7rem 0;
+    padding: 30dvh 7rem 0;
     overflow: hidden;
     isolation: isolate;
     background:
@@ -136,17 +136,18 @@ import logo from "../../public/images/logo.png";
   .hero__content {
     position: relative;
     z-index: 2;
+    margin-bottom: 6dvh;
   }
 
   .hero__badge {
     position: absolute;
     z-index: 1;
     top: 50%;
-    left: 58%;
+    left: 55%;
     width: clamp(14rem, 33vw, 34rem);
     height: auto;
     transform: translate(-50%, -48%);
-    opacity: 0.92;
+    opacity: 0.87;
     filter: drop-shadow(0 1.5rem 3rem rgba(0, 0, 0, 0.65));
     pointer-events: none;
   }
