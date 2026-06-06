@@ -85,13 +85,13 @@ const entries = Object.entries(navLinks);
     top: 0;
     z-index: 30;
     width: 100%;
-    background: linear-gradient(to bottom, black, transparent);
+    background: linear-gradient(to bottom, black 30%, transparent 100%);
   }
 
   nav {
     position: relative;
     min-height: 5.5rem;
-    padding: 1.65rem 1rem;
+    padding: 1.65rem 1rem 0;
     background: transparent;
     animation: reveal-nav-links 0.5s ease-out;
   }
@@ -124,7 +124,7 @@ const entries = Object.entries(navLinks);
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2.35rem;
+    gap: 0.5rem;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -134,21 +134,26 @@ const entries = Object.entries(navLinks);
     display: inline-flex;
     align-items: center;
     min-height: 2.9rem;
-    padding: 0 0.25rem;
+    padding: 0 1.25rem;
     color: rgba(255, 255, 255, 0.84);
     text-decoration: none;
     font-family: "Rajdhani", sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
     text-transform: uppercase;
+    border-bottom: 1px solid transparent;
     transition:
       color 0.2s ease,
-      text-shadow 0.2s ease;
+      text-shadow 0.2s ease,
+      background 0.5s ease-out,
+      border-color 0.2s ease;
   }
 
   .nav-links li a:hover {
     color: #ffffff;
     text-shadow: 0 0 0.75rem rgba(201, 24, 16, 0.45);
+    background: rgba(153, 9, 9, 0.527);
+    border-color: red;
   }
 
   .nav-actions {
