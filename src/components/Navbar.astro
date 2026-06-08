@@ -20,7 +20,13 @@ const entries = Object.entries(navLinks);
 
     <div class="nav-shell">
       <a href="#hero" class="brand" aria-label="Comando 99 home">
-        <img src="/images/logo.png" alt="Comando 99" />
+        <img
+          src="/images/logo.png"
+          alt="Comando 99"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
       </a>
 
       <ul class="nav-links">

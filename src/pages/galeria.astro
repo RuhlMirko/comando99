@@ -63,6 +63,7 @@ const images = Object.fromEntries(
                   height={200}
                   loading={index < 6 ? "eager" : "lazy"}
                   fetchpriority={index === 0 ? "high" : "auto"}
+                  decoding="async"
                 />
                 <p>{filename}</p>
               </div>
@@ -73,7 +74,7 @@ const images = Object.fromEntries(
       <h2>Entrenamientos</h2>
       <div class="gallery-list" id="training">
         {
-          images.entrenamientos.map((item) => {
+          images.entrenamientos.map((item, index) => {
             const filename =
               item.split("/").pop()?.split(".")[0].replaceAll("-", "/") ||
               "imagen";
@@ -84,6 +85,9 @@ const images = Object.fromEntries(
                   alt={`Comando 99 - ${filename}`}
                   width={800}
                   height={200}
+                  loading={index < 3 ? "eager" : "lazy"}
+                  decoding="async"
+                  fetchpriority="low"
                 />
                 <p>{filename}</p>
               </div>
@@ -94,7 +98,7 @@ const images = Object.fromEntries(
       <h2>Patrullas</h2>
       <div class="gallery-list" id="patrullas">
         {
-          images.patrullas.map((item) => {
+          images.patrullas.map((item, index) => {
             const filename =
               item.split("/").pop()?.split(".")[0].replaceAll("-", "/") ||
               "imagen";
@@ -105,6 +109,9 @@ const images = Object.fromEntries(
                   alt={`Comando 99 - ${filename}`}
                   width={800}
                   height={200}
+                  loading={index < 2 ? "eager" : "lazy"}
+                  decoding="async"
+                  fetchpriority="low"
                 />
                 <p>{filename}</p>
               </div>
@@ -115,7 +122,7 @@ const images = Object.fromEntries(
       <h2>Escenas</h2>
       <div class="gallery-list" id="escenas">
         {
-          images.escenas.map((item) => {
+          images.escenas.map((item, index) => {
             const filename =
               item.split("/").pop()?.split(".")[0].split("-").join(" ") ||
               "imagen";
@@ -126,6 +133,9 @@ const images = Object.fromEntries(
                   alt={`Comando 99 - ${filename}`}
                   width={800}
                   height={200}
+                  loading={index < 2 ? "eager" : "lazy"}
+                  decoding="async"
+                  fetchpriority="low"
                 />
                 <p>{filename}</p>
               </div>

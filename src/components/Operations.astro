@@ -18,20 +18,23 @@ const fallbackImage =
 
 const cards = [
   {
-    title: "JOINT OPERATIONS",
-    description: "Large scale, combined arms. Coordination is key.",
+    title: "OPERACIONES CONJUNTAS",
+    description:
+      "Misiones a gran escala con roles coordinados entre infanteria, soporte y mando.",
     image: firstImageFrom("entrenamientos") ?? fallbackImage,
     alt: "Operators moving through mountainous terrain",
   },
   {
-    title: "DYNAMIC MISSIONS",
-    description: "Persistent objectives. Unpredictable outcomes.",
+    title: "MISIONES DINAMICAS",
+    description:
+      "Objetivos que evolucionan en tiempo real segun las decisiones de cada escuadra.",
     image: firstImageFrom("misiones") ?? fallbackImage,
     alt: "Operators advancing in urban combat zone",
   },
   {
-    title: "VARIED ENVIRONMENTS",
-    description: "From Chernarus to Tanoa. No two ops are the same.",
+    title: "ENTORNOS VARIABLES",
+    description:
+      "Desde zonas urbanas hasta terreno abierto: cada operacion exige nuevas tacticas.",
     image: firstImageFrom("patrullas") ?? fallbackImage,
     alt: "Operators patrolling through a forest road",
   },
@@ -40,22 +43,22 @@ const cards = [
 
 <section class="operations" id="operations">
   <div class="operations-left hud-border">
-    <p class="operations-kicker">OPERATIONS</p>
+    <p class="operations-kicker">OPERACIONES</p>
     <h2>
-      DEPLOY.<br />
-      ADAPT.<br />
-      OVERCOME.
+      PLANIFICA.<br />
+      EJECUTA.<br />
+      CUMPLE.
     </h2>
     <p class="operations-copy">
-      We run a variety of operations across different terrains and conflict
-      types.
+      En Comando 99 realizamos operaciones MILSIM con disciplina, cadena de
+      mando y trabajo en equipo en distintos escenarios.
     </p>
-    <a class="operations-link" href="/galeria">VIEW PAST OPS</a>
+    <a class="operations-link" href="/galeria">VER OPERACIONES RECIENTES</a>
   </div>
 
   <div class="operations-cards">
     {
-      cards.map((card) => (
+      cards.map((card, index) => (
         <article class="operations-card hud-border">
           <div class="operations-image-wrap">
             {card.image ? (
@@ -64,6 +67,9 @@ const cards = [
                 alt={card.alt}
                 width={1200}
                 height={760}
+                loading={index === 0 ? "eager" : "lazy"}
+                decoding="async"
+                fetchpriority={index === 0 ? "high" : "low"}
               />
             ) : (
               <div class="operations-image-fallback" aria-hidden="true" />
@@ -82,18 +88,12 @@ const cards = [
 <style>
   .operations {
     display: grid;
-    grid-template-columns: minmax(230px, 0.95fr) 2.05fr;
+    grid-template-columns: minmax(130px, 0.55fr) 2.05fr;
     gap: 1rem;
     margin-inline: 0;
     padding: 1.2rem;
     border-block: 1px solid rgba(201, 24, 16, 0.36);
-    background:
-      radial-gradient(
-        circle at 20% 8%,
-        rgba(201, 24, 16, 0.14),
-        rgba(0, 0, 0, 0) 38%
-      ),
-      linear-gradient(180deg, #050505 0%, #090909 100%);
+    background: linear-gradient(180deg, #121212 0%, #0c0c0c 100%);
   }
 
   .operations-left {
@@ -102,7 +102,8 @@ const cards = [
     justify-content: center;
     gap: 0.65rem;
     min-height: 100%;
-    padding: 1.2rem 1.05rem;
+    padding: 1.2rem 1.5rem;
+    width: 20vw;
     background:
       linear-gradient(180deg, rgba(201, 24, 16, 0.12), rgba(201, 24, 16, 0)),
       rgba(0, 0, 0, 0.72);
@@ -123,6 +124,8 @@ const cards = [
     font-size: clamp(2rem, 3.5vw, 3.2rem);
     line-height: 0.84;
     letter-spacing: 0.03em;
+    border-bottom: 6px double rgb(129, 3, 3);
+    width: fit-content;
   }
 
   .operations-copy {
@@ -208,10 +211,13 @@ const cards = [
 
   .operations-content h3 {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     line-height: 1;
-    letter-spacing: 0.03em;
+    font-family: "Stick No Bills";
+    letter-spacing: 0.05em;
     text-transform: uppercase;
+    text-align: center;
+    border-bottom: 1px solid var(--bg-secondary);
   }
 
   .operations-content p {

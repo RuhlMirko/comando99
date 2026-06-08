@@ -51,7 +51,13 @@ const slides = [
                   {slide.content.redirect.text}
                 </a>
               </div>
-              <img src={slide.content.thumbnail} alt={slide.content.altText} />
+              <img
+                src={slide.content.thumbnail}
+                alt={slide.content.altText}
+                loading={index === 0 ? "eager" : "lazy"}
+                decoding="async"
+                fetchpriority={index === 0 ? "high" : "low"}
+              />
             </div>
           </div>
         ))

@@ -11,7 +11,7 @@ const imagePaths = Object.keys(images).map((path) =>
   <h2>Galeria</h2>
   <div class="gallery-list collapsed">
     {
-      imagePaths.slice(0, 18).map((item) => {
+      imagePaths.slice(0, 18).map((item, index) => {
         const filename = item.split("/").pop()?.split(".")[0] || "imagen";
         return (
           <div class="gallery-item">
@@ -20,6 +20,9 @@ const imagePaths = Object.keys(images).map((path) =>
               alt={`Comando 99 - ${filename}`}
               width={800}
               height={200}
+              loading={index < 3 ? "eager" : "lazy"}
+              decoding="async"
+              fetchpriority={index === 0 ? "high" : "low"}
             />
           </div>
         );
