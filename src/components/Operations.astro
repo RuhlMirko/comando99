@@ -53,7 +53,7 @@ const cards = [
       En Comando 99 realizamos operaciones MILSIM con disciplina, cadena de
       mando y trabajo en equipo en distintos escenarios.
     </p>
-    <a class="operations-link" href="/galeria">VER OPERACIONES RECIENTES</a>
+    <a class="operations-link" href="/galeria">VER ULTIMAS OPERACIONES</a>
   </div>
 
   <div class="operations-cards">
@@ -232,8 +232,32 @@ const cards = [
       grid-template-columns: 1fr;
     }
 
+    .operations-left {
+      width: 100%;
+    }
+    .operations-copy {
+      max-width: none;
+      font-size: 2rem;
+    }
+
+    .operations-kicker,
+    .operations-left h2,
+    .operations-link {
+      text-align: center;
+      font-size: 1em;
+      width: 100%;
+    }
+
     .operations-left h2 {
-      font-size: clamp(2rem, 6vw, 2.9rem);
+      /* font-size: clamp(2rem, 6vw, 2.9rem); */
+      font-size: 6vw;
+
+      br {
+        display: none;
+      }
+    }
+    .operations-link {
+      width: 100%;
     }
 
     .operations-cards {
