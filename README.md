@@ -50,6 +50,40 @@ Ejecuta los comandos desde la raíz del proyecto.
 	└── pages/
 ```
 
+## Estructura de la página de inicio
+
+La home se define en `src/pages/index.astro` y usa `src/layouts/Layout.astro`.
+
+Orden de renderizado:
+
+1. `Layout`
+2. `Navbar`
+3. `Welcome`
+4. `Showcase` (con animación `reveal-up`)
+5. `Galeria` (con animación `reveal-up`)
+6. `Operations` (con animación `reveal-up`)
+7. `Faq` (con animación `reveal-up`)
+8. `Footer` (inyectado desde `Layout`)
+
+```text
+src/pages/index.astro
+└── Layout
+	├── Navbar
+	├── Welcome
+	├── Showcase
+	├── Galeria
+	├── Operations
+	├── Faq
+	└── Footer (desde Layout)
+```
+
+IDs/anchors de navegación configurados en `Navbar`:
+
+- hero -> Inicio
+- showcase -> Sobre Nosotros
+- gallery -> Galeria
+- faq -> Preguntas frecuentes
+
 ## Desarrollo
 
 Para iniciar en modo desarrollo:
