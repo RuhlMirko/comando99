@@ -38,7 +38,7 @@ const imagePaths = Object.keys(images).map((path) =>
       >Ver mas fotos <i class="fas fa-chevron-down navigation-chevron"
       ></i></button
     >
-    <a href="/galeria">Ver Galeria completa</a>
+    <a href="/galeriaCompleta">Ver Galeria completa</a>
   </div>
 </section>
 
@@ -113,24 +113,39 @@ const imagePaths = Object.keys(images).map((path) =>
   }
 
   .gallery-list.collapsed .gallery-item:nth-child(n + 4) {
-    max-height: 0;
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
+    display: none;
   }
   .gallery-item {
     position: relative;
     overflow: hidden;
     max-height: 1000px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 175, 110, 0.18);
+    background: #090909;
+    transform: translateY(0);
     box-shadow:
       0 1rem 1.8rem rgba(0, 0, 0, 0.34),
       inset 0 0 0 1px rgba(255, 255, 255, 0.02);
     transition:
       max-height 0.5s,
       opacity 0.5s,
-      transform 0.5s;
+      transform 0.28s ease,
+      border-color 0.28s ease,
+      box-shadow 0.28s ease;
+  }
+
+  .gallery-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at 85% 12%,
+      rgba(245, 118, 95, 0.329),
+      transparent 52%
+    );
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    z-index: 2;
   }
 
   .gallery-item::after {
@@ -139,16 +154,14 @@ const imagePaths = Object.keys(images).map((path) =>
     inset: 0;
     background: linear-gradient(
       to top,
-      rgba(201, 24, 16, 0.22),
-      rgba(255, 0, 0, 0)
+      rgba(9, 8, 8, 0.92) 5%,
+      rgba(9, 8, 8, 0.15) 48%,
+      transparent 74%
     );
-    opacity: 0;
-    transition: opacity 0.2s ease;
+    opacity: 0.85;
+    transition: opacity 0.2s;
     pointer-events: none;
-  }
-
-  .gallery-item:hover::after {
-    opacity: 1;
+    z-index: 1;
   }
 
   .gallery-item img {
@@ -157,16 +170,34 @@ const imagePaths = Object.keys(images).map((path) =>
     object-fit: cover;
     aspect-ratio: 16/9;
     transition:
-      transform 0.25s ease,
-      filter 0.25s ease;
+      transform 0.45s ease,
+      filter 0.35s ease;
     display: block;
+    filter: saturate(92%);
   }
+
+  .gallery-item:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 111, 111, 0.5);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.5);
+  }
+
+  .gallery-item:hover::before {
+    opacity: 1;
+  }
+
+  .gallery-item:hover::after {
+    opacity: 1;
+  }
+
   .gallery-item:hover img {
     cursor: pointer;
-    transform: scale(1.02);
+    transform: scale(1.05);
+    filter: saturate(108%);
   }
-  .gallery-list:hover img:not(:hover) {
-    filter: brightness(0.7) saturate(70%);
+
+  .gallery-list:hover .gallery-item:not(:hover) {
+    opacity: 0.84;
   }
 
   .gallery-modal {
