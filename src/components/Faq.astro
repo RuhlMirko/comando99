@@ -77,10 +77,17 @@
   }
   .question h3 {
     cursor: pointer;
-    background-color: #121212;
+    position: relative;
+    overflow: hidden;
+    /* background: linear-gradient(
+      90deg,
+      rgba(29, 14, 14, 0.97),
+      rgba(18, 10, 10, 0.97)
+    ); */
+    background: #121212;
     color: white;
     padding: 0.5rem 2rem;
-    margin: 0.2rem 0;
+    margin: 0;
     transition: 0.2s;
     font-size: 2rem;
     font-family: "Stick No Bills";
@@ -94,8 +101,34 @@
   }
 
   .question {
-    background: #3b0f0f75;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+      90deg,
+      rgba(29, 14, 14, 0.97),
+      rgba(18, 10, 10, 0.97)
+    );
     padding-top: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .question.open::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.18;
+    background-image: url("/images/topographic.png");
+    background-repeat: repeat-x;
+    background-size: auto 180%;
+    background-position: center;
+    filter: contrast(1.05) brightness(0.9);
+    z-index: 0;
+  }
+
+  .question > * {
+    position: relative;
+    z-index: 1;
   }
 
   .question p,
@@ -123,8 +156,12 @@
     padding-left: 4vw;
   }
   .question.open h3 {
-    background-color: #6d0404;
+    background: #940505;
     border-right: none;
+
+    &::before {
+      background-image: none;
+    }
   }
   .question.open {
     border: 2px solid rgba(255, 0, 0, 0.425);
