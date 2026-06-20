@@ -34,11 +34,13 @@ const imagePaths = Object.keys(images).map((path) =>
     <img class="gallery-modal-image" alt="" />
   </div>
   <div class="gallery-options">
-    <button class="galeria-btn"
+    <button class="galeria-btn gallery-action gallery-action-primary"
       >Ver mas fotos <i class="fas fa-chevron-down navigation-chevron"
       ></i></button
     >
-    <a href="/galeriaCompleta">Ver Galeria completa</a>
+    <a class="gallery-action gallery-action-secondary" href="/galeriaCompleta"
+      >Ver Galeria completa</a
+    >
   </div>
 </section>
 
@@ -257,11 +259,10 @@ const imagePaths = Object.keys(images).map((path) =>
   }
 
   .gallery-options {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    justify-content: space-around;
-    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-top: 1.1rem;
     width: 100%;
     margin: 0 auto;
     border-top: 1px solid rgba(201, 24, 16, 0.28);
@@ -270,69 +271,93 @@ const imagePaths = Object.keys(images).map((path) =>
     z-index: 1;
   }
 
-  .gallery-options a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    background: rgba(255, 255, 255, 0.03);
-  }
-  .gallery-options button {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: linear-gradient(135deg, #b90f08, #dd2216);
-    font-family: inherit;
-    padding: 0.85rem 1.25rem;
-    box-shadow: 0 0.85rem 1.5rem rgba(180, 16, 8, 0.22);
-  }
-
-  .galeria-btn,
-  .gallery-options a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: inherit;
-    text-decoration: none;
-    font-size: 1.25rem;
-    text-align: center;
-    width: 100%;
-    min-height: 3.15rem;
-    padding: 0.85rem 1rem;
-    cursor: pointer;
-    transition:
-      transform 0.2s ease,
-      background-color 0.2s ease,
-      border-color 0.2s ease,
-      box-shadow 0.2s ease,
-      color 0.2s ease;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 700;
-
-    &:hover {
-      border-color: rgb(197, 7, 7);
+  @media (min-width: 780px) {
+    .gallery-options {
+      grid-template-columns: 1fr 1fr;
     }
   }
 
-  .galeria-btn {
+  .gallery-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-    color: white;
+    color: #fff;
+    text-decoration: none;
+    font-size: clamp(1.02rem, 1.4vw, 1.2rem);
+    text-align: center;
+    width: 100%;
+    min-height: 3.2rem;
+    padding: 0.9rem 1.1rem;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    font-family: inherit;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    backdrop-filter: blur(2px);
+    transition:
+      transform 0.18s ease,
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      color 0.2s ease,
+      filter 0.2s ease;
   }
 
-  .gallery-options button:hover {
-    background: linear-gradient(135deg, #d31911, #f43627);
-    box-shadow: 0 1rem 1.75rem rgba(180, 16, 8, 0.32);
-    transform: translateY(-1px);
-  }
-  .gallery-options a:hover {
-    background-color: rgba(87, 18, 18, 0.96);
-    transform: translateY(-1px);
-    box-shadow: 0 0.85rem 1.5rem rgba(0, 0, 0, 0.2);
+  .gallery-action:hover {
+    transform: translateY(-2px);
   }
 
-  .gallery-options button:focus-visible,
-  .gallery-options a:focus-visible {
+  .gallery-action:active {
+    transform: translateY(0);
+  }
+
+  .gallery-action:focus-visible {
     outline: 2px solid rgba(255, 90, 70, 0.95);
     outline-offset: 2px;
+  }
+
+  .gallery-action-primary {
+    border-color: rgba(255, 126, 96, 0.48);
+    background: linear-gradient(135deg, #a10f09, #c91912 55%, #f43627 100%);
+    box-shadow:
+      0 0.85rem 1.5rem rgba(180, 16, 8, 0.24),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+
+  .gallery-action-primary:hover {
+    border-color: rgba(255, 167, 134, 0.7);
+    box-shadow:
+      0 1rem 1.75rem rgba(180, 16, 8, 0.34),
+      0 0 0 1px rgba(255, 120, 95, 0.25);
+    filter: saturate(1.08);
+  }
+
+  .gallery-action-secondary {
+    border-color: rgba(255, 255, 255, 0.2);
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
+      rgba(12, 12, 12, 0.88);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+      0 0.75rem 1.25rem rgba(0, 0, 0, 0.22);
+  }
+
+  .gallery-action-secondary:hover {
+    border-color: rgba(255, 152, 118, 0.65);
+    background:
+      linear-gradient(rgba(255, 120, 95, 0.12), rgba(255, 120, 95, 0.03)),
+      rgba(25, 12, 12, 0.94);
+    box-shadow: 0 0.95rem 1.45rem rgba(0, 0, 0, 0.28);
+  }
+
+  .galeria-btn {
+    color: #fff;
+  }
+
+  .navigation-chevron {
+    transition: transform 0.2s ease;
   }
 
   button:disabled {
