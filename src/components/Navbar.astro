@@ -127,6 +127,7 @@ const entries = Object.entries(navLinks);
     justify-content: center;
     flex-shrink: 0;
     text-decoration: none;
+    filter: drop-shadow(0 6px 3rem rgba(145, 145, 145, 0.527));
   }
 
   .brand img {
@@ -147,12 +148,14 @@ const entries = Object.entries(navLinks);
   }
 
   .nav-links li a {
+    letter-spacing: 1px;
     display: inline-flex;
     align-items: center;
     min-height: 2.9rem;
     padding: 0 1.25rem;
     color: rgba(255, 255, 255, 0.84);
     text-decoration: none;
+    
     font-family: "Rajdhani", sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
@@ -166,10 +169,11 @@ const entries = Object.entries(navLinks);
   }
 
   .nav-links li a:hover {
-    color: #ffffff;
+    color: #ff0000;
     text-shadow: 0 0 0.75rem rgba(201, 24, 16, 0.45);
-    background: rgba(153, 9, 9, 0.527);
+    background: rgba(121, 5, 5, 0.782);
     border-color: red;
+    text-shadow: 0 0 6px rgb(51, 2, 2);
   }
 
   .nav-actions {
