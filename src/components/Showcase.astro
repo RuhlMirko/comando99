@@ -87,7 +87,7 @@ const slides = [
     margin-inline: 0;
     margin-bottom: 3rem;
     /*padding: clamp(1.2rem, 2vw, 2rem) 0 clamp(1.5rem, 2.5vw, 2.5rem);*/
-    padding-top: 1rem;
+    padding-top: 0;
   }
 
   .showcase::before {
@@ -289,10 +289,11 @@ const slides = [
   .slide-content img {
     position: absolute;
     z-index: 0;
-    inset: -8% -5% -8% auto;
-    height: 116%;
-    object-fit: cover;
-    object-position: top center;
+    inset: 0 -2% 0 auto;
+    width: min(52%, 620px);
+    height: 100%;
+    object-fit: contain;
+    object-position: right center;
     filter: saturate(1.25) contrast(1.03) brightness(1.08);
     mix-blend-mode: screen;
     pointer-events: none;
@@ -300,7 +301,7 @@ const slides = [
 
   @media (max-width: 1100px) {
     .showcase {
-      padding-top: 1rem;
+      padding-top: 0;
     }
 
     .carousel-slide {
@@ -323,11 +324,12 @@ const slides = [
     }
 
     .slide-content img {
-      inset: auto -10% -6% auto;
-      width: min(70vw, 350px);
-      height: auto;
-      max-height: 88%;
-      opacity: 0.66;
+      inset: auto -8% 0 auto;
+      width: min(66vw, 360px);
+      height: 88%;
+      object-fit: contain;
+      object-position: right bottom;
+      opacity: 0.72;
     }
 
     .slide-content button {
@@ -381,8 +383,11 @@ const slides = [
     }
 
     .slide-content img {
-      inset: auto -20% -3% auto;
+      inset: auto -16% 0 auto;
       width: min(95vw, 370px);
+      height: 80%;
+      object-fit: contain;
+      object-position: right bottom;
       opacity: 0.54;
     }
 
