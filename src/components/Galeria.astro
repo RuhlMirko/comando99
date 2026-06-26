@@ -225,6 +225,10 @@ const imagePaths = Object.keys(images).map((path) =>
     visibility: visible;
   }
 
+  :global(body.gallery-modal-open) {
+    overflow: hidden;
+  }
+
   .gallery-modal-image {
     max-width: 92vw;
     max-height: 92vh;
@@ -377,12 +381,17 @@ const imagePaths = Object.keys(images).map((path) =>
     ".gallery-modal-close",
   ) as HTMLButtonElement;
 
+  if (modal && modal.parentElement !== document.body) {
+    document.body.appendChild(modal);
+  }
+
   const openModal = (src: string, alt: string) => {
     if (!modal || !modalImage) return;
     modalImage.src = src;
     modalImage.alt = alt || "";
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("gallery-modal-open");
   };
 
   const closeModal = () => {
@@ -390,6 +399,7 @@ const imagePaths = Object.keys(images).map((path) =>
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
     modalImage.src = "";
+    document.body.classList.remove("gallery-modal-open");
   };
 
   photoList?.addEventListener("click", (event) => {
