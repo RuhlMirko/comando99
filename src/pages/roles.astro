@@ -163,7 +163,7 @@ import Navbar from "../components/Navbar.astro";
         <div class="role-cell role-level">Nivel Basico (0-50 pts)</div>
         <div class="role-cell role-level">Nivel Intermedio (51-100 pts)</div>
         <div class="role-cell role-level">Nivel Avanzado (101-150 pts)</div>
-        <div class="role-cell role-level">Nivel Maestro (151+ pts)</div>       
+        <div class="role-cell role-level">Nivel Maestro (151+ pts)</div>
 
         <div class="role-cell servicios">
           Aviones de entrenamiento y reconocimiento
@@ -292,7 +292,11 @@ import Navbar from "../components/Navbar.astro";
     margin-bottom: 2.6rem;
     border: 1px solid var(--panel-border);
     border-bottom: 0;
-    background: linear-gradient(180deg, rgba(18, 18, 18, 0.94), rgba(7, 7, 7, 0.96));
+    background: linear-gradient(
+      180deg,
+      rgba(18, 18, 18, 0.94),
+      rgba(7, 7, 7, 0.96)
+    );
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.32);
   }
 
@@ -355,8 +359,17 @@ import Navbar from "../components/Navbar.astro";
   }
 
   .fusilero {
-    background: #262626;
+    background:
+      linear-gradient(180deg, rgba(27, 6, 6, 0.795), rgba(7, 0, 0, 0.781)),
+      url("/images/topographic.png");
+    background-repeat: no-repeat, repeat-x;
+    background-size:
+      cover,
+      auto 110%;
+    background-position: center;
+    background-blend-mode: normal, multiply;
     color: #f1f1f1;
+    text-shadow: 0 0 12px rgb(0, 0, 0);
   }
 
   .infanteria {
