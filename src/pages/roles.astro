@@ -144,10 +144,22 @@ import Navbar from "../components/Navbar.astro";
         siguiente nivel.
       </p>
       <div class="rol-ascenso">
-        <h3>Nivel Basico</h3>
-        <h3>Nivel Experimentado ⇒ 10 actividades</h3>
-        <h3>Nivel Avanzado ⇒ 25 actividades</h3>
-        <h3>Maestria ⇒ 35 actividades</h3>
+        <div class="ascenso-step">
+          <span class="ascenso-level">Nivel Basico</span>
+          <span class="ascenso-req">Ingreso</span>
+        </div>
+        <div class="ascenso-step">
+          <span class="ascenso-level">Nivel Experimentado</span>
+          <span class="ascenso-req">10 actividades</span>
+        </div>
+        <div class="ascenso-step">
+          <span class="ascenso-level">Nivel Avanzado</span>
+          <span class="ascenso-req">25 actividades</span>
+        </div>
+        <div class="ascenso-step">
+          <span class="ascenso-level">Maestria</span>
+          <span class="ascenso-req">35 actividades</span>
+        </div>
       </div>
     </section>
 
@@ -344,31 +356,92 @@ import Navbar from "../components/Navbar.astro";
     background: linear-gradient(to bottom, #237a73, #184e50);
   }
 
+  .rol-info-container {
+    position: relative;
+    padding: 1.25rem 1.25rem 1.5rem;
+    border: 1px solid rgba(158, 32, 38, 0.7);
+    border-radius: 6px;
+    background:
+      radial-gradient(
+        circle at 18% 22%,
+        rgba(199, 25, 30, 0.17),
+        transparent 42%
+      ),
+      linear-gradient(180deg, rgba(17, 17, 17, 0.95), rgba(7, 7, 7, 0.98));
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+      0 18px 34px rgba(0, 0, 0, 0.34);
+    overflow: hidden;
+  }
+
+  .rol-info-container::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 6px;
+    background: linear-gradient(to bottom, #d12b2f, #7f1115);
+  }
+
+  .rol-info-container h2 {
+    margin-top: 0;
+    padding-left: 1.5rem;
+    border-bottom-color: rgba(185, 58, 58, 0.72);
+  }
+
+  .rol-info-container p {
+    margin: 0.3rem 0 1.15rem;
+    max-width: 78ch;
+    color: rgba(246, 246, 246, 0.92);
+    padding-left: 1.5rem;
+  }
+
   .rol-ascenso {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
     border: 1px solid rgb(189, 8, 8);
     width: 100%;
-    background: linear-gradient(to bottom, #69090fc4, #9c040e);
-    box-shadow: 0 18px 32px rgba(0, 0, 0, 0.33);
+    background: linear-gradient(to right, #69090fc4, #9c040e);
+    box-shadow: inset 0 18px 32px rgba(0, 0, 0, 0.33);
+    overflow: hidden;
   }
 
-  .rol-ascenso h3 {
-    border-bottom: 1px solid brown;
-    border-right: 1px solid rgba(56, 5, 5, 0.65);
-    padding: 0 2.2rem;
-    margin-bottom: 0;
-    padding-bottom: 1em;
-    text-align: center;
-    min-height: 72px;
+  .ascenso-step {
+    position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 1.5em;
+    min-height: 98px;
+    padding: 0.9rem 0.75rem;
+    border-right: 1px solid rgba(56, 5, 5, 0.65);
+    background: linear-gradient(
+      180deg,
+      rgba(132, 17, 25, 0.23),
+      rgba(40, 5, 8, 0.28)
+    );
   }
 
-  .rol-ascenso h3:last-child {
+  .ascenso-step:last-child {
     border-right: 0;
+  }
+
+  .ascenso-level {
+    font-size: clamp(1.2rem, 1.9vw, 1.6rem);
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: center;
+  }
+
+  .ascenso-req {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: rgba(255, 233, 233, 0.88);
+    padding: 0.2rem 0.5rem;
+    border: 1px solid rgba(255, 229, 229, 0.23);
+    background: rgba(0, 0, 0, 0.2);
   }
 
   @media (min-width: 780px) {
@@ -452,18 +525,27 @@ import Navbar from "../components/Navbar.astro";
       letter-spacing: 0.3px;
     }
 
-    .rol-ascenso {
-      flex-direction: column;
+    .rol-info-container {
+      padding: 1rem 0.8rem 1.05rem;
     }
 
-    .rol-ascenso h3 {
+    .rol-info-container h2,
+    .rol-info-container p {
+      padding-left: 0.95rem;
+    }
+
+    .rol-ascenso {
+      grid-template-columns: 1fr;
+    }
+
+    .ascenso-step {
       border-right: 0;
       border-bottom: 1px solid rgba(56, 5, 5, 0.65);
       padding: 0.75rem;
-      min-height: 52px;
+      min-height: 78px;
     }
 
-    .rol-ascenso h3:last-child {
+    .ascenso-step:last-child {
       border-bottom: 0;
     }
   }
