@@ -9,6 +9,25 @@ const imagePaths = Object.keys(images).map((path) =>
 
 <section class="galeria" id="gallery">
   <h2>Galeria</h2>
+  <div class="youtube-videos">
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/OZBMmc4Cie8?si=iNeIcjnTV1kuPPYm&controls=0"
+      title="YouTube video player"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/N20MhzoiAcE?si=J4Rsdw2v2GfSWJ99&controls=0"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
+  </div>
   <div class="gallery-list collapsed">
     {
       imagePaths.slice(0, 18).map((item, index) => {
@@ -45,6 +64,35 @@ const imagePaths = Object.keys(images).map((path) =>
 </section>
 
 <style>
+  .youtube-videos {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 0 auto 1rem;
+  }
+
+  .youtube-videos iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border: 2px solid rgba(201, 24, 16, 0.32);
+    background: #000;
+    box-shadow: 0 0.85rem 1.6rem rgba(0, 0, 0, 0.35);
+    transition: border 0.2s;
+
+    &:hover {
+      border: 2px solid rgb(141, 9, 9);
+    }
+  }
+
+  @media (min-width: 980px) {
+    .youtube-videos {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+  }
   .galeria {
     position: relative;
     margin-inline: 0;
