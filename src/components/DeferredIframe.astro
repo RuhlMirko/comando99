@@ -11,10 +11,9 @@ interface Props {
 const {
   src,
   title = "Video de Comando 99",
-  width = 560,
-  height = 315,
-  allow =
-    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
+  width,
+  height,
+  allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
   aspectRatio = "16 / 9",
 } = Astro.props;
 ---
@@ -25,22 +24,19 @@ const {
   data-deferred-iframe
   data-src={src}
   data-title={title}
-  data-width={String(width)}
-  data-height={String(height)}
   data-allow={allow}
+  data-width={width}
+  data-height={height}
 >
   <span class="deferred-iframe__placeholder">Cargando video...</span>
   <noscript>
     <iframe
-      width={width}
-      height={height}
       src={src}
       title={title}
       frameborder="0"
       allow={allow}
       referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen
-    ></iframe>
+      allowfullscreen></iframe>
   </noscript>
 </div>
 
@@ -61,8 +57,8 @@ const {
           }
 
           const iframe = document.createElement("iframe");
-          iframe.width = container.dataset.width || "560";
-          iframe.height = container.dataset.height || "315";
+          iframe.width = container.dataset.width || "100%";
+          iframe.height = container.dataset.height || "100%";
           iframe.src = src;
           iframe.title = container.dataset.title || "Embedded video";
           iframe.setAttribute("frameborder", "0");
@@ -90,8 +86,7 @@ const {
       if (!src) return;
 
       const iframe = document.createElement("iframe");
-      iframe.width = container.dataset.width || "560";
-      iframe.height = container.dataset.height || "315";
+
       iframe.src = src;
       iframe.title = container.dataset.title || "Embedded video";
       iframe.setAttribute("frameborder", "0");
@@ -148,7 +143,10 @@ const {
   }
 
   .deferred-iframe__placeholder {
-    position: relative;
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
     z-index: 1;
     font-size: 0.9rem;
     letter-spacing: 0.08em;
@@ -157,9 +155,10 @@ const {
   }
 
   .deferred-iframe iframe {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    aspect-ratio: var(--deferred-aspect-ratio, 16 / 9);
     border: 0;
     background: #000;
     display: block;
