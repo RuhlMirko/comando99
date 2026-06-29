@@ -2,6 +2,7 @@
 import Navbar from "../components/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
+import DeferredIframe from "../components/DeferredIframe.astro";
 
 const galleryFiles = import.meta.glob("/public/images/galeria/*/*.*", {
   eager: true,
@@ -18,7 +19,6 @@ const categories = {
   misiones: "Misiones",
   entrenamientos: "Entrenamientos",
   patrullas: "Patrullas",
-  escenas: "Escenas",
 } as const;
 
 const images = Object.fromEntries(
@@ -31,7 +31,7 @@ const images = Object.fromEntries(
     navLinks={{
       misiones: "Misiones",
       training: "Entrenamientos",
-      escenas: "Escenas",
+      videos: "Videos",
       patrullas: "Patrullas",
     }}
     isNotFrontPage
@@ -41,7 +41,7 @@ const images = Object.fromEntries(
       <h1>Galeria de Comando 99</h1>
       <p>
         Esta es una recopilacion de fotos/capturas de pantallas de misiones,
-        entrenamientos, escenas recreadas y patrullas realizadas en nuestras
+        entrenamientos y patrullas realizadas en nuestras
         actividades.
       </p>
     </header>
@@ -119,29 +119,23 @@ const images = Object.fromEntries(
           })
         }
       </div>
-      <h2>Escenas</h2>
-      <div class="gallery-list" id="escenas">
-        {
-          images.escenas.map((item, index) => {
-            const filename =
-              item.split("/").pop()?.split(".")[0].split("-").join(" ") ||
-              "imagen";
-            return (
-              <div class="gallery-item">
-                <Image
-                  src={item}
-                  alt={`Comando 99 - ${filename}`}
-                  width={800}
-                  height={200}
-                  loading={index < 2 ? "eager" : "lazy"}
-                  decoding="async"
-                  fetchpriority="low"
-                />
-                <p>{filename}</p>
-              </div>
-            );
-          })
-        }
+      <h2 id="videos">Videos</h2>
+      <div class="youtube-videos">
+        <DeferredIframe
+          src="https://www.youtube.com/embed/OZBMmc4Cie8?si=iNeIcjnTV1kuPPYm&controls=0"
+        />
+        <DeferredIframe
+          src="https://www.youtube.com/embed/N20MhzoiAcE?si=J4Rsdw2v2GfSWJ99&controls=0"
+        />
+        <DeferredIframe
+          src="https://www.youtube.com/embed/FhKZXrisb0Q?si=3ufyBplCPC_AXy1R"
+        />
+        <DeferredIframe
+          src="https://www.youtube.com/embed/7_jbRLq9Rbk?si=YV1rzhITeG12-AGn"
+        />
+        <DeferredIframe
+          src="https://www.youtube.com/embed/t-xef6nYOM0?si=AhOhc3q9H9kFYvr5"
+        />
       </div>
       <div class="gallery-modal" aria-hidden="true">
         <button class="gallery-modal-close" aria-label="Cerrar">&times;</button>
@@ -441,6 +435,36 @@ const images = Object.fromEntries(
     transform: scale(1.06);
   }
 
+  .youtube-videos {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 0 auto 1rem;
+  }
+
+  .youtube-videos iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border: 2px solid rgba(201, 24, 16, 0.32);
+    background: #000;
+    box-shadow: 0 0.85rem 1.6rem rgba(0, 0, 0, 0.35);
+    transition: border 0.2s;
+
+    &:hover {
+      border: 2px solid rgb(141, 9, 9);
+      box-shadow: 0 0.85rem 1.6rem rgba(207, 14, 14, 0.35);
+    }
+  }
+
+  @media (min-width: 980px) {
+    .youtube-videos {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+  }
   @media (max-width: 800px) {
     main {
       padding-inline: 0.55rem;

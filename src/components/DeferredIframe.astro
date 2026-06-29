@@ -1,0 +1,173 @@
+---
+interface Props {
+  src: string;
+  title?: string;
+  width?: number;
+  height?: number;
+  allow?: string;
+  aspectRatio?: string;
+}
+
+const {
+  src,
+  title = "Video de Comando 99",
+  width = 560,
+  height = 315,
+  allow =
+    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
+  aspectRatio = "16 / 9",
+} = Astro.props;
+---
+
+<div
+  class="deferred-iframe"
+  style={`--deferred-aspect-ratio: ${aspectRatio};`}
+  data-deferred-iframe
+  data-src={src}
+  data-title={title}
+  data-width={String(width)}
+  data-height={String(height)}
+  data-allow={allow}
+>
+  <span class="deferred-iframe__placeholder">Cargando video...</span>
+  <noscript>
+    <iframe
+      width={width}
+      height={height}
+      src={src}
+      title={title}
+      frameborder="0"
+      allow={allow}
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+  </noscript>
+</div>
+
+<script>
+  const deferredIframes = document.querySelectorAll("[data-deferred-iframe]");
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const container = entry.target as HTMLElement;
+          const src = container.dataset.src;
+          if (!src || container.dataset.loaded === "true") {
+            observer.unobserve(container);
+            return;
+          }
+
+          const iframe = document.createElement("iframe");
+          iframe.width = container.dataset.width || "560";
+          iframe.height = container.dataset.height || "315";
+          iframe.src = src;
+          iframe.title = container.dataset.title || "Embedded video";
+          iframe.setAttribute("frameborder", "0");
+          iframe.allow = container.dataset.allow || "";
+          iframe.referrerPolicy = "strict-origin-when-cross-origin";
+          iframe.allowFullscreen = true;
+
+          container.innerHTML = "";
+          container.appendChild(iframe);
+          container.dataset.loaded = "true";
+          observer.unobserve(container);
+        });
+      },
+      {
+        rootMargin: "240px 0px",
+        threshold: 0.01,
+      },
+    );
+
+    deferredIframes.forEach((item) => observer.observe(item));
+  } else {
+    deferredIframes.forEach((item) => {
+      const container = item as HTMLElement;
+      const src = container.dataset.src;
+      if (!src) return;
+
+      const iframe = document.createElement("iframe");
+      iframe.width = container.dataset.width || "560";
+      iframe.height = container.dataset.height || "315";
+      iframe.src = src;
+      iframe.title = container.dataset.title || "Embedded video";
+      iframe.setAttribute("frameborder", "0");
+      iframe.allow = container.dataset.allow || "";
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      iframe.allowFullscreen = true;
+
+      container.innerHTML = "";
+      container.appendChild(iframe);
+      container.dataset.loaded = "true";
+    });
+  }
+</script>
+
+<style>
+  .deferred-iframe {
+    position: relative;
+    width: 100%;
+    aspect-ratio: var(--deferred-aspect-ratio, 16 / 9);
+    border: 2px solid rgba(201, 24, 16, 0.32);
+    background: #050505;
+    box-shadow: 0 0.85rem 1.6rem rgba(0, 0, 0, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition:
+      border 0.2s,
+      box-shadow 0.2s;
+  }
+
+  .deferred-iframe:hover {
+    border: 2px solid rgb(141, 9, 9);
+    box-shadow: 0 0.85rem 1.6rem rgba(207, 14, 14, 0.35);
+  }
+
+  .deferred-iframe::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      110deg,
+      rgba(255, 255, 255, 0.04) 8%,
+      rgba(255, 255, 255, 0.14) 18%,
+      rgba(255, 255, 255, 0.04) 33%
+    );
+    transform: translateX(-100%);
+    animation: deferred-shimmer 1.4s ease-in-out infinite;
+  }
+
+  .deferred-iframe[data-loaded="true"]::before {
+    animation: none;
+    opacity: 0;
+  }
+
+  .deferred-iframe__placeholder {
+    position: relative;
+    z-index: 1;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 214, 186, 0.9);
+  }
+
+  .deferred-iframe iframe {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: var(--deferred-aspect-ratio, 16 / 9);
+    border: 0;
+    background: #000;
+    display: block;
+  }
+
+  @keyframes deferred-shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+</style>
