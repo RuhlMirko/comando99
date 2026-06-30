@@ -17,20 +17,24 @@ import Navbar from "../components/Navbar.astro";
     <section>
       <h2>Actividades durante la semana</h2>
       <div class="actividades-container" id="actividades">
-        <h3>Lunes</h3>
-        <h3>Martes</h3>
-        <h3>Miercoles</h3>
-        <h3>Jueves</h3>
-        <h3>Viernes</h3>
-        <h3>Sabado</h3>
-        <h3>Domingo</h3>
-        <h3>Entrenamientos de Armas Separadas</h3>
-        <h3>Entrenamiento general + Patrulla</h3>
-        <h3>Entrenamiento de Armas Conjunta</h3>
-        <h3>Entrenamiento general + Patrulla</h3>
-        <h3>Cursos</h3>
-        <h3>Entrenamiento de Armas Separadas</h3>
-        <h3>Misiones</h3>
+        <div class="days">
+          <h3>Lunes</h3>
+          <h3>Martes</h3>
+          <h3>Miercoles</h3>
+          <h3>Jueves</h3>
+          <h3>Viernes</h3>
+          <h3>Sabado</h3>
+          <h3>Domingo</h3>
+        </div>
+        <div>
+          <h3>Entrenamiento Tactico</h3>
+          <h3>Entrenamiento Roles</h3>
+          <h3>Patrulla</h3>
+          <h3>Entrenamiento Roles</h3>
+          <h3>Patrulla</h3>
+          <h3>Entrenamiento Tactico</h3>
+          <h3>Misiones</h3>
+        </div>
       </div>
     </section>
 
@@ -285,7 +289,8 @@ import Navbar from "../components/Navbar.astro";
 
   .actividades-container {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(72px, auto));
     margin-top: 1rem;
     margin-bottom: 0.6rem;
     border: 1px solid var(--panel-border);
@@ -299,8 +304,12 @@ import Navbar from "../components/Navbar.astro";
     );
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.32);
   }
+  .actividades-container div {
+    display: contents;
+  }
 
   .actividades-container h3 {
+    width: 100%;
     padding: 10px 8px;
     margin: 0;
     overflow-wrap: break-word;
@@ -313,16 +322,18 @@ import Navbar from "../components/Navbar.astro";
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: clamp(0.95rem, 1.3vw, 1.08rem);
+    font-size: 1.3rem;
   }
 
-  .actividades-container h3:nth-child(-n + 7) {
-    background: linear-gradient(to bottom, #69090fc4, var(--bg-secondary));
-    border: 1px solid rgb(153, 6, 6);
-    border-top: 0;
-    font-size: clamp(1.35rem, 2vw, 1.85rem);
+  .actividades-container .days {
+    font-size: 1.5rem;
     font-family: "Stick No Bills", sans-serif;
     letter-spacing: 1px;
+  }
+
+  .actividades-container .days h3 {
+    background: linear-gradient(to bottom, #69090fc4, var(--bg-secondary));
+    border-color: rgb(153, 6, 6);
   }
 
   .roles {
@@ -498,14 +509,15 @@ import Navbar from "../components/Navbar.astro";
     }
 
     .actividades-container {
-      grid-template-columns: minmax(0, 0.55fr) minmax(0, 1.25fr);
-      grid-auto-flow: column;
+      grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
       grid-template-rows: repeat(7, minmax(70px, auto));
+      grid-auto-flow: column;
     }
 
     .actividades-container h3 {
-      padding-inline: 1.4rem;
-      text-align: center;
+      padding-inline: 1rem;
+      text-align: left;
+      justify-content: flex-start;
     }
   }
 
@@ -522,6 +534,18 @@ import Navbar from "../components/Navbar.astro";
     h2,
     p {
       padding-left: 0.95rem;
+    }
+
+    .actividades-container {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(14, minmax(62px, auto));
+      grid-auto-flow: row;
+    }
+
+    .actividades-container h3 {
+      font-size: 1.05rem;
+      text-align: center;
+      justify-content: center;
     }
 
     .roles {
