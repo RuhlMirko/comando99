@@ -47,8 +47,8 @@ const entries = Object.entries(navLinks);
       <div class="nav-menu">
         <button aria-label="Toggle navigation menu" aria-expanded="false">
           <svg
-            height="58"
-            width="58"
+            height="24"
+            width="24"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -155,7 +155,7 @@ const entries = Object.entries(navLinks);
     padding: 0 1.25rem;
     color: rgba(255, 255, 255, 0.84);
     text-decoration: none;
-    
+
     font-family: "Rajdhani", sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
@@ -315,7 +315,9 @@ const entries = Object.entries(navLinks);
     }
 
     .nav-menu button {
-      display: block;
+      display: grid;
+      place-items: center;
+      width: 3.25rem;
       height: 3.25rem;
       aspect-ratio: 1;
       padding: 6px;
@@ -324,12 +326,28 @@ const entries = Object.entries(navLinks);
       border-radius: 0.35rem;
       background: rgba(39, 6, 6, 0.92);
       color: rgba(255, 80, 80, 0.9);
+      line-height: 0;
+      overflow: hidden;
+      cursor: pointer;
       transition: 0.2s;
+    }
+
+    .nav-menu button svg {
+      width: 1.9rem;
+      height: 1.9rem;
+      display: block;
+      flex-shrink: 0;
+      stroke-width: 2.4;
     }
 
     .nav-menu button:focus {
       background-color: rgb(177, 6, 6);
       color: black;
+    }
+
+    .nav-menu button:focus-visible {
+      outline: 2px solid rgba(255, 80, 80, 0.85);
+      outline-offset: 2px;
     }
 
     .nav-menu-modal {
@@ -388,9 +406,15 @@ const entries = Object.entries(navLinks);
   const navMenuButton =
     document.querySelector<HTMLButtonElement>(".nav-menu button");
   const navModal = document.querySelector<HTMLDivElement>(".nav-menu-modal");
+  const navModalList = navModal?.querySelector<HTMLUListElement>("ul");
   const navAnchors = document.querySelectorAll<HTMLAnchorElement>(
     '.nav-links a[href^="#"], .nav-menu-modal a[href^="#"]',
   );
+
+  const closeMenu = () => {
+    navModal?.classList.remove("active-modal");
+    navMenuButton?.setAttribute("aria-expanded", "false");
+  };
 
   navMenuButton?.addEventListener("click", () => {
     const isOpen = navModal?.classList.toggle("active-modal") ?? false;
@@ -399,15 +423,27 @@ const entries = Object.entries(navLinks);
 
   navModal?.addEventListener("click", (e) => {
     if ((e.target as HTMLElement).tagName === "A") {
-      navModal.classList.remove("active-modal");
-      navMenuButton?.setAttribute("aria-expanded", "false");
+      closeMenu();
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!navModal?.classList.contains("active-modal")) {
+      return;
+    }
+
+    const target = e.target as Node;
+    const clickedToggle = navMenuButton?.contains(target) ?? false;
+    const clickedInsideMenu = navModalList?.contains(target) ?? false;
+
+    if (!clickedToggle && !clickedInsideMenu) {
+      closeMenu();
     }
   });
 
   navAnchors.forEach((anchor) => {
     anchor.addEventListener("click", () => {
-      navModal?.classList.remove("active-modal");
-      navMenuButton?.setAttribute("aria-expanded", "false");
+      closeMenu();
     });
   });
 </script>
