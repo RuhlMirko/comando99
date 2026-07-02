@@ -444,6 +444,21 @@ const cards = [
       grid-template-columns: 1fr;
     }
 
+    .operations-card {
+      grid-column: auto;
+      height: auto;
+      min-height: 0;
+    }
+
+    .operations-card:last-child {
+      grid-column: auto;
+      height: auto;
+    }
+
+    .operations-card:last-child .operations-image-wrap {
+      height: auto;
+    }
+
     .operations-content h3 {
       font-size: 1rem;
     }
