@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import DeferredIframe from "../components/DeferredIframe.astro";
+import { galleryCaptions } from "../data/galleryCaptions";
 
 const galleryFiles = import.meta.glob("/public/images/galeria/*/*.*", {
   eager: true,
@@ -24,6 +25,16 @@ const categories = {
 const images = Object.fromEntries(
   Object.keys(categories).map((key) => [key, getPublicImagePaths(key)]),
 ) as Record<keyof typeof categories, string[]>;
+
+const getCaption = (dir: string, item: string) => {
+  const filename = item.split("/").pop() || "";
+  return galleryCaptions[`${dir}/${filename}`] || "imagen";
+};
+
+const splitCaption = (caption: string) => {
+  const [name, date] = caption.split(" · ");
+  return { name, date };
+};
 ---
 
 <Layout>
@@ -50,21 +61,23 @@ const images = Object.fromEntries(
       <div class="gallery-list" id="misiones">
         {
           images.misiones.map((item, index) => {
-            const filename =
-              item.split("/").pop()?.split(".")[0].replaceAll("-", "/") ||
-              "imagen";
+            const caption = getCaption("misiones", item);
+            const { name, date } = splitCaption(caption);
             return (
               <div class="gallery-item">
                 <Image
                   src={item}
-                  alt={`Comando 99 - ${filename}`}
+                  alt={`Comando 99 - ${caption}`}
                   width={800}
                   height={200}
                   loading={index < 6 ? "eager" : "lazy"}
                   fetchpriority={index === 0 ? "high" : "auto"}
                   decoding="async"
                 />
-                <p>{filename}</p>
+                <p>
+                  {name}
+                  {date && <span class="gallery-item-date">{date}</span>}
+                </p>
               </div>
             );
           })
@@ -74,21 +87,23 @@ const images = Object.fromEntries(
       <div class="gallery-list" id="training">
         {
           images.entrenamientos.map((item, index) => {
-            const filename =
-              item.split("/").pop()?.split(".")[0].replaceAll("-", "/") ||
-              "imagen";
+            const caption = getCaption("entrenamientos", item);
+            const { name, date } = splitCaption(caption);
             return (
               <div class="gallery-item">
                 <Image
                   src={item}
-                  alt={`Comando 99 - ${filename}`}
+                  alt={`Comando 99 - ${caption}`}
                   width={800}
                   height={200}
                   loading={index < 3 ? "eager" : "lazy"}
                   decoding="async"
                   fetchpriority="low"
                 />
-                <p>{filename}</p>
+                <p>
+                  {name}
+                  {date && <span class="gallery-item-date">{date}</span>}
+                </p>
               </div>
             );
           })
@@ -98,21 +113,23 @@ const images = Object.fromEntries(
       <div class="gallery-list" id="patrullas">
         {
           images.patrullas.map((item, index) => {
-            const filename =
-              item.split("/").pop()?.split(".")[0].replaceAll("-", "/") ||
-              "imagen";
+            const caption = getCaption("patrullas", item);
+            const { name, date } = splitCaption(caption);
             return (
               <div class="gallery-item">
                 <Image
                   src={item}
-                  alt={`Comando 99 - ${filename}`}
+                  alt={`Comando 99 - ${caption}`}
                   width={800}
                   height={200}
                   loading={index < 2 ? "eager" : "lazy"}
                   decoding="async"
                   fetchpriority="low"
                 />
-                <p>{filename}</p>
+                <p>
+                  {name}
+                  {date && <span class="gallery-item-date">{date}</span>}
+                </p>
               </div>
             );
           })
@@ -372,6 +389,16 @@ const images = Object.fromEntries(
   .gallery-item:hover p {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  .gallery-item-date {
+    display: block;
+    margin-top: 0.15rem;
+    font-size: 0.82rem;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    text-transform: none;
+    color: rgba(255, 226, 193, 0.65);
   }
 
   .gallery-list:hover .gallery-item:not(:hover) {
