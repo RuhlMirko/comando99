@@ -8,7 +8,19 @@ import Summary from "./Summary.astro";
   <section class="hero" id="hero">
     <div class="hero__shade"></div>
     <div class="hero__content">
-      <span class="hero__eyebrow">Fase de reclutamiento: Abierta</span>
+      <div class="hero__header">
+        <span class="hero__eyebrow">Fase de reclutamiento: Abierta</span>
+        <div class="hero__stats">
+          <div class="stat">
+            <span class="stat__value">355</span>
+            <span class="stat__label">Miembros</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value">~2</span>
+            <span class="stat__label">Años Activos</span>
+          </div>
+        </div>
+      </div>
       <h1>
         Excelencia<br />
         <span>Tactica.</span>
@@ -203,6 +215,45 @@ import Summary from "./Summary.astro";
     background: rgba(130, 12, 6, 0.25);
   }
 
+  .hero__header {
+    display: flex;
+    justify-content: left;
+    gap: 2.5rem;
+    align-items: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero__eyebrow {
+    margin-bottom: 0;
+  }
+
+  .hero__stats {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .stat__value {
+    font-family: "Stick No Bills", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #ff4b36;
+    line-height: 1;
+  }
+
+  .stat__label {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0.15rem;
+  }
+
   @media (max-width: 1024px) {
     .hero {
       align-items: flex-end;
@@ -270,6 +321,24 @@ import Summary from "./Summary.astro";
       letter-spacing: 0.24em;
     }
 
+    .hero__header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .hero__stats {
+      gap: 1.5rem;
+    }
+
+    .stat {
+      align-items: flex-start;
+    }
+
+    .stat__value {
+      font-size: 1.2rem;
+    }
+
     .hero__content {
       width: 100%;
       max-width: 100%;
@@ -279,6 +348,14 @@ import Summary from "./Summary.astro";
       right: 25%;
       bottom: 3%;
       width: 50vw;
+    }
+
+    .hero__stats {
+      gap: 2rem;
+    }
+
+    .stat__value {
+      font-size: 1.8rem;
     }
   }
 </style>
