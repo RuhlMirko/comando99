@@ -78,7 +78,15 @@ const captions: Record<string, CaptionEntry> = {
   },
   "asalto_aereo_14-06-2026": {
     caption: "Entrenamiento - Asalto Aéreo · 14/06/2026",
-    patterns: ["*Asalto Aereo*", "*Asalto Aéreo*"],
+    patterns: ["*Asalto Aereo 14-06-2026*", "*Asalto Aéreo*"],
+  },
+  "asalto_aereo_10-04-2026": {
+    caption: "Entrenamiento - Asalto Aéreo · 10/04/2026",
+    patterns: ["*Asalto Aereo 14-04-2026*", "*Asalto Aéreo*"],
+  },
+  "asalto_aereo_07-05-2026": {
+    caption: "Entrenamiento - Asalto Aéreo · 07/05/2026",
+    patterns: ["*Asalto Aereo 07-05-2026*", "*Asalto Aéreo*"],
   },
   "caballeria_19-06-2026": {
     caption: "Entrenamiento - Caballería · 19/06/2026",

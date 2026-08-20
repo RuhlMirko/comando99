@@ -12,7 +12,20 @@ const galleryFiles = import.meta.glob("/public/images/galeria/*/*.*", {
 const getPublicImagePaths = (dir: string) => {
   return Object.keys(galleryFiles)
     .filter((path) => path.includes(`/public/images/galeria/${dir}/`))
-    .sort((a, b) => a.localeCompare(b))
+    .sort((a, b) => {
+      const getTimestamp = (path: string) => {
+        const filename = path.split("/").pop() || "";
+        const caption = galleryCaptions[`${dir}/${filename}`] || "";
+        const dateMatch = caption.match(/(\d{2})\/(\d{2})\/(\d{4})/);
+
+        if (!dateMatch) return 0;
+
+        const [, day, month, year] = dateMatch;
+        return new Date(`${year}-${month}-${day}`).getTime();
+      };
+
+      return getTimestamp(b) - getTimestamp(a) || a.localeCompare(b);
+    })
     .map((path) => path.replace("/public", ""));
 };
 
