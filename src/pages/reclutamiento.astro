@@ -1,0 +1,461 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Faq from "../components/Faq.astro";
+
+const discordInvite = "https://discord.com/invite/UJUp2cWtwp";
+
+const requirements = [
+  {
+    icon: "fa-solid fa-user-check",
+    title: "Compromiso",
+    description:
+      "Participa con responsabilidad y respeta los horarios acordados con tu equipo.",
+  },
+  {
+    icon: "fa-solid fa-headset",
+    title: "Comunicacion",
+    description:
+      "Cuenta con microfono funcional y disposicion para seguir los procedimientos de radio.",
+  },
+  {
+    icon: "fa-solid fa-shield-halved",
+    title: "Disciplina",
+    description:
+      "Mantiene una actitud respetuosa y sigue las indicaciones durante cada actividad.",
+  },
+  {
+    icon: "fa-solid fa-gamepad",
+    title: "Arma 3",
+    description:
+      "Ten el juego instalado y reserva tiempo para preparar las herramientas requeridas.",
+  },
+];
+
+const steps = [
+  [
+    "01",
+    "Ingresa al Discord",
+    "Presentate y revisa el canal de reclutamiento.",
+  ],
+  [
+    "02",
+    "Completa tu ingreso",
+    "Comparte la informacion solicitada por el equipo.",
+  ],
+  [
+    "03",
+    "Prepara tu equipo",
+    "Configura los mods y recursos indicados antes de tu primera actividad.",
+  ],
+  [
+    "04",
+    "Inicia como Recluta",
+    "Conoce a tu escuadra y comienza tu capacitacion operativa.",
+  ],
+];
+---
+
+<Layout>
+  <Navbar
+    navLinks={{
+      requisitos: "Requisitos",
+      proceso: "Proceso",
+      faq: "Preguntas",
+    }}
+    isNotFrontPage
+  />
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <span class="eyebrow">Proceso de ingreso abierto</span>
+        <h1 id="page-title">Reclutamiento</h1>
+        <p>
+          Sumate a Comando 99 y forma parte de una comunidad MILSIM seria,
+          organizada y preparada para operar en equipo.
+        </p>
+        <a class="primary-action" href={discordInvite}>
+          <i class="fa-brands fa-discord" aria-hidden="true"></i>
+          Ingresar al Discord
+        </a>
+      </div>
+      <aside class="hero-status" aria-label="Estado de reclutamiento">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>Convocatoria activa</span>
+        <strong>Tu primer rango: Recluta</strong>
+      </aside>
+    </section>
+
+    <section
+      id="requisitos"
+      class="content-section"
+      aria-labelledby="requirements-title"
+    >
+      <div class="section-heading">
+        <span>Antes de ingresar</span>
+        <h2 id="requirements-title">Requisitos</h2>
+        <p>
+          Buscamos jugadores con ganas de aprender, coordinarse y construir
+          buenas operaciones junto al resto de la unidad.
+        </p>
+      </div>
+      <div class="requirement-grid">
+        {
+          requirements.map((requirement) => (
+            <article class="requirement-card">
+              <i class={requirement.icon} aria-hidden="true" />
+              <h3>{requirement.title}</h3>
+              <p>{requirement.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section
+      id="proceso"
+      class="content-section process-section"
+      aria-labelledby="process-title"
+    >
+      <div class="section-heading">
+        <span>Tu recorrido</span>
+        <h2 id="process-title">Como ingresar</h2>
+      </div>
+      <ol class="steps">
+        {
+          steps.map(([number, title, description]) => (
+            <li>
+              <span class="step-number">{number}</span>
+              <div>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <Faq variant="recruitment" />
+
+    <section class="final-call" aria-labelledby="final-title">
+      <div>
+        <span class="eyebrow">Comando 99 te espera</span>
+        <h2 id="final-title">Da el primer paso</h2>
+        <p>
+          Ingresa al servidor, presenta tu solicitud y comienza tu formacion.
+        </p>
+      </div>
+      <a class="primary-action" href={discordInvite}>
+        <i class="fa-brands fa-discord" aria-hidden="true"></i>
+        Unirme ahora
+      </a>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  :global(body) {
+    background:
+      linear-gradient(rgba(6, 6, 6, 0.76), rgba(6, 6, 6, 0.96)),
+      url("/images/hero-bg.png") center top / cover fixed,
+      #060606;
+  }
+
+  main {
+    width: min(1180px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 9.5rem 0 4rem;
+  }
+
+  .hero,
+  .content-section,
+  .final-call {
+    position: relative;
+    border: 1px solid rgba(255, 95, 80, 0.28);
+    background: linear-gradient(
+      135deg,
+      rgba(30, 12, 12, 0.93),
+      rgba(8, 8, 8, 0.94)
+    );
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.32);
+    overflow: hidden;
+  }
+
+  .hero::before,
+  .content-section::before,
+  .final-call::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.027) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.027) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 2rem;
+    align-items: end;
+    min-height: 28rem;
+    padding: clamp(2rem, 5vw, 5rem);
+    border-left: 5px solid #cf231a;
+  }
+
+  .hero-copy,
+  .hero-status,
+  .section-heading,
+  .requirement-grid,
+  .steps,
+  .final-call > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .eyebrow,
+  .section-heading > span {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ff5c50;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin: 0;
+  }
+
+  h1,
+  h2 {
+    font-family: "Stick No Bills", sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    max-width: 9ch;
+    font-size: clamp(4rem, 9vw, 7.4rem);
+    line-height: 0.8;
+    text-shadow: 0 0.35rem 1.7rem rgba(0, 0, 0, 0.72);
+  }
+
+  .hero-copy > p {
+    max-width: 52ch;
+    margin-top: 1.3rem;
+    color: rgba(255, 255, 255, 0.83);
+    font-size: clamp(1.15rem, 2vw, 1.45rem);
+    line-height: 1.35;
+  }
+
+  .primary-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    min-height: 3.25rem;
+    margin-top: 1.7rem;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid rgba(255, 117, 102, 0.86);
+    background: linear-gradient(135deg, #a9110b, #df271b);
+    color: #fff;
+    box-shadow: 0 0.8rem 1.8rem rgba(167, 12, 7, 0.27);
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+      transform 180ms ease,
+      background 180ms ease;
+  }
+
+  .primary-action:hover {
+    transform: translateY(-2px);
+    background: #e93023;
+  }
+  .primary-action:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+  }
+
+  .hero-status {
+    display: grid;
+    gap: 0.4rem;
+    min-width: 14rem;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(4, 4, 4, 0.74);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .hero-status strong {
+    color: #fff;
+    font-size: 1.12rem;
+  }
+  .status-dot {
+    width: 0.65rem;
+    height: 0.65rem;
+    border-radius: 50%;
+    background: #ff3b2f;
+    box-shadow: 0 0 0.65rem #ff3b2f;
+  }
+
+  .content-section {
+    margin-top: 1.4rem;
+    padding: clamp(1.5rem, 4vw, 3.2rem);
+  }
+  .section-heading {
+    max-width: 45rem;
+  }
+  h2 {
+    font-size: clamp(2.6rem, 5vw, 4.1rem);
+    line-height: 0.88;
+  }
+  .section-heading p {
+    margin-top: 1rem;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 1.2rem;
+    line-height: 1.4;
+  }
+
+  .requirement-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.8rem;
+    margin-top: 2rem;
+  }
+  .requirement-card {
+    min-height: 14.5rem;
+    padding: 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    background: rgba(7, 7, 7, 0.65);
+  }
+  .requirement-card i {
+    color: #ff4c40;
+    font-size: 1.55rem;
+  }
+  .requirement-card h3 {
+    margin-top: 2.4rem;
+    font-size: 1.35rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+  .requirement-card p {
+    margin-top: 0.55rem;
+    color: rgba(255, 255, 255, 0.67);
+    font-size: 1.05rem;
+    line-height: 1.3;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.7rem;
+    margin: 2rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .steps li {
+    min-height: 13rem;
+    padding: 1.25rem;
+    border-top: 2px solid #c9241b;
+    background: rgba(5, 5, 5, 0.6);
+  }
+  .step-number {
+    display: block;
+    color: rgba(255, 255, 255, 0.35);
+    font-family: "Stick No Bills", sans-serif;
+    font-size: 2.4rem;
+  }
+  .steps h3 {
+    margin-top: 1.4rem;
+    font-size: 1.22rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .steps p {
+    margin-top: 0.45rem;
+    color: rgba(255, 255, 255, 0.66);
+    line-height: 1.3;
+  }
+
+  .final-call {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 1.4rem;
+    padding: clamp(1.6rem, 4vw, 3rem);
+    border-left: 5px solid #cf231a;
+  }
+  .final-call h2 {
+    font-size: clamp(2.3rem, 4vw, 3.6rem);
+  }
+  .final-call p {
+    margin-top: 0.7rem;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 1.16rem;
+  }
+  .final-call .primary-action {
+    flex-shrink: 0;
+    margin: 0;
+  }
+
+  @media (max-width: 840px) {
+    .requirement-grid,
+    .steps {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 620px) {
+    main {
+      width: min(100% - 1rem, 1180px);
+      padding-top: 7.5rem;
+    }
+    .hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+      padding: 2rem 1.25rem;
+    }
+    .hero-status {
+      min-width: 0;
+    }
+    .content-section {
+      padding: 1.5rem 1.1rem;
+    }
+    .requirement-grid,
+    .steps {
+      grid-template-columns: 1fr;
+    }
+    .requirement-card,
+    .steps li {
+      min-height: auto;
+    }
+    .requirement-card h3 {
+      margin-top: 1.25rem;
+    }
+    .steps h3 {
+      margin-top: 0.65rem;
+    }
+    .final-call {
+      display: block;
+    }
+    .final-call .primary-action {
+      margin-top: 1.4rem;
+      width: 100%;
+    }
+  }
+</style>

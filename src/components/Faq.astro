@@ -1,7 +1,18 @@
-<section class="faq" id="faq">
+---
+interface Props {
+  variant?: "default" | "recruitment";
+}
+
+const { variant = "default" } = Astro.props;
+---
+
+<section
+  class:list={["faq", { "faq--recruitment": variant === "recruitment" }]}
+  id="faq"
+>
   <h2>Preguntas Frecuentes</h2>
 
-  <main>
+  <div class="faq-content">
     <div class="question">
       <h3>Que es Comando 99?</h3>
       <p>
@@ -55,11 +66,12 @@
         sentido.
       </p>
     </div>
-  </main>
+  </div>
 </section>
 
 <style>
   .faq {
+    box-sizing: border-box;
     background: black;
     width: 100%;
     margin: 0;
@@ -67,7 +79,7 @@
     border-block: 7px double #4b0303;
     margin-bottom: 2rem;
 
-    main,
+    .faq-content,
     h2 {
       width: 90%;
       max-width: 1280px;
@@ -173,6 +185,55 @@
   .question.open {
     border: 2px solid rgba(255, 0, 0, 0.425);
     border-top: none;
+  }
+
+  .faq--recruitment {
+    margin-top: 1.4rem;
+    margin-bottom: 0;
+    padding: clamp(1.5rem, 4vw, 3.2rem);
+    border: 1px solid rgba(255, 95, 80, 0.28);
+    background: linear-gradient(
+      135deg,
+      rgba(30, 12, 12, 0.93),
+      rgba(8, 8, 8, 0.94)
+    );
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.32);
+  }
+
+  .faq--recruitment h2,
+  .faq--recruitment .faq-content {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+  }
+
+  .faq--recruitment h2 {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-family: "Stick No Bills", sans-serif;
+    font-size: clamp(2.6rem, 5vw, 4.1rem);
+    letter-spacing: 1px;
+    line-height: 0.88;
+    text-transform: uppercase;
+  }
+
+  .faq--recruitment .question {
+    margin-bottom: 0.65rem;
+  }
+
+  .faq--recruitment .question h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+  }
+
+  .faq--recruitment .question p,
+  .faq--recruitment .question ul {
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 620px) {
+    .faq--recruitment {
+      padding: 1.5rem 1.1rem;
+    }
   }
 </style>
 <script>
