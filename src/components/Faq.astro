@@ -72,12 +72,26 @@ const { variant = "default" } = Astro.props;
 <style>
   .faq {
     box-sizing: border-box;
-    background: black;
     width: 100%;
     margin: 0;
     padding-block: 2rem 4rem;
     border-block: 7px double #4b0303;
     margin-bottom: 2rem;
+    background: linear-gradient(
+      135deg,
+      rgba(30, 12, 12, 0.93),
+      rgba(8, 8, 8, 0.94)
+    );
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.027) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.027) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
 
     .faq-content,
     h2 {
@@ -91,12 +105,6 @@ const { variant = "default" } = Astro.props;
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    /* background: linear-gradient(
-      90deg,
-      rgba(29, 14, 14, 0.97),
-      rgba(18, 10, 10, 0.97)
-    ); */
-    /* background: #121212; */
     background: linear-gradient(120deg, #121212, black, #121212);
     color: white;
     padding: 0.5rem 2rem;

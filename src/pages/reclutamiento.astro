@@ -40,18 +40,18 @@ const steps = [
   ],
   [
     "02",
-    "Completa tu ingreso",
-    "Comparte la informacion solicitada por el equipo.",
+    "Prepara tu juego",
+    "Configura los mods y recursos indicados antes de tu primera actividad",
   ],
   [
     "03",
-    "Prepara tu equipo",
-    "Configura los mods y recursos indicados antes de tu primera actividad.",
+    "Completa tu ingreso",
+    "Asiste a las clases de reclutamiento y prepate para tu examen de ingreso.",
   ],
   [
     "04",
-    "Inicia como Recluta",
-    "Conoce a tu escuadra y comienza tu capacitacion operativa.",
+    "Familiarizate con el comando",
+    "Conoce los roles y grados disponibles para ejercer en tus siguientes operaciones.",
   ],
 ];
 ---
@@ -176,24 +176,13 @@ const steps = [
     border: 1px solid rgba(255, 95, 80, 0.28);
     background: linear-gradient(
       135deg,
-      rgba(30, 12, 12, 0.93),
-      rgba(8, 8, 8, 0.94)
+      rgba(30, 12, 12, 0.562),
+      rgba(8, 8, 8, 0.548)
     );
     box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.32);
     overflow: hidden;
-  }
-
-  .hero::before,
-  .content-section::before,
-  .final-call::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.027) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.027) 1px, transparent 1px);
-    background-size: 24px 24px;
+    z-index: 1;
+    backdrop-filter: blur(2px);
   }
 
   .hero {
@@ -265,7 +254,7 @@ const steps = [
     margin-top: 1.7rem;
     padding: 0.75rem 1.25rem;
     border: 1px solid rgba(255, 117, 102, 0.86);
-    background: linear-gradient(135deg, #a9110b, #df271b);
+    background: #b31e14;
     color: #fff;
     box-shadow: 0 0.8rem 1.8rem rgba(167, 12, 7, 0.27);
     font-size: 1rem;
@@ -293,11 +282,12 @@ const steps = [
     min-width: 14rem;
     padding: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    background: rgba(4, 4, 4, 0.74);
+    background: rgb(4, 4, 4);
     color: rgba(255, 255, 255, 0.75);
     font-size: 0.9rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    text-align: center;
   }
 
   .hero-status strong {
@@ -337,17 +327,17 @@ const steps = [
     margin-top: 2rem;
   }
   .requirement-card {
-    min-height: 14.5rem;
+    min-height: 11.5rem;
     padding: 1.2rem;
     border: 1px solid rgba(255, 255, 255, 0.13);
-    background: rgba(7, 7, 7, 0.65);
+    background: #070707a6;
   }
   .requirement-card i {
     color: #ff4c40;
     font-size: 1.55rem;
   }
   .requirement-card h3 {
-    margin-top: 2.4rem;
+    margin-top: 1.2rem;
     font-size: 1.35rem;
     letter-spacing: 0.07em;
     text-transform: uppercase;
@@ -370,8 +360,9 @@ const steps = [
   .steps li {
     min-height: 13rem;
     padding: 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.13);
     border-top: 2px solid #c9241b;
-    background: rgba(5, 5, 5, 0.6);
+    background: #070707a6;
   }
   .step-number {
     display: block;
@@ -399,6 +390,13 @@ const steps = [
     margin-top: 1.4rem;
     padding: clamp(1.6rem, 4vw, 3rem);
     border-left: 5px solid #cf231a;
+    background:
+      radial-gradient(
+        circle at 94% 50%,
+        rgba(255, 255, 255, 0.151),
+        transparent 34%
+      ),
+      linear-gradient(90deg, rgba(29, 29, 29, 0.95), rgba(12, 12, 12, 0.92));
   }
   .final-call h2 {
     font-size: clamp(2.3rem, 4vw, 3.6rem);
@@ -411,6 +409,19 @@ const steps = [
   .final-call .primary-action {
     flex-shrink: 0;
     margin: 0;
+  }
+  .final-call::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.2;
+    background-image: url("/images/topographic.png");
+    background-repeat: repeat-x;
+    background-size: auto 180%;
+    background-position: center;
+    mix-blend-mode: screen;
+    filter: contrast(1.05) brightness(0.9);
   }
 
   @media (max-width: 840px) {
