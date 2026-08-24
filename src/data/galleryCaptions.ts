@@ -20,6 +20,10 @@ const captions: Record<string, CaptionEntry> = {
     caption: "Misión - Sombra de Leviatán · 08/03/2026",
     patterns: ["*SOMBRA DE LEVIATÁN*", "*Sombra de Leviatán*"],
   },
+  "punaakarti_23-08-2026": {
+    caption: "Misión - Punakaarti · 23/08/2026",
+    patterns: ["*PUNAKAARTI*", "*Punakaarti*"],
+  },
   "corte_de_sombra_16-08-2026": {
     caption: "Misión - Corte de Sombra · 16/08/2026",
     patterns: ["*CORTE DE SOMBRA*", "*Corte de Sombra*"],
@@ -106,7 +110,7 @@ const captions: Record<string, CaptionEntry> = {
   },
   "general_sin_fecha": {
     caption: "Entrenamiento - General",
-    patterns: ["*Entrenamiento general.webp"],
+    patterns: ["*Entrenamiento general*"],
   },
   "infanteria_21-02-2026": {
     caption: "Entrenamiento - Infantería · 21/02/2026",
