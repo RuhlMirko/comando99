@@ -42,7 +42,7 @@ const { role } = Astro.props as { role: Role };
       {
         role.common_equipment?.filter(Boolean).length ? (
           <section class="role-detail">
-            <h2>Equipo habitual</h2>
+            <h2>Equipamiento habitual</h2>
             <ul>
               {role.common_equipment.filter(Boolean).map((equipment) => (
                 <li>{equipment}</li>
@@ -152,7 +152,7 @@ const { role } = Astro.props as { role: Role };
 
   .role-detail h2 {
     margin: 0 0 0.65rem;
-    color: #ff817e;
+    color: #db2c29;
     font-family: "Stick No Bills", sans-serif;
     font-size: 1.7rem;
     letter-spacing: 1px;
@@ -160,17 +160,18 @@ const { role } = Astro.props as { role: Role };
   }
 
   .role-detail ul {
-    display: grid;
+    display: flex;
     gap: 0.45rem;
     margin: 0;
     padding: 0;
     list-style: none;
+    flex-wrap: wrap;
   }
 
   .role-detail li {
     padding: 0.5rem 0.65rem;
     border: 1px solid rgba(255, 229, 229, 0.16);
-    background: rgba(166, 20, 20, 0.16);
+    background: rgba(165, 163, 163, 0.16);
     font-weight: 600;
   }
 
