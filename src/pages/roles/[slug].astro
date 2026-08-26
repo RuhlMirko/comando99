@@ -1,0 +1,152 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import { roles } from "../../data/roles";
+
+export function getStaticPaths() {
+  return roles.map((role) => ({
+    params: { slug: role.slug },
+    props: { role },
+  }));
+}
+
+const { role } = Astro.props;
+---
+
+<Layout>
+  <Navbar
+    navLinks={{ roles: "Todos los roles" }}
+    navBasePath="/roles"
+    isNotFrontPage
+  />
+
+  <main>
+    <a class="back-link" href="/roles#roles">Volver a los roles</a>
+    <article>
+      <p class="eyebrow">{role.branch}</p>
+      <h1>{role.name}</h1>
+      <div class="level">Capacitacion: {role.level}</div>
+      <p>
+        Este rol se desarrolla mediante capacitaciones y evaluaciones dentro de
+        las actividades de Comando 99.
+      </p>
+      <p>
+        Consulta con el equipo de instruccion los requisitos operativos y la
+        disponibilidad para comenzar tu capacitacion.
+      </p>
+      {
+        role.next_levels?.filter(Boolean).length ? (
+          <footer>
+            <h2>Siguientes niveles</h2>
+            <ul>
+              {role.next_levels.map((nextLevel) => (
+                <li>{nextLevel}</li>
+              ))}
+            </ul>
+          </footer>
+        ) : null
+      }
+    </article>
+  </main>
+</Layout>
+
+<style>
+  :global(body) {
+    background: linear-gradient(160deg, #050505 0%, #0d0808 46%, #030202 100%);
+  }
+
+  main {
+    width: min(780px, 92vw);
+    margin: 0 auto;
+    padding: 9rem 0 4rem;
+  }
+
+  .back-link {
+    color: rgba(255, 235, 235, 0.86);
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .back-link:hover {
+    color: #ff504b;
+  }
+
+  article {
+    margin-top: 1.25rem;
+    padding: clamp(1.4rem, 4vw, 2.5rem);
+    border: 1px solid rgba(255, 120, 120, 0.28);
+    border-left: 5px solid #d12b2f;
+    background: linear-gradient(
+      170deg,
+      rgba(14, 14, 14, 0.94),
+      rgba(5, 5, 5, 0.96)
+    );
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.35);
+  }
+
+  .eyebrow {
+    margin: 0;
+    color: #ff817e;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    margin: 0.35rem 0 1rem;
+    font-family: "Stick No Bills", sans-serif;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    letter-spacing: 1px;
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+
+  .level {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    padding: 0.45rem 0.7rem;
+    border: 1px solid rgba(255, 229, 229, 0.23);
+    background: rgba(166, 20, 20, 0.25);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  article p:not(.eyebrow) {
+    max-width: 62ch;
+    margin: 0.8rem 0;
+    color: rgba(246, 246, 246, 0.9);
+    font-size: 1.2rem;
+    line-height: 1.4;
+  }
+
+  footer {
+    margin-top: 1.75rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(255, 120, 120, 0.28);
+  }
+
+  footer h2 {
+    margin: 0 0 0.65rem;
+    color: #ff817e;
+    font-family: "Stick No Bills", sans-serif;
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  footer ul {
+    display: grid;
+    gap: 0.45rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  footer li {
+    padding: 0.5rem 0.65rem;
+    border: 1px solid rgba(255, 229, 229, 0.16);
+    background: rgba(166, 20, 20, 0.16);
+    font-weight: 600;
+  }
+</style>

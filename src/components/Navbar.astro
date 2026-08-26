@@ -2,9 +2,10 @@
 interface Props {
   navLinks: Record<string, string>;
   isNotFrontPage?: boolean;
+  navBasePath?: string;
 }
 
-const { navLinks, isNotFrontPage = false } = Astro.props;
+const { navLinks, isNotFrontPage = false, navBasePath = "" } = Astro.props;
 const entries = Object.entries(navLinks);
 ---
 
@@ -34,7 +35,7 @@ const entries = Object.entries(navLinks);
         {
           entries.map(([key, label]) => (
             <li>
-              <a href={`#${key}`}>{label}</a>
+              <a href={`${navBasePath}#${key}`}>{label}</a>
             </li>
           ))
         }
@@ -74,7 +75,7 @@ const entries = Object.entries(navLinks);
             {
               entries.map(([key, label]) => (
                 <li>
-                  <a href={`#${key}`}>{label}</a>
+                  <a href={`${navBasePath}#${key}`}>{label}</a>
                 </li>
               ))
             }
