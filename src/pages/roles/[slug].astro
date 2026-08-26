@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Navbar from "../../components/Navbar.astro";
-import { roles } from "../../data/roles";
+import { roles, type Role } from "../../data/roles";
 
 export function getStaticPaths() {
   return roles.map((role) => ({
@@ -10,7 +10,7 @@ export function getStaticPaths() {
   }));
 }
 
-const { role } = Astro.props;
+const { role } = Astro.props as { role: Role };
 ---
 
 <Layout>
@@ -21,19 +21,36 @@ const { role } = Astro.props;
   />
 
   <main>
-    <a class="back-link" href="/roles#roles">Volver a los roles</a>
+    <!-- <a class="back-link" href="/roles#roles">Volver a los roles</a> -->
     <article>
       <p class="eyebrow">{role.branch}</p>
       <h1>{role.name}</h1>
-      <div class="level">Capacitacion: {role.level}</div>
-      <p>
-        Este rol se desarrolla mediante capacitaciones y evaluaciones dentro de
-        las actividades de Comando 99.
-      </p>
-      <p>
-        Consulta con el equipo de instruccion los requisitos operativos y la
-        disponibilidad para comenzar tu capacitacion.
-      </p>
+      <div class="level">Nivel: {role.level}</div>
+      {
+        role.image && (
+          <img class="role-image" src={role.image} alt={`Rol ${role.name}`} />
+        )
+      }
+      {
+        role.description && (
+          <section class="role-detail">
+            <h2>Descripcion</h2>
+            <p>{role.description}</p>
+          </section>
+        )
+      }
+      {
+        role.common_equipment?.filter(Boolean).length ? (
+          <section class="role-detail">
+            <h2>Equipo habitual</h2>
+            <ul>
+              {role.common_equipment.filter(Boolean).map((equipment) => (
+                <li>{equipment}</li>
+              ))}
+            </ul>
+          </section>
+        ) : null
+      }
       {
         role.next_levels?.filter(Boolean).length ? (
           <footer>
@@ -120,6 +137,47 @@ const { role } = Astro.props;
     line-height: 1.4;
   }
 
+  .role-image {
+    display: block;
+    width: 100%;
+    max-height: 360px;
+    margin: 0.25rem 0 1.5rem;
+    border: 1px solid rgba(255, 229, 229, 0.2);
+    object-fit: cover;
+  }
+
+  .role-detail {
+    margin-top: 1.5rem;
+  }
+
+  .role-detail h2 {
+    margin: 0 0 0.65rem;
+    color: #ff817e;
+    font-family: "Stick No Bills", sans-serif;
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .role-detail ul {
+    display: grid;
+    gap: 0.45rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .role-detail li {
+    padding: 0.5rem 0.65rem;
+    border: 1px solid rgba(255, 229, 229, 0.16);
+    background: rgba(166, 20, 20, 0.16);
+    font-weight: 600;
+  }
+
+  .role-detail p {
+    white-space: pre-line;
+  }
+
   footer {
     margin-top: 1.75rem;
     padding-top: 1.2rem;
@@ -136,7 +194,8 @@ const { role } = Astro.props;
   }
 
   footer ul {
-    display: grid;
+    display: flex;
+    justify-content: space-around;
     gap: 0.45rem;
     margin: 0;
     padding: 0;
@@ -144,6 +203,8 @@ const { role } = Astro.props;
   }
 
   footer li {
+    width: 100%;
+    text-align: center;
     padding: 0.5rem 0.65rem;
     border: 1px solid rgba(255, 229, 229, 0.16);
     background: rgba(166, 20, 20, 0.16);
