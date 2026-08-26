@@ -13,7 +13,11 @@ export function getStaticPaths() {
 const { role } = Astro.props as { role: Role };
 ---
 
-<Layout>
+<Layout
+  title={`${role.name} | Comando 99`}
+  description={role.description}
+  image={role.image}
+>
   <Navbar
     navLinks={{ roles: "Todos los roles" }}
     navBasePath="/roles"

@@ -1,9 +1,19 @@
 ---
 import Footer from "../components/Footer.astro";
-const description =
-  "Comunidad de Arma 3 Milsim de habla hispana basado en latinoamerica";
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
 const url = "https://comando99.netlify.app";
-const image = `${url}/c99-thumbnail.png`;
+const {
+  title = "Comando 99",
+  description =
+    "Comunidad de Arma 3 Milsim de habla hispana basado en latinoamerica",
+  image = "/c99-thumbnail.png",
+} = Astro.props;
+const imageUrl = new URL(image, url).href;
 ---
 
 <!doctype html>
@@ -13,7 +23,7 @@ const image = `${url}/c99-thumbnail.png`;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href="/images/logo-small.png" />
     <meta name="generator" content={Astro.generator} />
-    <title>Comando 99</title>
+    <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -26,16 +36,16 @@ const image = `${url}/c99-thumbnail.png`;
       rel="stylesheet"
     />
 
-    <meta property="og:title" content="Comando 99" />
+    <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={url} />
-    <meta property="og:image" content={image} />
+    <meta property="og:image" content={imageUrl} />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Comando 99" />
+    <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image" content={imageUrl} />
   </head>
   <div class="scanline-overlay"></div>
   <body>
