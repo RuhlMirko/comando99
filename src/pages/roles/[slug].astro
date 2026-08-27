@@ -104,6 +104,9 @@ const { role } = Astro.props as { role: Role };
           </footer>
         ) : null
       }
+      <section class="role-screenshots">
+        <h2>Rol en accion</h2>
+      </section>
     </article>
   </main>
 </Layout>
@@ -302,12 +305,13 @@ const { role } = Astro.props as { role: Role };
   }
 
   footer {
-    margin-top: 1.75rem;
+    margin-block: 1.75rem;
     padding-top: 1.2rem;
     border-top: 1px solid rgba(255, 120, 120, 0.28);
   }
 
-  footer h2 {
+  footer h2,
+  .role-screenshots h2 {
     margin: 0 0 0.65rem;
     color: #ff817e;
     font-family: "Stick No Bills", sans-serif;
