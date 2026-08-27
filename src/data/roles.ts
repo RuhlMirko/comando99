@@ -25,7 +25,7 @@ export const roles: readonly Role[] = [
   { slug: "radio-operador-de-escuadra", name: "Radio Operador de escuadra", branch: "Rol Operativo", level: "Basico",image: "/images/roles/RTO.jpg",
     next_levels:["Encargado de control aereo (J.T.A.C.)"],description:"El Radio Operador es el encargado de establecer y mantener la comunicación entre su unidad y HQ (Mando/Comando Central), así como con otras unidades en el campo de batalla.\n Su función es fundamental para la coordinación de movimientos, la transmisión de órdenes y la solicitud de apoyo, asegurando que toda la unidad esté informada y pueda actuar de manera eficiente" ,common_equipment:["Radio 153 (Alcance altamente superior a la radio de escuadra)"] },
   { slug: "dron-de-explorador", name: "Dron de explorador", branch: "Rol Tecnico", level: "Basico",image: "/images/roles/dron-explorador.webp",
-    next_levels:["Dron de combate"] },  
+    next_levels:["Dron de combate"], description:"Similarmente al explorador de pie la funcion del operador de drones es obtener la mayor cantidad de información posible, sin que su dron sea detectado por el enemigo." ,common_equipment:["Dron Darter","Terminal Van (OTAN)"] },  
   { slug: "tripulante-de-mecanizada", name: "Tripulante de Mecanizada", branch: "Roles Tecnicos", level: "Basico",image: "/images/roles/mecanizado.webp",
     next_levels:["Comandante de mecanizada"] },  
   { slug: "artillero-de-movilidad-ligera", name: "Artillero de Movilidad Ligera", branch: "Roles Tecnicos", level: "Basico",
