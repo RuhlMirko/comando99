@@ -112,6 +112,10 @@ const captions: Record<string, CaptionEntry> = {
     caption: "Entrenamiento - General",
     patterns: ["*Entrenamiento general*"],
   },
+  "cqb": {
+    caption: "Entrenamiento - CQB · 07/04/2026",
+    patterns: ["*CQB - 07-04-2026*","*CQB 2 - 07-04-2026*", "*CQB 3 - 07-04-2026*"],
+  },
   "infanteria_21-02-2026": {
     caption: "Entrenamiento - Infantería · 21/02/2026",
     patterns: ["*infanteria 21-02-2026*"],
