@@ -7,6 +7,7 @@ export interface Role {
   image?: string;
   description?: string;
   common_equipment?: readonly string[];
+  galleryFolder?: string;
 }
 
 export const roles: readonly Role[] = [
@@ -21,7 +22,7 @@ export const roles: readonly Role[] = [
   { slug: "fusilero-automatico", name: "Fusilero automatico ◊ Portamuniciones", branch: "Rol Operativos", level: "Basico",image: "/images/roles/fusilero-automatico.png",
     next_levels:["Ametrallador Ligero", "Ametrallador Mediano"],description:"Un fusilero automatico tiene como funcion principal proporcionar potencia de fuego ya sea defensiva o ofensivamente.\n El portamuniciones es su pareja de combate para tanto aligerar su carga como para servir de centinela a su fusilero.\n Generalmente el fusilero mantiene su posicion mientras que su portamuniciones actua como su guardia personal y reabastecedor de cargadores." ,common_equipment:["Cargador con mas de 100 balas","Multiples cargadores","Mochila con mayor capacidad"] },
   { slug: "ingeniero-eod", name: "Ingeniero EOD", branch: "Rol Operativo", level: "Basico" , image: "/images/roles/EOD.webp",
-    next_levels:["Ingeniero Zapador", "Especialista en demoliciones"],description:"El ingeniero EOD es el profesional a cargo de manejar todo tipo de explosivos, ya sea enemigo o aliado.\n No es simplemente un “desactivador de bombas”, es un especialista militar altamente entrenado cuya misión principal es la identificación, evaluación, neutralización y disposición segura de artefactos explosivos",common_equipment:["Cargas explosivas","Contra cargas","Desactivador de bombas","Libreta identificadora de explosivos"]},
+    next_levels:["Ingeniero Zapador", "Especialista en demoliciones"],description:"El ingeniero EOD es el profesional a cargo de manejar todo tipo de explosivos, ya sea enemigo o aliado.\n No es simplemente un “desactivador de bombas”, es un especialista militar altamente entrenado cuya misión principal es la identificación, evaluación, neutralización y disposición segura de artefactos explosivos",common_equipment:["Cargas explosivas","Contra cargas","Desactivador de bombas","Libreta identificadora de explosivos"], galleryFolder:"/images/roles/capturas/EOD"},
   { slug: "radio-operador-de-escuadra", name: "Radio Operador de escuadra", branch: "Rol Operativo", level: "Basico",image: "/images/roles/RTO.jpg",
     next_levels:["Encargado de control aereo (J.T.A.C.)"],description:"El Radio Operador es el encargado de establecer y mantener la comunicación entre su unidad y HQ (Mando/Comando Central), así como con otras unidades en el campo de batalla.\n Su función es fundamental para la coordinación de movimientos, la transmisión de órdenes y la solicitud de apoyo, asegurando que toda la unidad esté informada y pueda actuar de manera eficiente" ,common_equipment:["Radio 153 (Alcance altamente superior a la radio de escuadra)"] },
   { slug: "dron-de-explorador", name: "Dron de explorador", branch: "Rol Tecnico", level: "Basico",image: "/images/roles/dron-explorador.webp",
