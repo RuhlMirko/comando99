@@ -661,18 +661,18 @@ import Navbar from "../components/Navbar.astro";
   .oficiales {
     background: linear-gradient(to bottom, #583c1a, #907f23);
   }
-  @media (min-width: 780px) {
+  @media (min-width: 761px) {
     .role-section {
       grid-column: 2 / span 4;
     }
+  }
 
-    .granadero-span {
-      grid-row: span 2;
-    }
+  .granadero-span {
+    grid-row: span 2;
+  }
 
-    .ametrallador-span {
-      grid-row: span 2;
-    }
+  .ametrallador-span {
+    grid-row: span 2;
   }
 
   .role-name {
@@ -738,12 +738,6 @@ import Navbar from "../components/Navbar.astro";
       padding-left: 0;
     }
 
-    .actividades-container {
-      grid-template-columns: 1fr;
-      grid-template-rows: repeat(14, minmax(62px, auto));
-      grid-auto-flow: row;
-    }
-
     .actividades-container h3 {
       font-size: 1.05rem;
       text-align: center;
@@ -775,13 +769,13 @@ import Navbar from "../components/Navbar.astro";
       padding: 0.4rem 0.45rem;
     }
 
-    .role-section {
-      grid-column: span 4;
-    }
-
     .role-cell {
       width: 100%;
       font-size: 0.8rem;
+    }
+
+    .role-section {
+      grid-column: 1 / -1;
     }
 
     .roles .role-header {
