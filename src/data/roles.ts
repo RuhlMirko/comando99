@@ -34,8 +34,8 @@ export const roles: readonly Role[] = [
   { slug: "conductor-de-movilidad-ligera", name: "Conductor de Movilidad Ligera", branch: "Roles Tecnicos", level: "Experimentado",
     next_levels:["", ""] },  
   { slug: "aviones-de-entrenamiento-y-reconocimiento", name: "Aviones de entrenamiento y reconocimiento", branch: "Roles Tecnicos", level: "Basico", image: "/images/roles/Aviones.jpg",
-    next_levels:["Su-25/A-29", "A-10C/F-16","F-22/Mig-29"]},  
+    next_levels:["Su-25/A-29", "A-10C/F-16","F-22/Mig-29"], description:"El piloto de aviones de entrenamiento y reconocimiento se encarga de familiarizarse con los sistemas de vuelo basicos y de realizar tareas de observacion aerea sobre el campo de batalla.\n Este rol sirve como base para progresar hacia aeronaves de combate mas avanzadas, desarrollando las habilidades necesarias de pilotaje, navegacion y reconocimiento tactico." },  
   { slug: "helicopteros-de-transporte", name: "Helicopteros de transporte", branch: "Roles Tecnicos", level: "Basico",image: "/images/roles/helicopter.jpeg",
-    next_levels:["AH-6 (Little Bird) / UH-1Y", "AH-640/AH-1Z","UH-60 DAP / RAH-66"], galleryFolder:"/images/roles/capturas/helicopteros" },
+    next_levels:["AH-6 (Little Bird) / UH-1Y", "AH-640/AH-1Z","UH-60 DAP / RAH-66"], description:"El piloto de helicopteros de transporte tiene como mision principal el traslado de tropas y suministros hacia y desde zonas de combate, asi como el apoyo logistico durante operaciones.\n Este rol requiere gran precision en el pilotaje para realizar inserciones y extracciones seguras, muchas veces bajo fuego enemigo o en condiciones adversas.", galleryFolder:"/images/roles/capturas/helicopteros" },
   
 ];
