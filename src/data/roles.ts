@@ -33,9 +33,9 @@ export const roles: readonly Role[] = [
     next_levels:["Conductor de Movilidad Ligera", "Cabeza de Convoy"] },
   { slug: "conductor-de-movilidad-ligera", name: "Conductor de Movilidad Ligera", branch: "Roles Tecnicos", level: "Experimentado",
     next_levels:["", ""] },  
-  { slug: "aviones-de-entrenamiento-y-reconocimiento", name: "Aviones de entrenamiento y reconocimiento", branch: "Roles Tecnicos", level: "Basico",
-    next_levels:["Su-25/A-29", "A-10C/F-16","F-22/Mig-29"] },  
+  { slug: "aviones-de-entrenamiento-y-reconocimiento", name: "Aviones de entrenamiento y reconocimiento", branch: "Roles Tecnicos", level: "Basico", image: "/images/roles/Aviones.jpg",
+    next_levels:["Su-25/A-29", "A-10C/F-16","F-22/Mig-29"]},  
   { slug: "helicopteros-de-transporte", name: "Helicopteros de transporte", branch: "Roles Tecnicos", level: "Basico",image: "/images/roles/helicopter.jpeg",
-    next_levels:["AH-6 (Little Bird) / UH-1Y", "AH-640/AH-1Z","UH-60 DAP / RAH-66"] },
+    next_levels:["AH-6 (Little Bird) / UH-1Y", "AH-640/AH-1Z","UH-60 DAP / RAH-66"], galleryFolder:"/images/roles/capturas/helicopteros" },
   
 ];

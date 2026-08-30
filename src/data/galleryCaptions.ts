@@ -82,15 +82,19 @@ const captions: Record<string, CaptionEntry> = {
   },
   "asalto_aereo_14-06-2026": {
     caption: "Entrenamiento - Asalto Aéreo · 14/06/2026",
-    patterns: ["*Asalto Aereo 14-06-2026*", "*Asalto Aéreo*"],
+    patterns: ["*Asalto Aereo 14-06-2026*"],
   },
   "asalto_aereo_10-04-2026": {
     caption: "Entrenamiento - Asalto Aéreo · 10/04/2026",
-    patterns: ["*Asalto Aereo 14-04-2026*", "*Asalto Aéreo*"],
+    patterns: ["*Asalto Aereo 10-04-2026*"],
   },
   "asalto_aereo_07-05-2026": {
     caption: "Entrenamiento - Asalto Aéreo · 07/05/2026",
-    patterns: ["*Asalto Aereo 07-05-2026*", "*Asalto Aéreo*"],
+    patterns: ["*Asalto Aereo 07-05-2026*"],
+  },
+  "asalto_sin_fecha":{
+    caption: "Entrenamiento - Asalto Aéreo",
+    patterns: ["*Asalto Aéreo*","*Asalto aereo*"],
   },
   "caballeria_19-06-2026": {
     caption: "Entrenamiento - Caballería · 19/06/2026",
@@ -140,13 +144,9 @@ const captions: Record<string, CaptionEntry> = {
     caption: "Entrenamiento - Táctico",
     patterns: ["*Entrenamiento Tactico.png"],
   },
-  "vip_30-07-2026": {
-    caption: "Entrenamiento - VIP · 30/07/2026",
-    patterns: ["*VIP 30-07-2026*"],
-  },
   "vip_sin_fecha": {
     caption: "Entrenamiento - VIP",
-    patterns: ["*Entrenamiento VIP.jpg"],
+    patterns: ["*Entrenamiento VIP*"],
   },
   "ingeniero_eod_13-03-2026": {
     caption: "Entrenamiento - Ingeniero EOD · 13/03/2026",
@@ -155,6 +155,10 @@ const captions: Record<string, CaptionEntry> = {
   "patrulla_19-02-2026_1": {
     caption: "Patrulla 1 · 19/02/2026",
     patterns: ["*Patrulla 2 19-02-2026*"],
+  },  
+  "patrulla_18-05-2026": {
+    caption: "Patrulla · 18/05/2026",
+    patterns: ["*Patrulla 18-05-2026*"],
   },
   "patrulla_02-08-2026": {
     caption: "Patrulla · 02/08/2026",
