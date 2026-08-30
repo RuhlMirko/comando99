@@ -18,7 +18,8 @@ const imagePaths = Object.keys(images).map((path) =>
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen></iframe>
+        allowfullscreen
+        loading="lazy"></iframe>
     </div>
     <div class="youtube-video-card">
       <iframe
@@ -29,7 +30,8 @@ const imagePaths = Object.keys(images).map((path) =>
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen></iframe>
+        allowfullscreen
+        loading="lazy"></iframe>
     </div>
   </div>
   <div class="gallery-list collapsed">
@@ -39,6 +41,7 @@ const imagePaths = Object.keys(images).map((path) =>
         return (
           <div class="gallery-item">
             <Image
+              loading="lazy"
               src={item}
               alt={`Comando 99 - ${filename}`}
               width={800}

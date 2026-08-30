@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import logo from "../../public/images/logo.png";
+
 interface Props {
   navLinks: Record<string, string>;
   isNotFrontPage?: boolean;
@@ -13,8 +16,8 @@ const entries = Object.entries(navLinks);
   <nav>
     <div class="nav-shell">
       <a href="#hero" class="brand" aria-label="Comando 99 home">
-        <img
-          src="/images/logo.png"
+        <Image
+          src={logo}
           alt="Comando 99"
           loading="eager"
           decoding="async"
