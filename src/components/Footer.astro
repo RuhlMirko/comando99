@@ -251,13 +251,16 @@ import logo from "../../public/images/logo.png";
     line-height: 1.55;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1200px) {
     .footer-container {
       grid-template-columns: 1fr;
     }
 
     .footer-side {
       gap: 1rem;
+    }
+    .copyright {
+      text-align: center;
     }
   }
 
@@ -282,6 +285,10 @@ import logo from "../../public/images/logo.png";
 
     .footer-links {
       grid-template-columns: 1fr;
+    }
+
+    .footer-links .discord-link {
+      grid-column: auto;
     }
   }
 </style>
