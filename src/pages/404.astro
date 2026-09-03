@@ -29,6 +29,18 @@ import Navbar from "../components/Navbar.astro";
     display: flex;
     align-items: center;
     justify-content: center;
+    /* background: #35040270; */
+    background: linear-gradient(#201c1b70 10%, #35040270 50%, #201c1b70 98%);
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.027) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.027) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
   }
 
   .not-found {
