@@ -1,58 +1,105 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
 ---
 
-<Layout>
-  <h1><span style="color: red;">404</span><br />Pagina no encontrada</h1>
-  <h2>Paginas disponibles:</h2>
-  <ul>
-    <li><a href="/">Inicio</a></li>
-    <li><a href="/galeria">Galeria</a></li>
-  </ul>
+<Layout title="Comando 99 | Pagina no encontrada">
+  <Navbar navLinks={{}} isNotFrontPage />
+
+  <main>
+    <section class="not-found">
+      <p class="error-code">404</p>
+      <div class="text-container">
+        <h1>Pagina no encontrada</h1>
+        <p class="intro">
+          La pagina que buscas no existe o fue movida de lugar.
+        </p>
+        <div class="links">
+          <a href="/" class="cta-link">Volver al Inicio</a>
+          <a href="/galeriaCompleta" class="cta-link secondary">Ver Galeria</a>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>
 
 <style>
-  h1 {
-    font-size: 8vw;
-    width: fit-content;
-    margin: 0 auto;
-    margin-top: 0.7em;
-    text-align: center;
-  }
-  h2 {
-    font-size: 2em;
-    width: fit-content;
-    margin: 0 auto;
-    color: rgb(204, 184, 184);
-    font-weight: 600;
-  }
-  ul {
-    width: 60%;
-    margin: 0 auto;
+  main {
+    min-height: 100vh;
     display: flex;
-    gap: 15px;
-    list-style-type: none;
+    align-items: center;
     justify-content: center;
   }
-  a {
-    color: inherit;
-    font-size: 2rem;
-    font-weight: 500;
-    letter-spacing: 1px;
-    line-height: 1.5;
-    font-style: italic;
-  }
-  a:hover {
-    color: rgba(240, 248, 255, 0.637);
-  }
-  a:visited {
-    color: rgb(223, 134, 134);
+
+  .not-found {
+    text-align: center;
+    padding: 2rem;
   }
 
-  body {
-    overflow-x: hidden;
+  .error-code {
+    font-family: "Stick No Bills", "Chakra Petch", sans-serif;
+    letter-spacing: 12px;
+    font-size: clamp(5rem, 15vw, 10rem);
+    line-height: 1;
+    margin: 0;
+    color: #c7191e;
+    text-shadow: 0 0 25px rgba(199, 25, 30, 0.6);
+  }
+
+  .text-container {
     background: #121212;
+    padding: 1rem 2rem 2rem;
+    border: 1px solid gray;
+  }
+
+  h1 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 600;
+    margin: 0.5rem 0 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  .intro {
+    color: rgb(204, 184, 184);
+    font-size: 1.1rem;
+    max-width: 40ch;
+    margin: 0 auto 2rem;
+  }
+
+  .links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-link {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition:
+      background 0.2s ease,
+      color 0.2s ease;
+    background: #c7191e;
     color: white;
-    font-family: "Chakra Petch", sans-serif;
+    transition: 0.2s;
+  }
+
+  .cta-link:hover {
+    background: #a00a05;
+    transform: translateY(-3px);
+  }
+
+  .cta-link.secondary {
+    background: transparent;
+    color: white;
+    border: 1px solid gray;
+  }
+
+  .cta-link.secondary:hover {
+    background: rgba(199, 25, 30, 0.15);
   }
 </style>
