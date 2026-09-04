@@ -257,32 +257,77 @@ import Navbar from "../components/Navbar.astro";
         cumplimiento en entrenamientos, patrullas y misiones.
       </p>
       <div class="escalafon">
-        <article class="escalafon-card oficiales">
-          <h3>Oficiales</h3>
-          <ul>
-            <li>Director</li>
-            <li>Coordinador de Equipos</li>
-          </ul>
-        </article>
+        <div class="escalafon-cell escalafon-corner"></div>
+        <div class="escalafon-cell escalafon-header">Grado</div>
+        <div class="escalafon-cell escalafon-header">Abreviacion</div>
+        <div class="escalafon-cell escalafon-header">Numeral</div>
 
-        <article class="escalafon-card suboficiales">
-          <h3>Suboficiales</h3>
-          <ul>
-            <li>Auxiliar Tactico</li>
-            <li>Jefe de Equipo</li>
-            <li>Segundo Jefe de Equipo</li>
-          </ul>
-        </article>
+        <div class="escalafon-cell escalafon-rango mando-operativo">
+          Mando Operativo
+        </div>
+        <div class="escalafon-cell mando-operativo-row">
+          Director de Operaciones
+        </div>
+        <div class="escalafon-cell mando-operativo-row">DOP.</div>
+        <div class="escalafon-cell mando-operativo-row">10</div>
 
-        <article class="escalafon-card tropa">
-          <h3>Tropa</h3>
-          <ul>
-            <li>Operador Senior</li>
-            <li>Operador</li>
-            <li>Operador Junior</li>
-            <li>Recluta</li>
-          </ul>
-        </article>
+        <div class="escalafon-cell mando-operativo-row">
+          Coordinador Operativo
+        </div>
+        <div class="escalafon-cell mando-operativo-row">COP.</div>
+        <div class="escalafon-cell mando-operativo-row">9</div>
+
+        <div class="escalafon-cell mando-operativo-row">
+          Supervisor Operativo
+        </div>
+        <div class="escalafon-cell mando-operativo-row">SO.</div>
+        <div class="escalafon-cell mando-operativo-row">8</div>
+
+        <div class="escalafon-cell escalafon-rango mando-tactico">
+          Mando Tactico
+        </div>
+        <div class="escalafon-cell mando-tactico-row">
+          Coordinador de Equipos
+        </div>
+        <div class="escalafon-cell mando-tactico-row">CDE.</div>
+        <div class="escalafon-cell mando-tactico-row">7</div>
+
+        <div class="escalafon-cell mando-tactico-row">Jefe de Equipo</div>
+        <div class="escalafon-cell mando-tactico-row">JEQ.</div>
+        <div class="escalafon-cell mando-tactico-row">6</div>
+
+        <div class="escalafon-cell mando-tactico-row">
+          Segundo Jefe de Equipo
+        </div>
+        <div class="escalafon-cell mando-tactico-row">SJE.</div>
+        <div class="escalafon-cell mando-tactico-row">5</div>
+
+        <div class="escalafon-cell escalafon-rango contratistas">
+          Contratistas
+        </div>
+        <div class="escalafon-cell contratistas-row row-aux">
+          Auxiliar Tactico
+        </div>
+        <div class="escalafon-cell contratistas-row row-aux">AUX.</div>
+        <div class="escalafon-cell contratistas-row row-aux">4</div>
+
+        <div class="escalafon-cell contratistas-row">Operador Senior</div>
+        <div class="escalafon-cell contratistas-row">SOP.</div>
+        <div class="escalafon-cell contratistas-row">3</div>
+
+        <div class="escalafon-cell contratistas-row">Operador</div>
+        <div class="escalafon-cell contratistas-row">OP.</div>
+        <div class="escalafon-cell contratistas-row">2</div>
+
+        <div class="escalafon-cell contratistas-row row-junior">
+          Operador Junior
+        </div>
+        <div class="escalafon-cell contratistas-row row-junior">OPJ.</div>
+        <div class="escalafon-cell contratistas-row row-junior">1</div>
+
+        <div class="escalafon-cell contratistas-row row-junior">Recluta</div>
+        <div class="escalafon-cell contratistas-row row-junior">RCT.</div>
+        <div class="escalafon-cell contratistas-row row-junior">0</div>
       </div>
     </section>
   </main>
@@ -611,70 +656,79 @@ import Navbar from "../components/Navbar.astro";
   .escalafon {
     margin-top: 1.1rem;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.9rem;
-  }
-
-  .escalafon-card {
+    grid-template-columns: 1fr 1.5fr 1.1fr 0.5fr;
     border: 3px solid rgba(255, 255, 255, 0.16);
     box-shadow:
-      inset 0 0 0 12px 1rem rgba(19, 19, 19, 0.547),
+      inset 0 0 0 1px rgba(0, 0, 0, 0.3),
       0 10px 24px rgba(0, 0, 0, 0.28);
-    padding: 0.9rem 0.9rem 1rem;
-    min-height: 100%;
-    width: 50%;
-    margin: 0 auto;
+    overflow: hidden;
   }
 
-  .escalafon-card h3 {
+  .escalafon-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    font-size: clamp(2.45rem, 2.4vw, 2rem);
-    font-family: "Stick No Bills", sans-serif;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 0.62rem;
-    padding-bottom: 0.3rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.24);
-    text-shadow: 0 0 8px rgb(41, 41, 41);
+    border: 1px solid rgba(0, 0, 0, 0.35);
+    padding: 0.55rem 0.65rem;
+    font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+    color: #f1f1f1;
+    min-height: 48px;
   }
 
-  .escalafon-card ul {
-    list-style: none;
-    display: grid;
-    gap: 0.45rem;
-    margin: 0;
-    padding: 0;
+  .escalafon-corner {
+    background: transparent;
   }
 
-  .escalafon-card li {
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    background: rgba(0, 0, 0, 0.2);
-    padding: 0.45rem 0.55rem;
-    text-align: center;
-    font-size: 2rem;
-    line-height: 1.2;
+  .escalafon-header {
+    background: linear-gradient(to bottom, #69090fc4, #9c040e);
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.4px;
-    transition:
-      background-color 0.2s ease,
-      border-color 0.2s ease;
+    text-shadow: 0 0 14px rgba(0, 0, 0, 0.55);
   }
 
-  .escalafon-card li:hover {
-    background: rgba(0, 0, 0, 0.3);
-    border-color: rgba(255, 255, 255, 0.26);
+  .escalafon-rango {
+    font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+    font-family: "Stick No Bills", sans-serif;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
   }
 
-  .tropa {
-    background: linear-gradient(to bottom, #184e50, #237a73);
+  .escalafon-rango.mando-operativo,
+  .escalafon-rango.mando-tactico {
+    grid-row: span 3;
   }
 
-  .suboficiales {
+  .escalafon-rango.contratistas {
+    grid-row: span 5;
+  }
+
+  .mando-operativo,
+  .mando-operativo-row {
+    background: linear-gradient(to bottom, #977c22a2, #d4b816b6);
+  }
+
+  .mando-tactico,
+  .mando-tactico-row {
     background: linear-gradient(to bottom, #304422, #436d30);
   }
 
-  .oficiales {
-    background: linear-gradient(to bottom, #583c1a, #907f23);
+  .contratistas {
+    background: linear-gradient(to bottom, #184e50, #237a73);
+  }
+
+  .contratistas-row {
+    background: linear-gradient(to bottom, #1b5b5e, #237a73);
+  }
+
+  .contratistas-row.row-junior {
+    background: linear-gradient(to bottom, #413157b6, #614a8d52);
+  }
+
+  .contratistas-row.row-aux {
+    background: linear-gradient(to bottom, #23a085, #134945);
+    font-weight: 700;
   }
   @media (min-width: 761px) {
     .role-section {
@@ -766,22 +820,17 @@ import Navbar from "../components/Navbar.astro";
     }
 
     .escalafon {
-      grid-template-columns: 1fr;
-      gap: 0.65rem;
+      grid-template-columns: 1fr 1.6fr 0.9fr 0.6fr;
     }
 
-    .escalafon-card {
-      padding: 0.78rem 0.72rem 0.85rem;
+    .escalafon-cell {
+      padding: 0.4rem 0.35rem;
+      font-size: 0.78rem;
+      min-height: 38px;
     }
 
-    .escalafon-card h3 {
-      font-size: 1.45rem;
-      margin-bottom: 0.45rem;
-    }
-
-    .escalafon-card li {
-      font-size: 0.92rem;
-      padding: 0.4rem 0.45rem;
+    .escalafon-rango {
+      font-size: 0.85rem;
     }
 
     .role-cell {
