@@ -776,6 +776,18 @@ import Navbar from "../components/Navbar.astro";
   @media (max-width: 1024px) {
     main {
       width: min(1280px, 96vw);
+      margin: 0;
+    }
+    main section {
+      margin: 0;
+      width: 98vw;
+      border-radius: 0;
+      margin: 0 auto;
+    }
+    main section::before {
+      content: "";
+      position: absolute;
+      width: 0;
     }
 
     .actividades-container {
