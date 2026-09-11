@@ -89,6 +89,7 @@ const cards = [
   </div>
 
   <div class="operations-cta hud-border" aria-label="Llamado a la accion">
+    <div class="shine-effect"></div>
     <div class="operations-cta-copy">
       <p class="operations-cta-title">LISTO PARA UNIRTE A LA MISION?</p>
       <p class="operations-cta-text">
@@ -114,7 +115,7 @@ const cards = [
     gap: 1rem;
     margin-inline: 0;
     padding: 1.2rem;
-    border-block: 1px solid rgba(201, 24, 16, 0.36);
+    border-block: 1px solid rgba(110, 110, 110, 0.36);
     background: linear-gradient(180deg, #121212 0%, #0c0c0c 100%);
   }
 
@@ -187,12 +188,12 @@ const cards = [
   }
 
   .operations-cta {
+    position: relative;
+    overflow: hidden;
     grid-column: 1 / -1;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    position: relative;
-    overflow: hidden;
     isolation: isolate;
     margin-top: 0.2rem;
     padding: 1.7rem 1.2rem;
@@ -223,6 +224,11 @@ const cards = [
   .operations-cta > * {
     position: relative;
     z-index: 1;
+  }
+
+  .operations-cta > .shine-effect {
+    position: absolute;
+    z-index: 0;
   }
 
   .operations-cta-copy {

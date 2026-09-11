@@ -134,7 +134,7 @@ const imageUrl = new URL(image, url).href;
       height: 100%;
     }
 
-    /* Reusable diagonal shine sweep; apply to a ::after on a positioned, overflow-hidden container */
+    /* Reusbale efecto de brillo para llamar la atencion */
     :global(.shine-effect) {
       content: "";
       position: absolute;
@@ -142,8 +142,8 @@ const imageUrl = new URL(image, url).href;
       background: linear-gradient(
         100deg,
         transparent 30%,
-        rgba(219, 186, 186, 0.28) 48%,
-        rgba(247, 209, 203, 0.35) 52%,
+        hsla(0, 0%, 79%, 0.28) 48%,
+        hsla(0, 0%, 88%, 0.199) 52%,
         transparent 70%
       );
       transform: translateX(-120%);
