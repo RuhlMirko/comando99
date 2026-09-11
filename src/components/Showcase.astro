@@ -80,6 +80,13 @@ const slides = [
       ))
     }
   </div>
+
+  <div class="showcase-cta">
+    <a href="https://discord.com/invite/UJUp2cWtwp" class="discord-cta">
+      <i class="fa-brands fa-discord" aria-hidden="true"></i>
+      Unite a nuestro Discord
+    </a>
+  </div>
 </section>
 
 <style>
@@ -188,11 +195,49 @@ const slides = [
     z-index: 1;
   }
 
+  .showcase-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .discord-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: rgba(55, 63, 148, 0.32);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    font-size: 1.1rem;
+    padding: 0.9rem 2.2rem;
+    border-radius: 999px;
+    transition:
+      transform 0.2s ease,
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .discord-cta:hover {
+    transform: translateY(-2px);
+    background: rgba(88, 101, 242, 0.32);
+    border-color: rgba(88, 101, 242, 0.9);
+  }
+
+  .discord-cta i {
+    font-size: 1.3rem;
+  }
+
   .pagination-dot {
     width: 2.1rem;
     height: 0.65rem;
     border-radius: 999px;
-    border: 1px solid rgba(201, 24, 16, 0.6);
+    border: 1px solid rgba(128, 127, 127, 0.404);
     background: transparent;
     cursor: pointer;
     transition:
@@ -202,14 +247,12 @@ const slides = [
   }
 
   .pagination-dot.active {
-    background: #c91810;
-    box-shadow: 0 0 0.75rem rgba(201, 24, 16, 0.55);
+    background: #747474a2;
   }
 
   .pagination-dot:hover {
-    background: rgba(201, 24, 16, 0.92);
-    border-color: #ff6252;
-    box-shadow: 0 0 1rem rgba(255, 64, 46, 0.45);
+    background: rgba(202, 201, 201, 0.92);
+    border-color: #c4c2c2;
   }
 
   .content-text {
@@ -249,8 +292,8 @@ const slides = [
     justify-content: center;
     align-items: center;
     text-align: center;
-    border: 1px solid transparent;
-    background: #cf1b0f;
+    background: rgba(36, 36, 36, 0.38);
+    border: 1px solid rgba(255, 255, 255, 0.28);
     color: white;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.65);
     padding: 0.8rem 1.8rem;
@@ -262,6 +305,7 @@ const slides = [
     cursor: pointer;
     margin-top: 1.2rem;
     min-width: 16rem;
+    width: 70%;
     text-decoration: none;
     transition:
       transform 0.2s ease,
@@ -271,8 +315,8 @@ const slides = [
 
   .content-text a:hover {
     transform: translateY(-2px);
-    border-color: rgba(255, 88, 70, 0.85);
-    background: #6e0703;
+    background: rgba(130, 12, 6, 0.25);
+    border-color: rgba(255, 73, 47, 0.8);
   }
 
   .slide-content img {

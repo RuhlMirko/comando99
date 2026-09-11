@@ -31,6 +31,7 @@ import Summary from "./Summary.astro";
       </p>
       <div class="cta">
         <a href="https://discord.com/invite/UJUp2cWtwp" class="cta-call">
+          <i class="fa-brands fa-discord" aria-hidden="true"></i>
           Nuestro Discord
         </a>
         <a href="#showcase" class="cta-secondary">Mas Informacion</a>
@@ -200,29 +201,47 @@ import Summary from "./Summary.astro";
   }
 
   .cta-call {
-    border-color: transparent;
+    position: relative;
+    isolation: isolate;
     background: linear-gradient(135deg, #b90f08, #dd2216);
-    box-shadow: 0 0 1.4rem rgba(180, 16, 8, 0.35);
     border: 1px solid rgba(255, 117, 102, 0.86);
-    box-shadow: 0 0.2rem 1.8rem rgba(206, 14, 7, 0.384);
+    transition:
+      border-color 0.35s ease,
+      transform 0.2s ease;
+  }
+
+  .cta-call::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(135deg, #4752c4, #5865f2);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+
+  .cta-call:hover::before {
+    opacity: 1;
+  }
+
+  .cta-call .fa-discord {
+    margin-right: 4px;
   }
 
   .cta-secondary {
     background: rgba(10, 10, 10, 0.38);
     backdrop-filter: blur(2px);
   }
+  .cta-secondary:hover {
+    background: rgba(130, 12, 6, 0.25);
+  }
 
   .cta a:hover {
     transform: translateY(-2px);
-    border-color: rgba(255, 73, 47, 0.8);
   }
 
   .cta-call:hover {
-    background: linear-gradient(135deg, #d31911, #f43627);
-  }
-
-  .cta-secondary:hover {
-    background: rgba(130, 12, 6, 0.25);
+    border-color: rgba(88, 101, 242, 0.9);
   }
 
   .hero__header {
