@@ -9,6 +9,7 @@ import Summary from "./Summary.astro";
     <div class="hero__shade"></div>
     <div class="hero__content">
       <div class="hero__header">
+        <div class="shine-effect"></div>
         <span class="hero__eyebrow">Fase de reclutamiento: Abierta</span>
         <div class="hero__stats">
           <div class="stat">
@@ -267,22 +268,6 @@ import Summary from "./Summary.astro";
     animation: reveal-fade-up 400ms ease-out 150ms forwards;
   }
 
-  .hero__header::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      100deg,
-      transparent 30%,
-      rgba(228, 104, 104, 0.28) 48%,
-      rgba(255, 91, 66, 0.35) 52%,
-      transparent 70%
-    );
-    transform: translateX(-120%);
-    animation: header-shine 3.5s ease-in-out 1s infinite;
-    pointer-events: none;
-  }
-
   .hero__eyebrow {
     margin-bottom: 0;
   }
@@ -326,17 +311,6 @@ import Summary from "./Summary.astro";
     }
   }
 
-  @keyframes header-shine {
-    0%,
-    10% {
-      transform: translateX(-120%);
-    }
-    70%,
-    100% {
-      transform: translateX(120%);
-    }
-  }
-
   @keyframes reveal-badge {
     from {
       opacity: 0;
@@ -357,10 +331,6 @@ import Summary from "./Summary.astro";
       animation: none;
       opacity: 1;
       transform: none;
-    }
-
-    .hero__header::after {
-      display: none;
     }
   }
 

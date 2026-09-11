@@ -133,6 +133,41 @@ const imageUrl = new URL(image, url).href;
       width: 100%;
       height: 100%;
     }
+
+    /* Reusable diagonal shine sweep; apply to a ::after on a positioned, overflow-hidden container */
+    :global(.shine-effect) {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        100deg,
+        transparent 30%,
+        rgba(219, 186, 186, 0.28) 48%,
+        rgba(247, 209, 203, 0.35) 52%,
+        transparent 70%
+      );
+      transform: translateX(-120%);
+      animation: header-shine 3.5s ease-in-out 1s infinite;
+      pointer-events: none;
+    }
+
+    @keyframes header-shine {
+      0%,
+      10% {
+        transform: translateX(-120%);
+      }
+      70%,
+      100% {
+        transform: translateX(120%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      :global(.shine-effect) {
+        animation: none;
+        display: none;
+      }
+    }
   </style>
 
 

@@ -34,7 +34,7 @@ import logo from "../../public/images/logo.png";
         <a href="/galeriaCompleta">Galeria</a>
         <a href="/reclutamiento">Reclutamiento</a>
         <a class="discord-link" href="https://discord.com/invite/UJUp2cWtwp"
-          >Discord</a
+          ><i class="fa-brands fa-discord" aria-hidden="true"></i>Discord</a
         >
       </nav>
       <p class="copyright">
@@ -230,14 +230,18 @@ import logo from "../../public/images/logo.png";
     font-weight: 800;
     letter-spacing: 0.14em;
     grid-column: span 2;
+
+    i {
+      margin-right: 6px;
+    }
   }
 
   .footer-links .discord-link:hover {
     transform: translateY(-1px);
-    background: linear-gradient(135deg, #d31911, #f43627);
+    background: linear-gradient(135deg, #572bd1, #4013a8);
     color: #fff;
     text-shadow: none;
-    border-color: rgba(255, 80, 62, 0.95);
+    border-color: rgba(125, 69, 230, 0.95);
   }
 
   .copyright {
