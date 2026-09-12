@@ -193,7 +193,7 @@ const slides = [
     gap: 0.65rem;
     margin-top: 1rem;
     position: relative;
-    z-index: 1;
+    z-index: 5;
   }
 
   .showcase-cta {
@@ -243,6 +243,8 @@ const slides = [
     border: 1px solid rgba(255, 255, 255, 0.25);
     background: rgba(255, 255, 255, 0.08);
     cursor: pointer;
+    padding: 0.4rem 0;
+    background-clip: content-box;
     transition:
       background-color 0.25s ease,
       box-shadow 0.25s ease,
@@ -377,15 +379,14 @@ const slides = [
     }
 
     .carousel-btn {
-      width: 2.7rem;
-      height: 2.7rem;
-      font-size: 1.8rem;
+      width: 2rem;
+      height: 4rem;
+      font-size: 3rem;
       background: rgba(9, 9, 9, 0.58);
       color: rgba(255, 255, 255, 0.8);
     }
 
     .carousel-btn:focus {
-      background: rgba(173, 23, 14, 0.85);
       color: white;
     }
 
@@ -401,7 +402,7 @@ const slides = [
     }
 
     .content-text h2 {
-      font-size: clamp(2.5rem, 16vw, 3.7rem);
+      font-size: clamp(2.5rem, 16vw, 4rem);
     }
 
     .slide-content::after {
@@ -429,21 +430,23 @@ const slides = [
     }
 
     .carousel-btn {
-      top: auto;
-      bottom: 0.5rem;
-      transform: none;
+      top: 50%;
+      bottom: auto;
+      transform: translateY(-50%);
     }
 
     .carousel-btn.prev {
-      left: 0.75rem;
+      left: 0.5rem;
     }
 
     .carousel-btn.next {
-      right: 0.75rem;
+      right: 0.5rem;
     }
 
     .carousel-pagination {
       margin-top: 0.75rem;
+      position: relative;
+      z-index: 5;
     }
   }
 </style>
