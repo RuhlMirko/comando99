@@ -36,6 +36,14 @@ const captions: Record<string, CaptionEntry> = {
     caption: "Misión - Iron Harvest · 01/03/2026",
     patterns: ["*IRON HARVEST*", "*Iron Harvest*"],
   },
+  "ww2_19-09-2026":{
+    caption:"Mision - Frente oriental 1944 · 13/09/2026",
+    patterns: ["Mision Frente oriental*"],
+  },
+  "patrulla_13-09-2026":{
+    caption:"Patrulla · 13/09/2026",
+    patterns:["Patrulla 13-09-2026*"],
+  },
   "out_lights_22-02-2026": {
     caption: "Misión - Out Lights · 22/02/2026",
     patterns: ["*Out Lights*"],
