@@ -218,8 +218,11 @@ const imagePaths = Object.keys(images).map((path) =>
   }
 
   @media (min-width: 768px) {
+    .gallery-item {
+      aspect-ratio: 4/3;
+    }
     .gallery-list {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 
@@ -234,6 +237,7 @@ const imagePaths = Object.keys(images).map((path) =>
     position: relative;
     overflow: hidden;
     max-height: 1000px;
+    aspect-ratio: 16 / 9;
     border: 1px solid rgba(255, 110, 110, 0.18);
     background: #090909;
     transform: translateY(0);
@@ -280,11 +284,12 @@ const imagePaths = Object.keys(images).map((path) =>
   }
 
   .gallery-item img {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
     border-color: rgba(233, 45, 45, 0.46);
     object-fit: cover;
-    aspect-ratio: 16/9;
     transition:
       transform 0.45s ease,
       filter 0.35s ease;

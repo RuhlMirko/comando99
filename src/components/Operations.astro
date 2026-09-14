@@ -373,9 +373,12 @@ const cards = [
 
     .operations-left {
       width: 100%;
+      padding: 1.4rem;
+      align-items: center;
+      text-align: center;
     }
     .operations-copy {
-      max-width: none;
+      max-width: 40ch;
       font-size: 2rem;
     }
 
@@ -383,13 +386,12 @@ const cards = [
     .operations-left h2,
     .operations-link {
       text-align: center;
-      font-size: 1em;
       width: 100%;
+      padding-bottom: 6px;
     }
 
     .operations-left h2 {
-      /* font-size: clamp(2rem, 6vw, 2.9rem); */
-      font-size: 6vw;
+      font-size: clamp(2rem, 6vw, 2.9rem);
 
       br {
         display: none;
@@ -401,27 +403,21 @@ const cards = [
 
     .operations-cards {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      p {
-        font-size: 1em;
-        padding-inline: 1rem;
-      }
     }
+
+    .operations-cards p {
+      font-size: 2rem;
+      padding-inline: 0.5rem;
+    }
+
     .operations-card:last-child {
       grid-column: span 2;
-      height: 600px;
+      height: auto;
     }
 
     .operations-card h3 {
-      font-size: 2em;
-      padding-block: 1rem;
-      background: #52040486;
-    }
-    .operations-card p {
-      font-size: 2em;
-      padding-bottom: 1rem;
-    }
-    .operations-card:last-child .operations-image-wrap {
-      height: 50%;
+      font-size: 2rem;
+      padding-bottom: 6px;
     }
 
     .operations-cta {
@@ -446,8 +442,13 @@ const cards = [
       gap: 0.9rem;
     }
 
+    .operations-left {
+      padding: 1.1rem;
+    }
+
     .operations-cards {
       grid-template-columns: 1fr;
+      gap: 0.6rem;
     }
 
     .operations-card {
@@ -457,7 +458,7 @@ const cards = [
     }
 
     .operations-card:last-child {
-      grid-column: auto;
+      grid-column: 1 / -1;
       height: auto;
     }
 
@@ -465,12 +466,21 @@ const cards = [
       height: auto;
     }
 
+    .operations-content {
+      padding: 0.6rem 0.65rem 0.75rem;
+    }
+
     .operations-content h3 {
-      font-size: 1rem;
+      font-size: 1.7rem;
+    }
+
+    .operations-content p {
+      font-size: 1.5rem;
     }
 
     .operations-copy {
       max-width: none;
+      font-size: 1.5rem;
     }
 
     .operations-cta {
@@ -495,6 +505,24 @@ const cards = [
     .operations-cta-btn {
       width: 100%;
       min-width: 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .operations-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .operations-card:last-child {
+      grid-column: auto;
+    }
+
+    .operations-left h2 {
+      font-size: clamp(1.8rem, 9vw, 2.4rem);
+    }
+
+    .operations-copy {
+      font-size: 0.88rem;
     }
   }
 </style>
