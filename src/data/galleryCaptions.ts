@@ -220,6 +220,18 @@ const captions: Record<string, CaptionEntry> = {
     caption: "Patrulla - Comando 99 · 12/04/2025",
     patterns: ["*comando 99*", "*Comando 99*"],
   },
+  "entrenamiento_14-09-2026":{
+    caption: "Entrenamiento - Primeros auxilios · 14/09/2026",
+    patterns:["Entrenamiento Tactico Primeros auxilios*"]
+  },
+  "paracaidistas_14-09-2026":{
+    caption: "Entrenamiento paracaidismo · 14/09/2026",
+    patterns: ["Entrenamiento paracaidistas*"]
+  },
+  "ametralladores_14-0-2026":{
+    caption:"Entrenamiento ametralladores · 14/09/2026",
+    patterns: ["Entrenamiento Ametralladores*"]
+  }
 };
 
 /* To add a new caption, just add an entry:
