@@ -235,7 +235,12 @@ const captions: Record<string, CaptionEntry> = {
   "entrenamiento_21-09-2026":{
     caption:"Entrenamiento MOUT · 21/09/2026",
     patterns: ["Entrenamiento Tactico 21-09-2026*"]
-  }
+  },
+  "patrulla_22-09-2026":{
+    caption:"Patrulla Nocturna · 22/09/2026",
+    patterns: ["Patrulla 22-09-2026*"]
+  },
+
 };
 
 /* To add a new caption, just add an entry:
