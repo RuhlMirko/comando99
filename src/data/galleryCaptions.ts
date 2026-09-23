@@ -231,6 +231,10 @@ const captions: Record<string, CaptionEntry> = {
   "ametralladores_14-0-2026":{
     caption:"Entrenamiento ametralladores · 14/09/2026",
     patterns: ["Entrenamiento Ametralladores*"]
+  },
+  "entrenamiento_21-09-2026":{
+    caption:"Entrenamiento MOUT · 21/09/2026",
+    patterns: ["Entrenamiento Tactico 21-09-2026*"]
   }
 };
 
