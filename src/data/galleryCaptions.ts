@@ -240,6 +240,10 @@ const captions: Record<string, CaptionEntry> = {
     caption:"Patrulla Nocturna · 22/09/2026",
     patterns: ["Patrulla 22-09-2026*"]
   },
+  "patrulla_25-09-2026":{
+    caption:"Patrulla Emboscada · 25/09/2026",
+    patterns:["Patrulla 25-09-2026*"]
+  }
 
 };
 
