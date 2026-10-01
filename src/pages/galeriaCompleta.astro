@@ -181,6 +181,13 @@ const splitCaption = (caption: string) => {
           src="https://www.youtube.com/embed/Bmur0LU6Vuk?si=Zl3uizehaIMdipkS"
         />
       </div>
+      <h3 id="shorts">Shorts</h3>
+      <div class="youtube-shorts">
+        <DeferredIframe
+          src="https://youtube.com/embed/rEm08m3Evek?si=gbCfC3Ir3IYyWbbe"
+          isShort
+        />
+      </div>
       <div class="gallery-modal" aria-hidden="true">
         <button class="gallery-modal-close" aria-label="Cerrar">&times;</button>
         <img class="gallery-modal-image" alt="" />
@@ -230,6 +237,7 @@ const splitCaption = (caption: string) => {
 
   h1,
   h2,
+  h3,
   p {
     display: block;
   }
@@ -247,9 +255,18 @@ const splitCaption = (caption: string) => {
   }
 
   h1,
-  h2 {
+  h2,
+  h3 {
     font-family: "Stick No Bills";
     letter-spacing: 1px;
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 1.8vw, 2rem);
+    margin: 1.4rem 0 0.9rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: #ffe2c1;
   }
 
   h1 {
@@ -503,6 +520,18 @@ const splitCaption = (caption: string) => {
       gap: 1.2rem;
     }
   }
+
+  .youtube-shorts {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 320px));
+    justify-content: center;
+    gap: 1rem;
+    max-width: 900px;
+    margin: 0 auto 1rem;
+  }
+
   @media (max-width: 800px) {
     main {
       padding-inline: 0.55rem;

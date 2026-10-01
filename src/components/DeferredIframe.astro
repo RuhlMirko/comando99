@@ -6,6 +6,7 @@ interface Props {
   height?: number;
   allow?: string;
   aspectRatio?: string;
+  isShort?: boolean;
 }
 
 const {
@@ -14,7 +15,8 @@ const {
   width,
   height,
   allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
-  aspectRatio = "16 / 9",
+  isShort,
+  aspectRatio = isShort ? "9 / 16" : "16/9",
 } = Astro.props;
 ---
 
