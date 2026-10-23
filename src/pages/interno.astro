@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+---
+
+<Layout>
+  <Navbar
+    navLinks={{
+      actividades: "Horario",
+      roles: "Roles",
+      escalafon: "Escalafon",
+    }}
+    isNotFrontPage
+  />
+
+  <main>
+    <h2>Jerarquia</h2>
+    <li>
+      <ul>
+        <li>
+          <em>Director Operativo</em>
+          <p>Legale</p>
+          <span>99/01</span>
+        </li>
+      </ul>
+    </li>
+  </main>
+</Layout>
