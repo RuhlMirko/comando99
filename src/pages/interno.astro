@@ -14,15 +14,118 @@ import Navbar from "../components/Navbar.astro";
   />
 
   <main>
-    <h2>Jerarquia</h2>
-    <li>
-      <ul>
-        <li>
+    <section>
+      <h2>Jerarquia</h2>
+
+      <ul class="jerarquia">
+        <li class="operativo">
           <em>Director Operativo</em>
           <p>Legale</p>
           <span>99/01</span>
         </li>
+        <li class="tactico">
+          <em>Mando de primera</em>
+          <p>Leyok</p>
+          <span>99/39</span>
+        </li>
+        <li class="tactico">
+          <em>Mando de primera</em>
+          <p>Neco</p>
+          <span>99/03</span>
+        </li>
+        <li class="tactico">
+          <em>Mando de segunda</em>
+          <p>Espinoza</p>
+          <span>99/084</span>
+        </li>
+        <li class="tactico">
+          <em>Segundo jefe de equipo</em>
+          <p>Vaquiro</p>
+          <span>99/069</span>
+        </li>
+        <li class="tactico">
+          <em>Segundo jefe de equipo</em>
+          <p>Batu</p>
+          <span>99/080</span>
+        </li>
+        <li class="contratista">
+          <em>Auxiliar Tactico</em>
+          <p>Mathieus</p>
+          <span>99/011</span>
+        </li>
+        <li class="contratista">
+          <em>Auxiliar Tactico</em>
+          <p>Betos</p>
+          <span>99/052</span>
+        </li>
+        <li class="contratista">
+          <em>Auxiliar Tactico</em>
+          <p>Ruhl</p>
+          <span>99/060</span>
+        </li>
       </ul>
-    </li>
+    </section>
   </main>
+
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      --surface-1: rgba(14, 14, 14, 0.788);
+      --surface-2: rgba(8, 8, 8, 0.507);
+    }
+    main {
+      width: min(1280px, 94vw);
+      margin: 0 auto;
+      padding-top: 8rem;
+      padding-bottom: 2rem;
+      background:
+        linear-gradient(170deg, var(--surface-1), var(--surface-2)),
+        url("/images/topographic.png");
+      background-size:
+        cover,
+        auto 145%;
+      background-position: center, center;
+      background-blend-mode: normal, screen;
+      border-radius: 20px;
+    }
+    .jerarquia {
+      width: 60vw;
+      margin: 0 auto;
+      display: grid;
+    }
+
+    .jerarquia .operativo {
+      background: linear-gradient(to bottom, #d4b816b6, #976822a2);
+    }
+    .jerarquia .tactico {
+      background: linear-gradient(to bottom, #436d30, #304422);
+    }
+    .jerarquia .contratista {
+      background: linear-gradient(to bottom, #237a73, #184e50);
+    }
+
+    .jerarquia ul {
+    }
+    .jerarquia li {
+      display: grid;
+      grid-template-columns: 1fr 0.5fr 0.5fr;
+      align-items: center;
+      gap: 20px;
+      width: 100%;
+      font-size: 1.7rem;
+      border: 1px solid #7e7e7e83;
+      background: rgba(0, 0, 0, 0.61);
+      padding: 0 1rem;
+
+      em,
+      p {
+        border-right: 1px solid #7e7e7e83;
+      }
+      span {
+        text-align: center;
+      }
+    }
+  </style>
 </Layout>
