@@ -24,7 +24,7 @@ import Navbar from "../components/Navbar.astro";
           <h3>Jueves</h3>
           <h3>Viernes</h3>
           <h3>Sabado</h3>
-          <h3>Domingo</h3>
+          <h3 class="misiones">Domingo</h3>
         </div>
         <div class="activity">
           <h3>Entrenamiento <span>21hs</span></h3>
@@ -33,9 +33,9 @@ import Navbar from "../components/Navbar.astro";
           <h3>Cursos / Dia Libre <span>Actividad por convocatoria</span></h3>
           <h3>
             Patrulla / Entrenamiento <span>Actividad por convocatoria</span>
-            <h3>Cursos / Dia Libre <span>Actividad por convocatoria</span></h3>
-            <h3>Misiones <span>20hs</span></h3>
           </h3>
+          <h3>Cursos / Dia Libre <span>Actividad por convocatoria</span></h3>
+          <h3 class="misiones">Misiones <span>20hs</span></h3>
         </div>
         <div class="modalidad">
           <h3>Votacion</h3>
@@ -44,7 +44,7 @@ import Navbar from "../components/Navbar.astro";
           <h3>Votacion</h3>
           <h3>Votacion</h3>
           <h3>Votacion</h3>
-          <h3>Hora Fija</h3>
+          <h3 class="misiones">Hora Establecida</h3>
         </div>
       </div>
 
@@ -283,19 +283,19 @@ import Navbar from "../components/Navbar.astro";
             Director de Operaciones
           </div>
           <div class="escalafon-cell mando-operativo-row">DOP.</div>
-          <div class="escalafon-cell mando-operativo-row">10</div>
+          <div class="escalafon-cell mando-operativo-row">11</div>
 
           <div class="escalafon-cell mando-operativo-row">
             Coordinador Operativo
           </div>
           <div class="escalafon-cell mando-operativo-row">COP.</div>
-          <div class="escalafon-cell mando-operativo-row">9</div>
+          <div class="escalafon-cell mando-operativo-row">10</div>
 
           <div class="escalafon-cell mando-operativo-row">
             Supervisor Operativo
           </div>
           <div class="escalafon-cell mando-operativo-row">SO.</div>
-          <div class="escalafon-cell mando-operativo-row">8</div>
+          <div class="escalafon-cell mando-operativo-row">9</div>
 
           <div class="escalafon-cell escalafon-rango mando-tactico">
             Mando Tactico
@@ -304,10 +304,18 @@ import Navbar from "../components/Navbar.astro";
             Coordinador de Equipos
           </div>
           <div class="escalafon-cell mando-tactico-row">CDE.</div>
+          <div class="escalafon-cell mando-tactico-row">8</div>
+
+          <div class="escalafon-cell mando-tactico-row">
+            Mando de Primera - Jefe de Equipo
+          </div>
+          <div class="escalafon-cell mando-tactico-row">M1.</div>
           <div class="escalafon-cell mando-tactico-row">7</div>
 
-          <div class="escalafon-cell mando-tactico-row">Jefe de Equipo</div>
-          <div class="escalafon-cell mando-tactico-row">JEQ.</div>
+          <div class="escalafon-cell mando-tactico-row">
+            Mando de segunda - Jefe de Equipo
+          </div>
+          <div class="escalafon-cell mando-tactico-row">M2.</div>
           <div class="escalafon-cell mando-tactico-row">6</div>
 
           <div class="escalafon-cell mando-tactico-row">
@@ -500,16 +508,14 @@ import Navbar from "../components/Navbar.astro";
       display: grid;
       grid-template-columns: 0.7fr 1fr 0.7fr;
       margin-top: 1rem;
-      margin-bottom: 0.6rem;
+      margin-bottom: 2rem;
       border: 1px solid var(--line-strong);
       border-bottom: 0;
       border-radius: 4px;
       overflow: hidden;
-      background: linear-gradient(
-        180deg,
-        rgba(18, 18, 18, 0.94),
-        rgba(7, 7, 7, 0.96)
-      );
+      background:
+        linear-gradient(180deg, rgba(12, 12, 12, 0.877), rgba(2, 2, 2, 0.911)),
+        url("/images/topographic.png");
       box-shadow: 0 16px 30px rgba(0, 0, 0, 0.3);
     }
     .actividades-container div {
@@ -570,6 +576,17 @@ import Navbar from "../components/Navbar.astro";
         font-weight: 400;
         color: #a8a7a7;
       }
+    }
+    .actividades-container .misiones {
+      background: linear-gradient(to bottom, #f1b307fd, #d18a05a2);
+      text-shadow: 0 0 4px black;
+      span {
+        color: white;
+      }
+    }
+    .actividades-container .activity,
+    .misiones {
+      box-shadow: inset 0 -10px 1rem rgba(0, 0, 0, 0.329);
     }
 
     .roles {
@@ -736,9 +753,11 @@ import Navbar from "../components/Navbar.astro";
       text-transform: uppercase;
     }
 
-    .escalafon-rango.mando-operativo,
-    .escalafon-rango.mando-tactico {
+    .escalafon-rango.mando-operativo {
       grid-row: span 3;
+    }
+    .escalafon-rango.mando-tactico {
+      grid-row: span 4;
     }
 
     .escalafon-rango.contratistas {
@@ -747,30 +766,26 @@ import Navbar from "../components/Navbar.astro";
 
     .mando-operativo,
     .mando-operativo-row {
-      background: linear-gradient(to bottom, #977c22a2, #d4b816b6);
+      background: linear-gradient(to bottom, #d4b816b6, #976822a2);
     }
 
     .mando-tactico,
     .mando-tactico-row {
-      background: linear-gradient(to bottom, #304422, #436d30);
+      background: linear-gradient(to bottom, #436d30, #304422);
     }
 
     .contratistas {
-      background: linear-gradient(to bottom, #184e50, #237a73);
+      background: linear-gradient(to bottom, #237a73, #184e50);
     }
 
     .contratistas-row {
-      background: linear-gradient(to bottom, #1b5b5e, #237a73);
+      background: linear-gradient(to bottom, #237a73, #1b5b5e);
     }
 
     .contratistas-row.row-junior {
       background: linear-gradient(to bottom, #413157b6, #614a8d52);
     }
 
-    .contratistas-row.row-aux {
-      background: linear-gradient(to bottom, #23a085, #134945);
-      font-weight: 700;
-    }
     @media (min-width: 761px) {
       .role-section {
         grid-column: 2 / span 4;
