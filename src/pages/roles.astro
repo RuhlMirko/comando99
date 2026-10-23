@@ -26,875 +26,917 @@ import Navbar from "../components/Navbar.astro";
           <h3>Sabado</h3>
           <h3>Domingo</h3>
         </div>
-        <div>
-          <h3>Entrenamiento Tactico</h3>
-          <h3>Entrenamiento Roles</h3>
-          <h3>Patrulla</h3>
-          <h3>Entrenamiento Roles</h3>
-          <h3>Patrulla</h3>
-          <h3>Entrenamiento Tactico</h3>
-          <h3>Misiones</h3>
+        <div class="activity">
+          <h3>Entrenamiento <span>21hs</span></h3>
+          <h3>Cursos / Dia Libre <span>Actividad por convocatoria</span></h3>
+          <h3>Patrulla <span>21hs</span></h3>
+          <h3>Cursos / Dia Libre <span>Actividad por convocatoria</span></h3>
+          <h3>
+            Patrulla / Entrenamiento <span>Actividad por convocatoria</span>
+            <h3>Cursos / Dia Libre <span>Actividad por convocatoria</span></h3>
+            <h3>Misiones <span>20hs</span></h3>
+          </h3>
+        </div>
+        <div class="modalidad">
+          <h3>Votacion</h3>
+          <h3>Votacion</h3>
+          <h3>Votacion</h3>
+          <h3>Votacion</h3>
+          <h3>Votacion</h3>
+          <h3>Votacion</h3>
+          <h3>Hora Fija</h3>
         </div>
       </div>
-    </section>
 
-    <section>
-      <h2>Roles</h2>
-      <p class="roles-intro intro">
-        Cada miembro puede elegir capacitarse en el rol que desee. Una vez
-        capacitado, podra desempenar ese rol en las actividades. Todos los roles
-        cuentan con distintos niveles de capacitacion, que van desde el nivel
-        inicial hasta la maestria.
-        <br />
-        <span
-          >El limite es de 4 roles operativos y 2 roles tecnicos por miembro.</span
-        >
-      </p>
-      <div class="roles" id="roles">
-        <div class="role-cell role-header desktop-only">Inicial</div>
-        <div class="role-cell role-header">Basico</div>
-        <div class="role-cell role-header">Experimentado</div>
-        <div class="role-cell role-header">Avanzado</div>
-        <div class="role-cell role-header">Maestria</div>
-
-        <div class="role-cell role-name fusilero desktop-only">Fusilero</div>
-        <div class="role-cell role-section infanteria">Roles Operativos</div>
-
-        <div class="role-cell infanteria">
-          <a href="/roles/explorador">Explorador</a>
-        </div>
-        <div class="role-cell infanteria">
-          <a href="/roles/explorador">Tirador selecto</a>
-        </div>
-        <div class="role-cell infanteria">
-          <a href="/roles/explorador">Francotirador</a>
-        </div>
-        <div class="role-cell infanteria">
-          <a href="/roles/explorador">Observador</a>
-        </div>
-
-        <div class="role-cell infanteria granadero-span">
-          <a href="/roles/granadero">Granadero</a>
-        </div>
-        <div class="role-cell infanteria">
-          <a href="/roles/granadero">Soldado AT Ligero</a>
-        </div>
-        <div class="role-cell infanteria">
-          <a href="/roles/granadero">Soldado AT Pesado</a>
-        </div>
-        <div class="role-cell role-empty"></div>
-
-        <div class="role-cell infanteria">
-          <a href="/roles/granadero">Soldado AA Ligero</a>
-        </div>
-        <div class="role-cell infanteria">
-          <a href="/roles/granadero">Soldado AA Pesado</a>
-        </div>
-        <div class="role-cell role-empty"></div>
-
-        <div class="role-cell infanteria">
-          <a href="/roles/enfermero">Enfermero</a>
-        </div>
-        <div class="role-cell infanteria">
-          <a href="/roles/enfermero">Enfermero de Combate</a>
-        </div>
-        <div class="role-cell infanteria">
-          <a href="/roles/enfermero">Medico de combate</a>
-        </div>
-        <div class="role-cell infanteria">
-          <a href="/roles/enfermero">Medico Cirujano</a>
-        </div>
-
-        <div class="role-cell infanteria">
-          <a href="/roles/fusilero-automatico">Portamuniciones</a>
-        </div>
-        <div class="role-cell infanteria ametrallador-span">
-          <a href="/roles/fusilero-automatico">Ametrallador ligero</a>
-        </div>
-        <div class="role-cell infanteria ametrallador-span">
-          <a href="/roles/fusilero-automatico">Ametrallador mediano</a>
-        </div>
-        <div class="role-cell role-empty"></div>
-
-        <div class="role-cell infanteria">
-          <a href="/roles/fusilero-automatico">Fusilero automatico</a>
-        </div>
-        <div class="role-cell role-empty"></div>
-
-        <div class="role-cell infanteria">
-          <a href="/roles/ingeniero-eod">Ingeniero EOD</a>
-        </div>
-        <div class="role-cell infanteria">
-          <a href="/roles/ingeniero-eod">Ingeniero Zapador</a>
-        </div>
-        <div class="role-cell infanteria">
-          <a href="/roles/ingeniero-eod">Especialista en demoliciones</a>
-        </div>
-        <div class="role-cell role-empty"></div>
-
-        <div class="role-cell infanteria">
-          <a href="/roles/radio-operador-de-escuadra"
-            >Radio Operador de escuadra</a
+      <section>
+        <h2>Roles</h2>
+        <p class="roles-intro intro">
+          Cada miembro puede elegir capacitarse en el rol que desee. Una vez
+          capacitado, podra desempenar ese rol en las actividades. Todos los
+          roles cuentan con distintos niveles de capacitacion, que van desde el
+          nivel inicial hasta la maestria.
+          <br />
+          <span
+            >El limite es de 4 roles operativos y 2 roles tecnicos por miembro.</span
           >
-        </div>
-        <div class="role-cell infanteria">
-          <a href="/roles/radio-operador-de-escuadra"
-            >Encargado de control aereo (J.T.A.C.)</a
-          >
-        </div>
-        <div class="role-cell role-empty"></div>
-        <div class="role-cell role-empty"></div>
+        </p>
+        <div class="roles" id="roles">
+          <div class="role-cell role-header desktop-only">Inicial</div>
+          <div class="role-cell role-header">Basico</div>
+          <div class="role-cell role-header">Experimentado</div>
+          <div class="role-cell role-header">Avanzado</div>
+          <div class="role-cell role-header">Maestria</div>
 
-        <div class="role-cell role-section servicios">Roles Tecnicos</div>
+          <div class="role-cell role-name fusilero desktop-only">Fusilero</div>
+          <div class="role-cell role-section infanteria">Roles Operativos</div>
 
-        <div class="role-cell servicios">
-          <a href="/roles/dron-de-explorador">Dron de explorador</a>
-        </div>
-        <div class="role-cell servicios">
-          <a href="/roles/dron-de-explorador">Dron de combate</a>
-        </div>
-        <div class="role-cell role-empty"></div>
-        <div class="role-cell role-empty"></div>
+          <div class="role-cell infanteria">
+            <a href="/roles/explorador">Explorador</a>
+          </div>
+          <div class="role-cell infanteria">
+            <a href="/roles/explorador">Tirador selecto</a>
+          </div>
+          <div class="role-cell infanteria">
+            <a href="/roles/explorador">Francotirador</a>
+          </div>
+          <div class="role-cell infanteria">
+            <a href="/roles/explorador">Observador</a>
+          </div>
 
-        <div class="role-cell servicios">
-          <a href="/roles/mecanizada">Tripulante de Mecanizada</a>
-        </div>
-        <div class="role-cell role-empty"></div>
-        <div class="role-cell servicios">
-          <a href="/roles/mecanizada">Comandante de Mecanizada</a>
-        </div>
-        <div class="role-cell role-empty"></div>
+          <div class="role-cell infanteria granadero-span">
+            <a href="/roles/granadero">Granadero</a>
+          </div>
+          <div class="role-cell infanteria">
+            <a href="/roles/granadero">Soldado AT Ligero</a>
+          </div>
+          <div class="role-cell infanteria">
+            <a href="/roles/granadero">Soldado AT Pesado</a>
+          </div>
+          <div class="role-cell role-empty"></div>
 
-        <div class="role-cell servicios">
-          <a href="/roles/movilidad-ligera">Artillero de Movilidad Ligera</a>
-        </div>
-        <div class="role-cell servicios">
-          <a href="/roles/movilidad-ligera">Conductor de Movilidad Ligera</a>
-        </div>
-        <div class="role-cell servicios">
-          <a href="/roles/movilidad-ligera">Cabeza de Convoy</a>
-        </div>
-        <div class="role-cell role-empty"></div>
+          <div class="role-cell infanteria">
+            <a href="/roles/granadero">Soldado AA Ligero</a>
+          </div>
+          <div class="role-cell infanteria">
+            <a href="/roles/granadero">Soldado AA Pesado</a>
+          </div>
+          <div class="role-cell role-empty"></div>
 
-        <div class="role-cell servicios">
-          <a href="/roles/dron-uav">Operador de Dron Uav de exploracion</a>
-        </div>
-        <div class="role-cell servicios">
-          <a href="/roles/dron-uav">Operador de Dron Uav de Ataque</a>
-        </div>
-        <div class="role-cell role-empty"></div>
-        <div class="role-cell role-empty"></div>
+          <div class="role-cell infanteria">
+            <a href="/roles/enfermero">Enfermero</a>
+          </div>
+          <div class="role-cell infanteria">
+            <a href="/roles/enfermero">Enfermero de Combate</a>
+          </div>
+          <div class="role-cell infanteria">
+            <a href="/roles/enfermero">Medico de combate</a>
+          </div>
+          <div class="role-cell infanteria">
+            <a href="/roles/enfermero">Medico Cirujano</a>
+          </div>
 
-        <div class="role-cell role-level">Nivel Basico (0-50 pts) ▼</div>
-        <div class="role-cell role-level">Nivel Intermedio (51-100 pts) ▼</div>
-        <div class="role-cell role-level">Nivel Avanzado (101-150 pts) ▼</div>
-        <div class="role-cell role-level">Nivel Maestro (151+ pts) ▼</div>
+          <div class="role-cell infanteria">
+            <a href="/roles/fusilero-automatico">Portamuniciones</a>
+          </div>
+          <div class="role-cell infanteria ametrallador-span">
+            <a href="/roles/fusilero-automatico">Ametrallador ligero</a>
+          </div>
+          <div class="role-cell infanteria ametrallador-span">
+            <a href="/roles/fusilero-automatico">Ametrallador mediano</a>
+          </div>
+          <div class="role-cell role-empty"></div>
 
-        <div class="role-cell servicios">
-          <a href="/roles/aviones-de-entrenamiento-y-reconocimiento"
-            >Aviones de entrenamiento y reconocimiento</a
-          >
-        </div>
-        <div class="role-cell servicios">
-          <a href="/roles/su-25-a-29">Su-25/A-29</a>
-        </div>
-        <div class="role-cell servicios">
-          <a href="/roles/a-10c-f-16">A-10C/F-16</a>
-        </div>
-        <div class="role-cell servicios">
-          <a href="/roles/f-22-mig-29">F-22/Mig-29</a>
-        </div>
+          <div class="role-cell infanteria">
+            <a href="/roles/fusilero-automatico">Fusilero automatico</a>
+          </div>
+          <div class="role-cell role-empty"></div>
 
-        <div class="role-cell servicios">
-          <a href="/roles/helicopteros-de-transporte"
-            >Helicopteros de transporte</a
-          >
-        </div>
-        <div class="role-cell servicios">
-          <a href="/roles/ah-6-little-bird-uh-1y">AH-6 (Little bird) / UH-1Y</a>
-        </div>
-        <div class="role-cell servicios">
-          <a href="/roles/ah-64d-ah-1z">AH-64D/AH-1Z</a>
-        </div>
-        <div class="role-cell servicios">
-          <a href="/roles/uh-60-dap-rah-66">UH-60 DAP / RAH-66</a>
-        </div>
-      </div>
-    </section>
+          <div class="role-cell infanteria">
+            <a href="/roles/ingeniero-eod">Ingeniero EOD</a>
+          </div>
+          <div class="role-cell infanteria">
+            <a href="/roles/ingeniero-eod">Ingeniero Zapador</a>
+          </div>
+          <div class="role-cell infanteria">
+            <a href="/roles/ingeniero-eod">Especialista en demoliciones</a>
+          </div>
+          <div class="role-cell role-empty"></div>
 
-    <section class="rol-info-container">
-      <h2>Ascenso de Roles</h2>
-      <p class="intro">
-        Cada rol cuenta con su propio sistema de progreso. Al completar la
-        cantidad de actividades requerida, podras rendir la evaluacion para
-        avanzar al siguiente nivel.
-      </p>
-      <div class="rol-ascenso">
-        <div class="ascenso-step">
-          <span class="ascenso-level">Nivel Basico</span>
-          <span class="ascenso-req">Ingreso</span>
-        </div>
-        <div class="ascenso-step">
-          <span class="ascenso-level">Nivel Experimentado</span>
-          <span class="ascenso-req">10 actividades</span>
-        </div>
-        <div class="ascenso-step">
-          <span class="ascenso-level">Nivel Avanzado</span>
-          <span class="ascenso-req">25 actividades</span>
-        </div>
-        <div class="ascenso-step">
-          <span class="ascenso-level">Maestria</span>
-          <span class="ascenso-req">35 actividades</span>
-        </div>
-      </div>
-    </section>
+          <div class="role-cell infanteria">
+            <a href="/roles/radio-operador-de-escuadra"
+              >Radio Operador de escuadra</a
+            >
+          </div>
+          <div class="role-cell infanteria">
+            <a href="/roles/radio-operador-de-escuadra"
+              >Encargado de control aereo (J.T.A.C.)</a
+            >
+          </div>
+          <div class="role-cell role-empty"></div>
+          <div class="role-cell role-empty"></div>
 
-    <section>
-      <h2 id="escalafon">Escalafon</h2>
-      <p class="intro">
-        La estructura de mando se organiza en tres ramas. Todo nuevo miembro
-        inicia como Recluta y asciende segun su rendimiento, compromiso y
-        cumplimiento en entrenamientos, patrullas y misiones.
-      </p>
-      <div class="escalafon">
-        <div class="escalafon-cell escalafon-corner"></div>
-        <div class="escalafon-cell escalafon-header">Grado</div>
-        <div class="escalafon-cell escalafon-header">Abreviacion</div>
-        <div class="escalafon-cell escalafon-header">Numeral</div>
+          <div class="role-cell role-section servicios">Roles Tecnicos</div>
 
-        <div class="escalafon-cell escalafon-rango mando-operativo">
-          Mando Operativo
+          <div class="role-cell servicios">
+            <a href="/roles/dron-de-explorador">Dron de explorador</a>
+          </div>
+          <div class="role-cell servicios">
+            <a href="/roles/dron-de-explorador">Dron de combate</a>
+          </div>
+          <div class="role-cell role-empty"></div>
+          <div class="role-cell role-empty"></div>
+
+          <div class="role-cell servicios">
+            <a href="/roles/mecanizada">Tripulante de Mecanizada</a>
+          </div>
+          <div class="role-cell role-empty"></div>
+          <div class="role-cell servicios">
+            <a href="/roles/mecanizada">Comandante de Mecanizada</a>
+          </div>
+          <div class="role-cell role-empty"></div>
+
+          <div class="role-cell servicios">
+            <a href="/roles/movilidad-ligera">Artillero de Movilidad Ligera</a>
+          </div>
+          <div class="role-cell servicios">
+            <a href="/roles/movilidad-ligera">Conductor de Movilidad Ligera</a>
+          </div>
+          <div class="role-cell servicios">
+            <a href="/roles/movilidad-ligera">Cabeza de Convoy</a>
+          </div>
+          <div class="role-cell role-empty"></div>
+
+          <div class="role-cell servicios">
+            <a href="/roles/dron-uav">Operador de Dron Uav de exploracion</a>
+          </div>
+          <div class="role-cell servicios">
+            <a href="/roles/dron-uav">Operador de Dron Uav de Ataque</a>
+          </div>
+          <div class="role-cell role-empty"></div>
+          <div class="role-cell role-empty"></div>
+
+          <div class="role-cell role-level">Nivel Basico (0-50 pts) ▼</div>
+          <div class="role-cell role-level">
+            Nivel Intermedio (51-100 pts) ▼
+          </div>
+          <div class="role-cell role-level">Nivel Avanzado (101-150 pts) ▼</div>
+          <div class="role-cell role-level">Nivel Maestro (151+ pts) ▼</div>
+
+          <div class="role-cell servicios">
+            <a href="/roles/aviones-de-entrenamiento-y-reconocimiento"
+              >Aviones de entrenamiento y reconocimiento</a
+            >
+          </div>
+          <div class="role-cell servicios">
+            <a href="/roles/su-25-a-29">Su-25/A-29</a>
+          </div>
+          <div class="role-cell servicios">
+            <a href="/roles/a-10c-f-16">A-10C/F-16</a>
+          </div>
+          <div class="role-cell servicios">
+            <a href="/roles/f-22-mig-29">F-22/Mig-29</a>
+          </div>
+
+          <div class="role-cell servicios">
+            <a href="/roles/helicopteros-de-transporte"
+              >Helicopteros de transporte</a
+            >
+          </div>
+          <div class="role-cell servicios">
+            <a href="/roles/ah-6-little-bird-uh-1y"
+              >AH-6 (Little bird) / UH-1Y</a
+            >
+          </div>
+          <div class="role-cell servicios">
+            <a href="/roles/ah-64d-ah-1z">AH-64D/AH-1Z</a>
+          </div>
+          <div class="role-cell servicios">
+            <a href="/roles/uh-60-dap-rah-66">UH-60 DAP / RAH-66</a>
+          </div>
         </div>
-        <div class="escalafon-cell mando-operativo-row">
-          Director de Operaciones
+      </section>
+
+      <section class="rol-info-container">
+        <h2>Ascenso de Roles</h2>
+        <p class="intro">
+          Cada rol cuenta con su propio sistema de progreso. Al completar la
+          cantidad de actividades requerida, podras rendir la evaluacion para
+          avanzar al siguiente nivel.
+        </p>
+        <div class="rol-ascenso">
+          <div class="ascenso-step">
+            <span class="ascenso-level">Nivel Basico</span>
+            <span class="ascenso-req">Ingreso</span>
+          </div>
+          <div class="ascenso-step">
+            <span class="ascenso-level">Nivel Experimentado</span>
+            <span class="ascenso-req">10 actividades</span>
+          </div>
+          <div class="ascenso-step">
+            <span class="ascenso-level">Nivel Avanzado</span>
+            <span class="ascenso-req">25 actividades</span>
+          </div>
+          <div class="ascenso-step">
+            <span class="ascenso-level">Maestria</span>
+            <span class="ascenso-req">35 actividades</span>
+          </div>
         </div>
-        <div class="escalafon-cell mando-operativo-row">DOP.</div>
-        <div class="escalafon-cell mando-operativo-row">10</div>
+      </section>
 
-        <div class="escalafon-cell mando-operativo-row">
-          Coordinador Operativo
+      <section>
+        <h2 id="escalafon">Escalafon</h2>
+        <p class="intro">
+          La estructura de mando se organiza en tres ramas. Todo nuevo miembro
+          inicia como Recluta y asciende segun su rendimiento, compromiso y
+          cumplimiento en entrenamientos, patrullas y misiones.
+        </p>
+        <div class="escalafon">
+          <div class="escalafon-cell escalafon-corner"></div>
+          <div class="escalafon-cell escalafon-header">Grado</div>
+          <div class="escalafon-cell escalafon-header">Abreviacion</div>
+          <div class="escalafon-cell escalafon-header">Numeral</div>
+
+          <div class="escalafon-cell escalafon-rango mando-operativo">
+            Mando Operativo
+          </div>
+          <div class="escalafon-cell mando-operativo-row">
+            Director de Operaciones
+          </div>
+          <div class="escalafon-cell mando-operativo-row">DOP.</div>
+          <div class="escalafon-cell mando-operativo-row">10</div>
+
+          <div class="escalafon-cell mando-operativo-row">
+            Coordinador Operativo
+          </div>
+          <div class="escalafon-cell mando-operativo-row">COP.</div>
+          <div class="escalafon-cell mando-operativo-row">9</div>
+
+          <div class="escalafon-cell mando-operativo-row">
+            Supervisor Operativo
+          </div>
+          <div class="escalafon-cell mando-operativo-row">SO.</div>
+          <div class="escalafon-cell mando-operativo-row">8</div>
+
+          <div class="escalafon-cell escalafon-rango mando-tactico">
+            Mando Tactico
+          </div>
+          <div class="escalafon-cell mando-tactico-row">
+            Coordinador de Equipos
+          </div>
+          <div class="escalafon-cell mando-tactico-row">CDE.</div>
+          <div class="escalafon-cell mando-tactico-row">7</div>
+
+          <div class="escalafon-cell mando-tactico-row">Jefe de Equipo</div>
+          <div class="escalafon-cell mando-tactico-row">JEQ.</div>
+          <div class="escalafon-cell mando-tactico-row">6</div>
+
+          <div class="escalafon-cell mando-tactico-row">
+            Segundo Jefe de Equipo
+          </div>
+          <div class="escalafon-cell mando-tactico-row">SJE.</div>
+          <div class="escalafon-cell mando-tactico-row">5</div>
+
+          <div class="escalafon-cell escalafon-rango contratistas">
+            Contratistas
+          </div>
+          <div class="escalafon-cell contratistas-row row-aux">
+            Auxiliar Tactico
+          </div>
+          <div class="escalafon-cell contratistas-row row-aux">AUX.</div>
+          <div class="escalafon-cell contratistas-row row-aux">4</div>
+
+          <div class="escalafon-cell contratistas-row">Operador Senior</div>
+          <div class="escalafon-cell contratistas-row">SOP.</div>
+          <div class="escalafon-cell contratistas-row">3</div>
+
+          <div class="escalafon-cell contratistas-row">Operador</div>
+          <div class="escalafon-cell contratistas-row">OP.</div>
+          <div class="escalafon-cell contratistas-row">2</div>
+
+          <div class="escalafon-cell contratistas-row row-junior">
+            Operador Junior
+          </div>
+          <div class="escalafon-cell contratistas-row row-junior">OPJ.</div>
+          <div class="escalafon-cell contratistas-row row-junior">1</div>
+
+          <div class="escalafon-cell contratistas-row row-junior">Recluta</div>
+          <div class="escalafon-cell contratistas-row row-junior">RCT.</div>
+          <div class="escalafon-cell contratistas-row row-junior">0</div>
         </div>
-        <div class="escalafon-cell mando-operativo-row">COP.</div>
-        <div class="escalafon-cell mando-operativo-row">9</div>
-
-        <div class="escalafon-cell mando-operativo-row">
-          Supervisor Operativo
-        </div>
-        <div class="escalafon-cell mando-operativo-row">SO.</div>
-        <div class="escalafon-cell mando-operativo-row">8</div>
-
-        <div class="escalafon-cell escalafon-rango mando-tactico">
-          Mando Tactico
-        </div>
-        <div class="escalafon-cell mando-tactico-row">
-          Coordinador de Equipos
-        </div>
-        <div class="escalafon-cell mando-tactico-row">CDE.</div>
-        <div class="escalafon-cell mando-tactico-row">7</div>
-
-        <div class="escalafon-cell mando-tactico-row">Jefe de Equipo</div>
-        <div class="escalafon-cell mando-tactico-row">JEQ.</div>
-        <div class="escalafon-cell mando-tactico-row">6</div>
-
-        <div class="escalafon-cell mando-tactico-row">
-          Segundo Jefe de Equipo
-        </div>
-        <div class="escalafon-cell mando-tactico-row">SJE.</div>
-        <div class="escalafon-cell mando-tactico-row">5</div>
-
-        <div class="escalafon-cell escalafon-rango contratistas">
-          Contratistas
-        </div>
-        <div class="escalafon-cell contratistas-row row-aux">
-          Auxiliar Tactico
-        </div>
-        <div class="escalafon-cell contratistas-row row-aux">AUX.</div>
-        <div class="escalafon-cell contratistas-row row-aux">4</div>
-
-        <div class="escalafon-cell contratistas-row">Operador Senior</div>
-        <div class="escalafon-cell contratistas-row">SOP.</div>
-        <div class="escalafon-cell contratistas-row">3</div>
-
-        <div class="escalafon-cell contratistas-row">Operador</div>
-        <div class="escalafon-cell contratistas-row">OP.</div>
-        <div class="escalafon-cell contratistas-row">2</div>
-
-        <div class="escalafon-cell contratistas-row row-junior">
-          Operador Junior
-        </div>
-        <div class="escalafon-cell contratistas-row row-junior">OPJ.</div>
-        <div class="escalafon-cell contratistas-row row-junior">1</div>
-
-        <div class="escalafon-cell contratistas-row row-junior">Recluta</div>
-        <div class="escalafon-cell contratistas-row row-junior">RCT.</div>
-        <div class="escalafon-cell contratistas-row row-junior">0</div>
-      </div>
+      </section>
     </section>
   </main>
-</Layout>
 
-<style>
-  :global(:root) {
-    --bg-secondary: #a6292e;
-    --text-primary: #c7191e;
-    --surface-1: rgba(14, 14, 14, 0.9);
-    --surface-2: rgba(8, 8, 8, 0.92);
-    --line-soft: rgba(255, 120, 120, 0.22);
-    --line-strong: rgba(201, 24, 16, 0.46);
-  }
-
-  :global(*) {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  :global(body) {
-    max-width: 100vw;
-    overflow-x: hidden;
-    background:
-      radial-gradient(
-        circle at 14% 10%,
-        rgba(166, 20, 20, 0.24),
-        transparent 32%
-      ),
-      radial-gradient(
-        circle at 84% 8%,
-        rgba(255, 34, 34, 0.14),
-        transparent 30%
-      ),
-      linear-gradient(160deg, #050505 0%, #0d0808 46%, #030202 100%);
-    color: white;
-    font-family:
-      "Chakra Petch",
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      Roboto,
-      Oxygen,
-      Ubuntu,
-      Cantarell,
-      "Open Sans",
-      "Helvetica Neue",
-      sans-serif;
-  }
-
-  main {
-    width: min(1280px, 94vw);
-    margin: 0 auto;
-    padding-top: 8rem;
-    padding-bottom: 2rem;
-    position: relative;
-  }
-
-  main::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background:
-      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-    background-size: 24px 24px;
-    opacity: 0.35;
-    z-index: 0;
-  }
-
-  main > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  main section {
-    position: relative;
-    margin-inline: clamp(0.2rem, 1vw, 0.85rem);
-    padding: 1.2rem 1.1rem 1.25rem;
-    margin-bottom: 2rem;
-    border: 1px solid var(--line-soft);
-    border-radius: 6px;
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.03),
-      0 16px 34px rgba(0, 0, 0, 0.35);
-    background:
-      linear-gradient(170deg, var(--surface-1), var(--surface-2)),
-      url("/images/topographic.png");
-    background-size:
-      cover,
-      auto 145%;
-    background-position: center, center;
-    background-blend-mode: normal, screen;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(36px);
-    animation: reveal-from-bottom 650ms ease-out both;
-  }
-
-  main section::before {
-    content: "";
-    position: absolute;
-    inset: 0 auto 0 0;
-    width: 5px;
-    background: linear-gradient(to bottom, #d12b2f, #7f1115);
-    pointer-events: none;
-  }
-
-  h2 {
-    font-size: clamp(2.15rem, 3.8vw, 3.25rem);
-    padding-bottom: 0;
-    font-family: "Stick No Bills", sans-serif;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-bottom: 1px solid rgba(255, 87, 87, 0.32);
-    text-align: center;
-  }
-
-  p {
-    font-size: clamp(1.06rem, 1.65vw, 1.35rem);
-    max-width: 78ch;
-    margin: 0.2rem auto 1rem;
-    line-height: 1.36;
-    color: rgba(246, 246, 246, 0.9);
-  }
-
-  .intro {
-    max-width: none;
-    margin: 0 auto 1.4rem;
-    padding: 0.85rem 4vw 2rem;
-    border-radius: 4px;
-    background:
-      radial-gradient(
-        circle at 50% -130%,
-        rgba(88, 10, 10, 0.26),
-        transparent 70%
-      ),
-      linear-gradient(180deg, #0c0909 0%, #0202023a 100%);
-    color: rgba(246, 246, 246, 0.95);
-    backdrop-filter: blur(3px);
-    text-align: left;
-  }
-
-  .roles-intro span {
-    font-style: italic;
-    margin-top: 1rem;
-    display: block;
-    text-align: center;
-    color: #adadad;
-  }
-
-  .actividades-container {
-    display: grid;
-    grid-template-columns: repeat(7, minmax(0, 1fr));
-    grid-template-rows: repeat(2, minmax(72px, auto));
-    margin-top: 1rem;
-    margin-bottom: 0.6rem;
-    border: 1px solid var(--line-strong);
-    border-bottom: 0;
-    border-radius: 4px;
-    overflow: hidden;
-    background: linear-gradient(
-      180deg,
-      rgba(18, 18, 18, 0.94),
-      rgba(7, 7, 7, 0.96)
-    );
-    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.3);
-  }
-  .actividades-container div {
-    display: contents;
-  }
-
-  .actividades-container h3 {
-    width: 100%;
-    padding: 10px 8px;
-    margin: 0;
-    overflow-wrap: break-word;
-    border: 1px solid rgba(135, 35, 35, 0.72);
-    border-top: 0;
-    border-left: 0;
-    text-align: center;
-    min-height: 72px;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: clamp(1.02rem, 1.28vw, 1.24rem);
-  }
-
-  .actividades-container .days {
-    font-size: 1.5rem;
-    font-family: "Stick No Bills", sans-serif;
-    letter-spacing: 1px;
-  }
-
-  .actividades-container .days h3 {
-    background: linear-gradient(to bottom, #69090fc4, var(--bg-secondary));
-    border-color: rgb(153, 6, 6);
-  }
-
-  .roles {
-    display: grid;
-    grid-template-columns: 0.7fr repeat(4, 1fr);
-    margin: 1.5rem 0 2rem;
-    border: 1px solid rgba(96, 96, 96, 0.56);
-    box-shadow: 0 18px 32px rgba(0, 0, 0, 0.34);
-    background:
-      linear-gradient(180deg, rgba(12, 12, 12, 0.877), rgba(2, 2, 2, 0.911)),
-      url("/images/topographic.png");
-    overflow: hidden;
-  }
-
-  .role-cell {
-    border: 1px solid rgba(35, 35, 35, 0.92);
-    padding: 0.52rem 0.58rem;
-    font-size: 0.92rem;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    min-height: 44px;
-    min-width: 0;
-    box-sizing: border-box;
-    transition:
-      background-color 0.2s ease,
-      color 0.2s ease,
-      box-shadow 0.2s ease;
-  }
-
-  .role-cell:hover {
-    box-shadow: inset 0 -16px 1rem rgba(5, 5, 5, 0.24);
-  }
-
-  .role-cell a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .role-cell a:hover {
-    text-decoration: underline;
-  }
-
-  .role-header {
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: clamp(0.82rem, 1.4vw, 1.1rem);
-    letter-spacing: 0.7px;
-    min-height: 56px;
-    overflow-wrap: anywhere;
-    background: linear-gradient(to bottom, #69090fc4, #9c040e);
-    text-shadow: 0 0 14px rgba(0, 0, 0, 0.55);
-  }
-
-  .fusilero {
-    background: transparent;
-    color: #f1f1f1;
-    text-shadow: 0 0 12px rgb(82, 81, 81);
-  }
-
-  .infanteria {
-    background: linear-gradient(to bottom, #436d30, #304422);
-  }
-
-  .servicios {
-    background: linear-gradient(to bottom, #237a73, #184e50);
-  }
-
-  .infanteria,
-  .servicios {
-    cursor: pointer;
-  }
-
-  .rol-ascenso {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0;
-    border: 1px solid rgb(189, 8, 8);
-    width: 100%;
-    background: linear-gradient(to right, #69090fc4, #9c040e);
-    box-shadow: inset 0 18px 32px rgba(0, 0, 0, 0.33);
-    overflow: hidden;
-  }
-
-  .ascenso-step {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 98px;
-    padding: 0.9rem 0.75rem;
-    border-right: 1px solid rgba(56, 5, 5, 0.65);
-    background: linear-gradient(
-      180deg,
-      rgba(132, 17, 25, 0.23),
-      rgba(40, 5, 8, 0.28)
-    );
-  }
-
-  .ascenso-step:last-child {
-    border-right: 0;
-  }
-
-  .ascenso-level {
-    font-size: clamp(1.2rem, 1.9vw, 1.6rem);
-    font-weight: 700;
-    line-height: 1.1;
-    text-align: center;
-  }
-
-  .ascenso-req {
-    margin-top: 0.5rem;
-    font-size: 1.2rem;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
-    color: rgba(255, 233, 233, 0.88);
-    padding: 0.2rem 0.5rem;
-    border: 1px solid rgba(255, 229, 229, 0.23);
-    background: rgba(0, 0, 0, 0.2);
-  }
-
-  .escalafon {
-    margin-top: 1.1rem;
-    display: grid;
-    grid-template-columns: 1fr 1.5fr 1.1fr 0.5fr;
-    border: 3px solid rgba(255, 255, 255, 0.16);
-    box-shadow:
-      inset 0 0 0 1px rgba(0, 0, 0, 0.3),
-      0 10px 24px rgba(0, 0, 0, 0.28);
-    overflow: hidden;
-  }
-
-  .escalafon-cell {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border: 1px solid rgba(0, 0, 0, 0.35);
-    padding: 0.55rem 0.65rem;
-    font-size: clamp(0.9rem, 1.1vw, 1.1rem);
-    color: #f1f1f1;
-    min-height: 48px;
-  }
-
-  .escalafon-corner {
-    background: transparent;
-  }
-
-  .escalafon-header {
-    background: linear-gradient(to bottom, #69090fc4, #9c040e);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    text-shadow: 0 0 14px rgba(0, 0, 0, 0.55);
-  }
-
-  .escalafon-rango {
-    font-size: clamp(1.05rem, 1.5vw, 1.3rem);
-    font-family: "Stick No Bills", sans-serif;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-  }
-
-  .escalafon-rango.mando-operativo,
-  .escalafon-rango.mando-tactico {
-    grid-row: span 3;
-  }
-
-  .escalafon-rango.contratistas {
-    grid-row: span 5;
-  }
-
-  .mando-operativo,
-  .mando-operativo-row {
-    background: linear-gradient(to bottom, #977c22a2, #d4b816b6);
-  }
-
-  .mando-tactico,
-  .mando-tactico-row {
-    background: linear-gradient(to bottom, #304422, #436d30);
-  }
-
-  .contratistas {
-    background: linear-gradient(to bottom, #184e50, #237a73);
-  }
-
-  .contratistas-row {
-    background: linear-gradient(to bottom, #1b5b5e, #237a73);
-  }
-
-  .contratistas-row.row-junior {
-    background: linear-gradient(to bottom, #413157b6, #614a8d52);
-  }
-
-  .contratistas-row.row-aux {
-    background: linear-gradient(to bottom, #23a085, #134945);
-    font-weight: 700;
-  }
-  @media (min-width: 761px) {
-    .role-section {
-      grid-column: 2 / span 4;
+  <style>
+    :global(:root) {
+      --bg-secondary: #a6292e;
+      --text-primary: #c7191e;
+      --surface-1: rgba(14, 14, 14, 0.9);
+      --surface-2: rgba(8, 8, 8, 0.92);
+      --line-soft: rgba(255, 120, 120, 0.22);
+      --line-strong: rgba(201, 24, 16, 0.46);
     }
-  }
 
-  .granadero-span {
-    grid-row: span 2;
-  }
+    :global(*) {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  .ametrallador-span {
-    grid-row: span 2;
-  }
+    :global(body) {
+      max-width: 100vw;
+      overflow-x: hidden;
+      background:
+        radial-gradient(
+          circle at 14% 10%,
+          rgba(166, 20, 20, 0.24),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 84% 8%,
+          rgba(255, 34, 34, 0.14),
+          transparent 30%
+        ),
+        linear-gradient(160deg, #050505 0%, #0d0808 46%, #030202 100%);
+      color: white;
+      font-family:
+        "Chakra Petch",
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        "Open Sans",
+        "Helvetica Neue",
+        sans-serif;
+    }
 
-  .role-name {
-    grid-column: 1;
-    grid-row: 2 / span 22;
-    font-size: clamp(1.4rem, 2.2vw, 2rem);
-    font-weight: 700;
-    letter-spacing: 0.8px;
-  }
-
-  .role-section {
-    font-weight: 700;
-    min-height: 36px;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-  }
-
-  .role-empty {
-    background: transparent;
-  }
-
-  .role-level {
-    font-weight: 600;
-    background: #233133;
-    border-inline: 1px solid rgb(59, 59, 59);
-  }
-
-  .role-level:hover {
-    background: #2a3c3f;
-  }
-
-  @media (max-width: 1024px) {
     main {
-      width: min(1280px, 96vw);
-      margin: 0;
-    }
-    main section {
-      margin: 0;
-      width: 98vw;
-      border-radius: 0;
+      width: min(1280px, 94vw);
       margin: 0 auto;
+      padding-top: 8rem;
+      padding-bottom: 2rem;
+      position: relative;
     }
+
+    main::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: 0.35;
+      z-index: 0;
+    }
+
+    main > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    main section {
+      position: relative;
+      margin-inline: clamp(0.2rem, 1vw, 0.85rem);
+      padding: 1.2rem 1.1rem 1.25rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--line-soft);
+      border-radius: 6px;
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+        0 16px 34px rgba(0, 0, 0, 0.35);
+      background:
+        linear-gradient(170deg, var(--surface-1), var(--surface-2)),
+        url("/images/topographic.png");
+      background-size:
+        cover,
+        auto 145%;
+      background-position: center, center;
+      background-blend-mode: normal, screen;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(36px);
+      animation: reveal-from-bottom 650ms ease-out both;
+    }
+
     main section::before {
       content: "";
       position: absolute;
-      width: 0;
+      inset: 0 auto 0 0;
+      width: 5px;
+      background: linear-gradient(to bottom, #d12b2f, #7f1115);
+      pointer-events: none;
+    }
+
+    h2 {
+      font-size: clamp(2.15rem, 3.8vw, 3.25rem);
+      padding-bottom: 0;
+      font-family: "Stick No Bills", sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(255, 87, 87, 0.32);
+      text-align: center;
+    }
+
+    p {
+      font-size: clamp(1.06rem, 1.65vw, 1.35rem);
+      max-width: 78ch;
+      margin: 0.2rem auto 1rem;
+      line-height: 1.36;
+      color: rgba(246, 246, 246, 0.9);
+    }
+
+    .intro {
+      max-width: none;
+      margin: 0 auto 1.4rem;
+      padding: 0.85rem 4vw 2rem;
+      border-radius: 4px;
+      background:
+        radial-gradient(
+          circle at 50% -130%,
+          rgba(88, 10, 10, 0.26),
+          transparent 70%
+        ),
+        linear-gradient(180deg, #0c0909 0%, #0202023a 100%);
+      color: rgba(246, 246, 246, 0.95);
+      backdrop-filter: blur(3px);
+      text-align: left;
+    }
+
+    .roles-intro span {
+      font-style: italic;
+      margin-top: 1rem;
+      display: block;
+      text-align: center;
+      color: #adadad;
     }
 
     .actividades-container {
-      grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
-      grid-template-rows: repeat(7, minmax(70px, auto));
-      grid-auto-flow: column;
+      display: grid;
+      grid-template-columns: 0.7fr 1fr 0.7fr;
+      margin-top: 1rem;
+      margin-bottom: 0.6rem;
+      border: 1px solid var(--line-strong);
+      border-bottom: 0;
+      border-radius: 4px;
+      overflow: hidden;
+      background: linear-gradient(
+        180deg,
+        rgba(18, 18, 18, 0.94),
+        rgba(7, 7, 7, 0.96)
+      );
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.3);
+    }
+    .actividades-container div {
+      display: contents;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-height: 600px;
     }
 
     .actividades-container h3 {
-      padding-inline: 1rem;
-      text-align: left;
-      justify-content: flex-start;
-    }
-  }
-
-  @media (max-width: 760px) {
-    #roles .desktop-only {
-      display: none;
-    }
-
-    main section {
-      margin-inline: 0.4rem;
-      padding: 0.95rem 0.78rem 1rem;
-      margin-bottom: 2.1rem;
-    }
-
-    h2,
-    p {
-      padding-left: 0;
-    }
-
-    .actividades-container h3 {
-      font-size: 1.05rem;
+      width: 100%;
+      padding: 10px 12px;
+      aspect-ratio: 4/1;
+      margin: 0;
+      overflow-wrap: break-word;
+      border: 1px solid rgba(135, 35, 35, 0.72);
+      border-top: 0;
+      border-left: 0;
       text-align: center;
+      min-height: 72px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
       justify-content: center;
+      font-size: clamp(1.02rem, 2vw, 2rem);
+    }
+
+    .actividades-container .days {
+      font-family: "Stick No Bills", sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .actividades-container .days h3 {
+      background: linear-gradient(to bottom, var(--bg-secondary), #940f18c4);
+      border-color: rgb(153, 6, 6);
+    }
+    .actividades-container .modalidad {
+      h3 {
+        background: linear-gradient(
+          to bottom,
+          hsl(0, 52%, 19%),
+          hsl(0, 43%, 13%)
+        );
+      }
+    }
+    .actividades-container .activity {
+      h3 {
+        display: block;
+      }
+      span {
+        font-size: 1rem;
+        display: block;
+        font-style: italic;
+        font-weight: 400;
+        color: #a8a7a7;
+      }
     }
 
     .roles {
-      grid-template-columns: repeat(4, 1fr);
-      margin: 0.5rem auto 0.1rem;
-      width: 100%;
-    }
-
-    .escalafon {
-      grid-template-columns: 1fr 1.6fr 0.9fr 0.6fr;
-    }
-
-    .escalafon-cell {
-      padding: 0.4rem 0.35rem;
-      font-size: 0.78rem;
-      min-height: 38px;
-    }
-
-    .escalafon-rango {
-      font-size: 0.85rem;
+      display: grid;
+      grid-template-columns: 0.7fr repeat(4, 1fr);
+      margin: 1.5rem 0 2rem;
+      border: 1px solid rgba(96, 96, 96, 0.56);
+      box-shadow: 0 18px 32px rgba(0, 0, 0, 0.34);
+      background:
+        linear-gradient(180deg, rgba(12, 12, 12, 0.877), rgba(2, 2, 2, 0.911)),
+        url("/images/topographic.png");
+      overflow: hidden;
     }
 
     .role-cell {
-      width: 100%;
-      font-size: 0.8rem;
+      border: 1px solid rgba(35, 35, 35, 0.92);
+      padding: 0.52rem 0.58rem;
+      font-size: 0.92rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      min-height: 44px;
+      min-width: 0;
+      box-sizing: border-box;
+      transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
-    .role-section {
-      grid-column: 1 / -1;
+    .role-cell:hover {
+      box-shadow: inset 0 -16px 1rem rgba(5, 5, 5, 0.24);
     }
 
-    .roles .role-header {
-      font-size: 0.68rem;
-      letter-spacing: 0.3px;
+    .role-cell a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .rol-info-container {
-      padding-bottom: 1em;
+    .role-cell a:hover {
+      text-decoration: underline;
+    }
+
+    .role-header {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: clamp(0.82rem, 1.4vw, 1.1rem);
+      letter-spacing: 0.7px;
+      min-height: 56px;
+      overflow-wrap: anywhere;
+      background: linear-gradient(to bottom, #69090fc4, #9c040e);
+      text-shadow: 0 0 14px rgba(0, 0, 0, 0.55);
+    }
+
+    .fusilero {
+      background: transparent;
+      color: #f1f1f1;
+      text-shadow: 0 0 12px rgb(82, 81, 81);
+    }
+
+    .infanteria {
+      background: linear-gradient(to bottom, #436d30, #304422);
+    }
+
+    .servicios {
+      background: linear-gradient(to bottom, #237a73, #184e50);
+    }
+
+    .infanteria,
+    .servicios {
+      cursor: pointer;
     }
 
     .rol-ascenso {
-      grid-template-columns: 1fr;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0;
+      border: 1px solid rgb(189, 8, 8);
+      width: 100%;
+      background: linear-gradient(to right, #69090fc4, #9c040e);
+      box-shadow: inset 0 18px 32px rgba(0, 0, 0, 0.33);
+      overflow: hidden;
     }
 
     .ascenso-step {
-      border-right: 0;
-      border-bottom: 1px solid rgba(56, 5, 5, 0.65);
-      padding: 0.75rem;
-      min-height: 78px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 98px;
+      padding: 0.9rem 0.75rem;
+      border-right: 1px solid rgba(56, 5, 5, 0.65);
+      background: linear-gradient(
+        180deg,
+        rgba(132, 17, 25, 0.23),
+        rgba(40, 5, 8, 0.28)
+      );
     }
 
     .ascenso-step:last-child {
-      border-bottom: 0;
+      border-right: 0;
     }
-  }
 
-  @keyframes reveal-from-bottom {
-    from {
-      opacity: 0;
-      transform: translateY(36px);
+    .ascenso-level {
+      font-size: clamp(1.2rem, 1.9vw, 1.6rem);
+      font-weight: 700;
+      line-height: 1.1;
+      text-align: center;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 
-  @media (prefers-reduced-motion: reduce) {
-    main section {
-      animation: none;
-      opacity: 1;
-      transform: none;
+    .ascenso-req {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: rgba(255, 233, 233, 0.88);
+      padding: 0.2rem 0.5rem;
+      border: 1px solid rgba(255, 229, 229, 0.23);
+      background: rgba(0, 0, 0, 0.2);
     }
-  }
-</style>
+
+    .escalafon {
+      margin-top: 1.1rem;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr 1.1fr 0.5fr;
+      border: 3px solid rgba(255, 255, 255, 0.16);
+      box-shadow:
+        inset 0 0 0 1px rgba(0, 0, 0, 0.3),
+        0 10px 24px rgba(0, 0, 0, 0.28);
+      overflow: hidden;
+    }
+
+    .escalafon-cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border: 1px solid rgba(0, 0, 0, 0.35);
+      padding: 0.55rem 0.65rem;
+      font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+      color: #f1f1f1;
+      min-height: 48px;
+    }
+
+    .escalafon-corner {
+      background: transparent;
+    }
+
+    .escalafon-header {
+      background: linear-gradient(to bottom, #69090fc4, #9c040e);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      text-shadow: 0 0 14px rgba(0, 0, 0, 0.55);
+    }
+
+    .escalafon-rango {
+      font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+      font-family: "Stick No Bills", sans-serif;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .escalafon-rango.mando-operativo,
+    .escalafon-rango.mando-tactico {
+      grid-row: span 3;
+    }
+
+    .escalafon-rango.contratistas {
+      grid-row: span 5;
+    }
+
+    .mando-operativo,
+    .mando-operativo-row {
+      background: linear-gradient(to bottom, #977c22a2, #d4b816b6);
+    }
+
+    .mando-tactico,
+    .mando-tactico-row {
+      background: linear-gradient(to bottom, #304422, #436d30);
+    }
+
+    .contratistas {
+      background: linear-gradient(to bottom, #184e50, #237a73);
+    }
+
+    .contratistas-row {
+      background: linear-gradient(to bottom, #1b5b5e, #237a73);
+    }
+
+    .contratistas-row.row-junior {
+      background: linear-gradient(to bottom, #413157b6, #614a8d52);
+    }
+
+    .contratistas-row.row-aux {
+      background: linear-gradient(to bottom, #23a085, #134945);
+      font-weight: 700;
+    }
+    @media (min-width: 761px) {
+      .role-section {
+        grid-column: 2 / span 4;
+      }
+    }
+
+    .granadero-span {
+      grid-row: span 2;
+    }
+
+    .ametrallador-span {
+      grid-row: span 2;
+    }
+
+    .role-name {
+      grid-column: 1;
+      grid-row: 2 / span 22;
+      font-size: clamp(1.4rem, 2.2vw, 2rem);
+      font-weight: 700;
+      letter-spacing: 0.8px;
+    }
+
+    .role-section {
+      font-weight: 700;
+      min-height: 36px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .role-empty {
+      background: transparent;
+    }
+
+    .role-level {
+      font-weight: 600;
+      background: #233133;
+      border-inline: 1px solid rgb(59, 59, 59);
+    }
+
+    .role-level:hover {
+      background: #2a3c3f;
+    }
+
+    @media (max-width: 1024px) {
+      main {
+        width: min(1280px, 96vw);
+        margin: 0;
+      }
+      main section {
+        margin: 0;
+        width: 98vw;
+        border-radius: 0;
+        margin: 0 auto;
+      }
+      main section::before {
+        content: "";
+        position: absolute;
+        width: 0;
+      }
+
+      .actividades-container {
+        grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+        grid-template-rows: repeat(7, minmax(70px, auto));
+        grid-auto-flow: column;
+      }
+
+      .actividades-container h3 {
+        padding-inline: 1rem;
+        text-align: left;
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 760px) {
+      #roles .desktop-only {
+        display: none;
+      }
+
+      main section {
+        margin-inline: 0.4rem;
+        padding: 0.95rem 0.78rem 1rem;
+        margin-bottom: 2.1rem;
+      }
+
+      h2,
+      p {
+        padding-left: 0;
+      }
+
+      .actividades-container h3 {
+        font-size: 1.05rem;
+        text-align: center;
+        justify-content: center;
+      }
+
+      .roles {
+        grid-template-columns: repeat(4, 1fr);
+        margin: 0.5rem auto 0.1rem;
+        width: 100%;
+      }
+
+      .escalafon {
+        grid-template-columns: 1fr 1.6fr 0.9fr 0.6fr;
+      }
+
+      .escalafon-cell {
+        padding: 0.4rem 0.35rem;
+        font-size: 0.78rem;
+        min-height: 38px;
+      }
+
+      .escalafon-rango {
+        font-size: 0.85rem;
+      }
+
+      .role-cell {
+        width: 100%;
+        font-size: 0.8rem;
+      }
+
+      .role-section {
+        grid-column: 1 / -1;
+      }
+
+      .roles .role-header {
+        font-size: 0.68rem;
+        letter-spacing: 0.3px;
+      }
+
+      .rol-info-container {
+        padding-bottom: 1em;
+      }
+
+      .rol-ascenso {
+        grid-template-columns: 1fr;
+      }
+
+      .ascenso-step {
+        border-right: 0;
+        border-bottom: 1px solid rgba(56, 5, 5, 0.65);
+        padding: 0.75rem;
+        min-height: 78px;
+      }
+
+      .ascenso-step:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    @keyframes reveal-from-bottom {
+      from {
+        opacity: 0;
+        transform: translateY(36px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      main section {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</Layout>
